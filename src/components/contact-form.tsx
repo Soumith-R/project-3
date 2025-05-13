@@ -12,6 +12,9 @@ export function ContactForm() {
     phone: "",
     message: "",
   })
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [success, setSuccess] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -21,18 +24,31 @@ export function ContactForm() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
-    // Here you would typically send the data to your backend
-    alert("Form submitted successfully!")
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      message: "",
-    })
+    setLoading(true)
+    setError(null)
+    setSuccess(false)
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+      if (!res.ok) throw new Error("Failed to send email")
+      setSuccess(true)
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      })
+    } catch (err: any) {
+      setError(err.message || "Something went wrong")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -82,9 +98,11 @@ export function ContactForm() {
         required
         className="bg-white text-gray-800 min-h-[120px]"
       />
-      <Button type="submit" className="w-full bg-red-600 hover:bg-red-700">
-        Submit
+      <Button type="submit" className="w-full bg-red-600 hover:bg-red-700" disabled={loading}>
+        {loading ? "Sending..." : "Submit"}
       </Button>
+      {success && <div className="text-green-500 text-center">Form submitted successfully!</div>}
+      {error && <div className="text-red-500 text-center">{error}</div>}
     </form>
   )
 }

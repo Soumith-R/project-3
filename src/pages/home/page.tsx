@@ -2,8 +2,26 @@ import { Link } from "react-router-dom"
 import { PieChart } from "../../components/pie-chart"
 import { Button } from "../../components/ui/button"
 import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, Menu } from "lucide-react"
+import { useRef, useState, useEffect } from "react"
 
 export default function HomePage() {
+  const galleryRef = useRef<HTMLDivElement>(null)
+  const [scrollPercent, setScrollPercent] = useState(0)
+
+  useEffect(() => {
+    const gallery = galleryRef.current
+    if (!gallery) return
+
+    const handleScroll = () => {
+      const maxScroll = gallery.scrollWidth - gallery.clientWidth
+      const percent = maxScroll > 0 ? (gallery.scrollLeft / maxScroll) * 100 : 0
+      setScrollPercent(percent)
+    }
+
+    gallery.addEventListener("scroll", handleScroll)
+    return () => gallery.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
     <div className="min-h-screen flex flex-col">
       <header className="sticky top-0 z-50 bg-white/60 backdrop-blur-md border-b border-white/30 shadow-sm">
@@ -94,22 +112,58 @@ export default function HomePage() {
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-12 text-center">What We Do</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <ServiceCard
-                title="Domestic Protection Services"
-                description="We provide essential services to vulnerable communities, including shelter, food, healthcare, and education support for those in need."
-                imageSrc="src\images\home\Domestic Violence 1.png"
-              />
-              <ServiceCard
-                title="Human Rights Advocacy"
-                description="We advocate for policy changes, raise awareness about human rights violations, and work with governments to implement lasting solutions."
-                imageSrc="src\images\home\human rights advocacy image 1.png"
-              />
-              <ServiceCard
-                title="Emergency Relief & Crisis Management"
-                description="We respond rapidly to humanitarian crises with emergency aid, medical assistance, and long-term recovery support for affected communities."
-                imageSrc="src\images\home\emergency respose 1.png"
-              />
+            <div>
+              <div
+                ref={galleryRef}
+                className="flex gap-8 overflow-x-auto scrollbar-hide"
+                style={{
+                  WebkitOverflowScrolling: "touch",
+                  scrollSnapType: "x mandatory",
+                }}
+              >
+                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                  <ServiceCard
+                    title="Domestic Protection Services"
+                    description="We provide essential services to vulnerable communities, including shelter, food, healthcare, and education support for those in need."
+                    imageSrc="src\\images\\home\\Domestic Violence 1.png"
+                  />
+                </div>
+                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                  <ServiceCard
+                    title="Human Rights Advocacy"
+                    description="We advocate for policy changes, raise awareness about human rights violations, and work with governments to implement lasting solutions."
+                    imageSrc="src\\images\\home\\human rights advocacy image 1.png"
+                  />
+                </div>
+                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                  <ServiceCard
+                    title="Emergency Relief & Crisis Management"
+                    description="We respond rapidly to humanitarian crises with emergency aid, medical assistance, and long-term recovery support for affected communities."
+                    imageSrc="src\\images\\home\\emergency respose 1.png"
+                  />
+                </div>
+                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                  <ServiceCard
+                    title="Youth Empowerment and Leadership development"
+                    description="We empower youth through education, skills training, and leadership development programs to become advocates for change in their communities."
+                    imageSrc="src\\images\\home\\youth empowerment 1.png"
+                  />
+                </div>
+                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                  <ServiceCard
+                    title="Commnity Education and Awareness"
+                    description="We conduct educational programs and awareness campaigns to inform communities about their rights and promote social justice."
+                    imageSrc="src\\images\\home\\community education 1.png"
+                  />
+                </div>
+              </div>
+              {/* Stylish scrollbar below */}
+              <div className="relative mt-4 h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  className="absolute top-0 left-0 h-full bg-red-500 rounded-full transition-all"
+                  style={{ width: `${scrollPercent}%` }}
+                />
+              </div>
             </div>
           </div>
         </section>
