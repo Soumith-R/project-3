@@ -12,7 +12,7 @@ export default function HomePage() {
             <div className="flex items-center">
               <Link to="/" className="flex items-center">
                 <img src="src/images/home/logo.jpeg" alt="Logo" className="w-10 h-10 rounded-full object-cover" />
-                <span className="ml-2 text-xl font-bold hidden md:block">HOME</span>
+                <span className="ml-2 text-xl font-bold hidden md:block">IHRCDPA</span>
               </Link>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
