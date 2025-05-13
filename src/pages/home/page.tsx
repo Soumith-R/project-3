@@ -3,6 +3,25 @@ import { PieChart } from "../../components/pie-chart"
 import { Button } from "../../components/ui/button"
 import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, Menu } from "lucide-react"
 import { useRef, useState, useEffect } from "react"
+import logoImg from '../../images/home/logo.jpeg';
+import qrCodeImg from '../../images/home/qr-code.png';
+import heroImg from '../../images/home/police food donation1 1.png';
+import upscaleImg from '../../images/home/upscal.png';
+import domesticViolenceImg from '../../images/home/Domestic Violence 1.png';
+import humanRightsImg from '../../images/home/human rights advocacy image 1.png';
+import emergencyResponseImg from '../../images/home/emergency respose 1.png';
+import youthEmpowermentImg from '../../images/home/youth empowerment 1.png';
+import communityEducationImg from '../../images/home/community education 1.png';
+import donate2Img from '../../images/home/donate2 1.png';
+import c4Img from '../../images/home/c4 1.png';
+import c5Img from '../../images/home/c5 1.png';
+import c7Img from '../../images/home/c7 1.png';
+import c9Img from '../../images/home/c9 1.png';
+import collImg from '../../images/home/coll 1.png';
+import collage1Img from '../../images/home/collage1 1.png';
+import foodDistributionImg from '../../images/home/food distribution1 1.png';
+import migrantsImg from '../../images/home/migrants1 1.png';
+import rationDistributionImg from '../../images/home/ration distribution1 1.png';
 
 export default function HomePage() {
   const galleryRef = useRef<HTMLDivElement>(null)
@@ -45,7 +64,7 @@ export default function HomePage() {
             </button>
             <h2 className="text-xl font-bold mb-4 text-center text-gray-800">Scan to Donate</h2>
             <img
-              src="src/images/home/qr-code.png"
+              src={qrCodeImg}
               alt="Donate QR Code"
               className="w-48 h-48 mx-auto object-contain"
             />
@@ -59,7 +78,7 @@ export default function HomePage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <Link to="/" className="flex items-center">
-                <img src="src/images/home/logo.jpeg" alt="Logo" className="w-10 h-10 rounded-full object-cover" />
+                <img src={logoImg} alt="Logo" className="w-10 h-10 rounded-full object-cover" />
                 <span className="ml-2 text-xl font-bold hidden md:block">IHRCDPA</span>
               </Link>
             </div>
@@ -128,7 +147,7 @@ export default function HomePage() {
         <section className="relative">
           <div className="absolute inset-0 bg-black/50 z-10"></div>          <div className="relative h-[500px]">
             <img
-              src="src\images\home\police food donation1 1.png"
+              src={heroImg}
               alt="Volunteers distributing aid"
               className="w-full h-full object-cover"
             />
@@ -166,7 +185,7 @@ export default function HomePage() {
               </div>
               <div className="md:w-1/3 flex justify-center">
                 <div className="relative h-40 w-40">
-                  <img alt="upscale" src="src\images\home\upscal.png" className="absolute inset-0 bg-gray-200 flex items-center justify-center text-5xl font-bold"/>
+                  <img alt="upscale" src={upscaleImg} className="absolute inset-0 bg-gray-200 flex items-center justify-center text-5xl font-bold"/>
                 </div>
               </div>
             </div>
@@ -190,35 +209,35 @@ export default function HomePage() {
                   <ServiceCard
                     title="Domestic Protection Services"
                     description="We provide essential services to vulnerable communities, including shelter, food, healthcare, and education support for those in need."
-                    imageSrc="src\\images\\home\\Domestic Violence 1.png"
+                    imageSrc={domesticViolenceImg}
                   />
                 </div>
                 <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                   <ServiceCard
                     title="Human Rights Advocacy"
                     description="We advocate for policy changes, raise awareness about human rights violations, and work with governments to implement lasting solutions."
-                    imageSrc="src\\images\\home\\human rights advocacy image 1.png"
+                    imageSrc={humanRightsImg}
                   />
                 </div>
                 <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                   <ServiceCard
                     title="Emergency Relief & Crisis Management"
                     description="We respond rapidly to humanitarian crises with emergency aid, medical assistance, and long-term recovery support for affected communities."
-                    imageSrc="src\\images\\home\\emergency respose 1.png"
+                    imageSrc={emergencyResponseImg}
                   />
                 </div>
                 <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                   <ServiceCard
                     title="Youth Empowerment and Leadership development"
                     description="We empower youth through education, skills training, and leadership development programs to become advocates for change in their communities."
-                    imageSrc="src\\images\\home\\youth empowerment 1.png"
+                    imageSrc={youthEmpowermentImg}
                   />
                 </div>
                 <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                   <ServiceCard
                     title="Commnity Education and Awareness"
                     description="We conduct educational programs and awareness campaigns to inform communities about their rights and promote social justice."
-                    imageSrc="src\\images\\home\\community education 1.png"
+                    imageSrc={communityEducationImg}
                   />
                 </div>
               </div>
@@ -259,7 +278,7 @@ export default function HomePage() {
           <div className="relative h-[500px]">
             <div className="absolute inset-0 bg-black/50 z-10"></div>
             <img
-              src="src\images\home\donate2 1.png"
+              src={donate2Img}
               alt="Volunteers distributing aid"
               className="w-full h-full object-cover"
             />
@@ -295,7 +314,7 @@ export default function HomePage() {
             <div className="grid grid-cols-3 grid-rows-3 gap-2 md:gap-4 max-w-3xl mx-auto p-4">
               <div className="aspect-w-1 aspect-h-1"> 
                 <img
-                  src="src\images\home\c4 1.png" 
+                  src={c4Img} 
                   alt="Collage image 1"
                   className="w-full h-full object-cover rounded-lg"
                 />
@@ -303,7 +322,7 @@ export default function HomePage() {
 
               <div className="aspect-w-1 aspect-h-1 row-start-2">
                 <img
-                  src="src\images\home\c9 1.png" 
+                  src={c9Img} 
                   alt="Collage image 2"
                   className="w-full h-full object-cover rounded-lg"
                 />
@@ -311,7 +330,7 @@ export default function HomePage() {
 
               <div className="aspect-w-1 aspect-h-1 row-start-3">
                 <img
-                  src="src\images\home\collage1 1.png" 
+                  src={collage1Img} 
                   alt="Collage image 3"
                   className="w-full h-full object-cover rounded-lg"
                 />
@@ -319,7 +338,7 @@ export default function HomePage() {
 
               <div className="col-span-2 row-span-2 col-start-2 row-start-1 aspect-w-1 aspect-h-1">
                 <img
-                  src="src\images\home\coll 1.png"  
+                  src={collImg}  
                   alt="Large collage image"
                   className="w-full h-full object-cover rounded-lg"
                 />
@@ -327,14 +346,14 @@ export default function HomePage() {
 
               <div className="aspect-w-1 aspect-h-1 col-start-2 row-start-3">
                 <img
-                  src="src\images\home\c5 1.png" 
+                  src={c5Img} 
                   alt="Collage image 5"
                   className="w-full h-full object-cover rounded-lg"
                 />
               </div>
               <div className="aspect-w-1 aspect-h-1 col-start-3 row-start-3">
                 <img
-                  src="src\images\home\c7 1.png" 
+                  src={c7Img} 
                   alt="Collage image 6"
                   className="w-full h-full object-cover rounded-lg"
                 />
@@ -351,22 +370,22 @@ export default function HomePage() {
               <NewsCard
                 title="Rice Distribution for Indigent Returning Home"
                 description="We provided essential food supplies to families returning to their homes after displacement due to conflict."
-                imageSrc="src\images\home\food distribution1 1.png"
+                imageSrc={foodDistributionImg}
               />
               <NewsCard
                 title="Food Distribution Throughout COVID-19"
                 description="During the pandemic, our teams have provided thousands of essential food packages to vulnerable communities."
-                imageSrc="src\images\home\migrants1 1.png"
+                imageSrc={migrantsImg}
               />
               <NewsCard
                 title="Water Distribution for the Underprivileged"
                 description="Our clean water initiative has reached remote communities lacking access to safe drinking water."
-                imageSrc="src\images\home\ration distribution1 1.png"
+                imageSrc={rationDistributionImg}
               />
               <NewsCard
                 title="Lunch Provided to Police During Lockdown"
                 description="We supported frontline workers with meals during the challenging lockdown period."
-                imageSrc="src\images\home\police food donation1 1.png"
+                imageSrc={heroImg}
               />
             </div>
             <div className="text-center mt-8">

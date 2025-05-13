@@ -3,6 +3,11 @@ import { Button } from "../../components/ui/button"
 import { ServiceDetailCard } from "../../components/service-detail-card"
 import { Menu, MapPin, Phone, Mail, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
 import { useState } from "react"
+import logoImg from '../../images/home/logo.jpeg';
+import whatWeDoImg from '../../images/what-we-do/what we doup 2.png';
+import domesticViolenceImg from '../../images/home/Domestic Violence 1.png';
+import humanRightsImg from '../../images/home/human rights advocacy image 1.png';
+import emergencyResponseImg from '../../images/home/emergency respose 1.png';
 
 export default function WhatWeDoPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -14,7 +19,7 @@ export default function WhatWeDoPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <Link to="/" className="flex items-center">
-                <img src="src/images/home/logo.jpeg" alt="Logo" className="w-10 h-10 rounded-full object-cover" />
+                <img src={logoImg} alt="Logo" className="w-10 h-10 rounded-full object-cover" />
                 <span className="ml-2 text-xl font-bold hidden md:block">IHRCDPA</span>
               </Link>
             </div>
@@ -77,7 +82,7 @@ export default function WhatWeDoPage() {
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         <div className="relative h-[400px]">
           <img
-            src="src\images\what-we-do\what we doup 2.png"
+            src={whatWeDoImg}
             alt="Children in need"
             className="w-full h-full object-cover"
           />
@@ -147,17 +152,17 @@ export default function WhatWeDoPage() {
             <ServiceDetailCard
               title="Domestic Protection Services"
               description="Our Domestic Protection Services are focused on safeguarding individuals—especially women, children, and marginalized groups—who are facing domestic abuse, violence, or threats to personal safety."
-              imageSrc="src\images\home\Domestic Violence 1.png"
+              imageSrc={domesticViolenceImg}
             />
             <ServiceDetailCard
               title="Human Rights Advocacy"
               description="Our Human Rights Advocacy programs aim to shine a spotlight on injustice, amplify marginalized voices, and influence meaningful change through education, legal reform, and public campaigns."
-              imageSrc="src\images\home\human rights advocacy image 1.png"
+              imageSrc={humanRightsImg}
             />
             <ServiceDetailCard
               title="Emergency Relief & Crisis Response"
               description="Our Emergency Relief and Crisis Response teams are trained to act quickly in high-risk areas to help those most affected."
-              imageSrc="src\images\home\emergency respose 1.png"
+              imageSrc={emergencyResponseImg}
             />
           </div>
         </div>

@@ -6,6 +6,13 @@ import { Menu } from "lucide-react"
 import { MapPin, Phone, Mail } from "lucide-react"
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react"
 import { useRef, useState, useEffect } from "react"
+import logoImg from '../../images/home/logo.jpeg';
+import aboutUsImg from '../../images/gallery/about us 1.png';
+import cc1Img from '../../images/gallery/cc1 1.png';
+import c8Img from '../../images/gallery/c8 2.png';
+import k1Img from '../../images/gallery/k1 1.png';
+import d2Img from '../../images/gallery/d2 1.png';
+import getInTouchImg from '../../images/gallery/getintouchup 1.png';
 
 export default function BeaconOfHopePage() {
   const hopeGalleryRef = useRef<HTMLDivElement>(null)
@@ -33,7 +40,7 @@ export default function BeaconOfHopePage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <Link to="/" className="flex items-center">
-                <img src="src/images/home/logo.jpeg" alt="Logo" className="w-10 h-10 rounded-full object-cover" />
+                <img src={logoImg} alt="Logo" className="w-10 h-10 rounded-full object-cover" />
                 <span className="ml-2 text-xl font-bold hidden md:block">IHRCDPA</span>
               </Link>
             </div>
@@ -96,7 +103,7 @@ export default function BeaconOfHopePage() {
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         <div className="relative h-[400px]">
           <img
-            src="src\images\gallery\about us 1.png" // Ensure placeholder.svg is in your /public directory or use a service
+            src={aboutUsImg} // Ensure placeholder.svg is in your /public directory or use a service
             alt="Children in need"
             className="w-full h-full object-cover"
           />
@@ -114,7 +121,7 @@ export default function BeaconOfHopePage() {
             <div className="md:w-1/3">
               <div className="bg-white p-2 mb-4">
                 <img
-                  src="src\images\gallery\cc1 1.png"
+                  src={cc1Img}
                   alt="Our mission"
                   className="w-full h-full object-cover"
                 />
@@ -164,7 +171,7 @@ export default function BeaconOfHopePage() {
           <div className="flex flex-col gap-4"> 
             <div className="aspect-square relative">
               <img
-                src="src\images\gallery\k1 1.png" 
+                src={k1Img} 
                 alt="Gallery image 1"
                 className="w-full h-full object-cover rounded-lg"
               />
@@ -173,7 +180,7 @@ export default function BeaconOfHopePage() {
             {/* Image 3 (Bottom-Left) */}
             <div className="aspect-square relative">
               <img
-                src="src\images\gallery\c8 2.png"
+                src={c8Img}
                 alt="Gallery image 3"
                 className="w-full h-full object-cover rounded-lg"
               />
@@ -181,7 +188,7 @@ export default function BeaconOfHopePage() {
           </div>
           <div className="aspect-square relative h-full"> 
             <img
-              src="src\images\gallery\cc1 1.png" 
+              src={cc1Img} 
               alt="Gallery image 2 spanning"
               className="w-full h-full object-cover rounded-lg"
             />
@@ -208,70 +215,70 @@ export default function BeaconOfHopePage() {
                 <HopeCard
                   title="Food Distribution Throughout COVID-19"
                   description="During the severe waves of the COVID-19 pandemic, countless families across Telangana faced food insecurity like never before. INHRPO launched an emergency food distribution program that has continuously throughout the lockdown period."
-                  imageSrc="src\\images\\home\\food distribution1 1.png"
+                  imageSrc={getInTouchImg}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Blanket Distribution To The Homeless"
                   description="During the harsh nights of the winter season, Telangana's homeless population faced brutal conditions with no access to shelter, warmth, or food. Our volunteers distributed blankets across urban areas, covering railway stations, footpaths, under-bridges, and roadside camps."
-                  imageSrc="src\\images\\home\\c4 1.png"
+                  imageSrc={d2Img}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Ration Distribution For The Underprivileged"
                   description="The pandemic lockdown left many vulnerable families without income, food, or security. Recognizing the severity of the situation, INHRPO organized systematic ration distribution to support the most vulnerable and migrant communities."
-                  imageSrc="src\\images\\gallery\\municiple workers 1.png"
+                  imageSrc={cc1Img}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Food Distribution Throughout COVID-19"
                   description="During the severe waves of the COVID-19 pandemic, countless families across Telangana faced food insecurity like never before. INHRPO launched an emergency food distribution program that has continuously throughout the lockdown period."
-                  imageSrc="src\\images\\home\\food distribution1 1.png"
+                  imageSrc={getInTouchImg}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Lunch Provided to Police during COVID-19"
                   description="During the COVID-19 pandemic, INHRPO provided lunch to police personnel on duty, ensuring they had nutritious meals while serving the community."
-                  imageSrc="src\\images\\home\\c4 1.png"
+                  imageSrc={d2Img}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Bus Arrangement for Migrant Workers"
                   description="During the COVID-19 pandemic, INHRPO arranged buses for migrant workers stranded in cities, ensuring they could return home safely."
-                  imageSrc="src\\images\\gallery\\municiple workers 1.png"
+                  imageSrc={cc1Img}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Food and Ration Donation for Orphans"
                   description="INHRPO organized food and ration donations for orphanages, ensuring that vulnerable children received essential supplies during the pandemic."
-                  imageSrc="src\\images\\home\\food distribution1 1.png"
+                  imageSrc={getInTouchImg}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Oxygen Cylinder Donation"
                   description="During the COVID-19 pandemic, INHRPO donated oxygen cylinders to hospitals and families in need, providing critical support during the health crisis."
-                  imageSrc="src\\images\\gallery\\municiple workers 1.png"
+                  imageSrc={cc1Img}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Fruits and Ration Distributed to Municipal Workers"
                   description="During the COVID-19 pandemic, INHRPO distributed fruits and ration to municipal workers, recognizing their essential role in keeping communities safe and clean."
-                  imageSrc="src\\images\\gallery\\municiple workers 1.png"
+                  imageSrc={cc1Img}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Protecting Lives with masks and PPE kits"
                   description="During the COVID-19 pandemic, INHRPO distributed masks and PPE kits to frontline workers, ensuring their safety while serving the community."
-                  imageSrc="src\\images\\gallery\\municiple workers 1.png"
+                  imageSrc={cc1Img}
                 />
               </div>
             </div>

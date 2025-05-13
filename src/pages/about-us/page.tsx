@@ -5,6 +5,7 @@ import { TeamMember } from "../../components/team-member"
 import { Link } from "react-router-dom"
 import { Facebook, Twitter, Instagram, Youtube, Menu } from "lucide-react"
 import { useState } from "react"
+import logoImg from '../../images/home/logo.jpeg'
 
 export default function AboutUsPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -16,7 +17,7 @@ export default function AboutUsPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <Link to="/" className="flex items-center">
-                <img src="src/images/home/logo.jpeg" alt="Logo" className="w-10 h-10 rounded-full object-cover" />
+                <img src={logoImg} alt="Logo" className="w-10 h-10 rounded-full object-cover" />
                 <span className="ml-2 text-xl font-bold hidden md:block">IHRCDPA</span>
               </Link>
             </div>
