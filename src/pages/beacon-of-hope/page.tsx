@@ -5,8 +5,26 @@ import { Link } from "react-router-dom"
 import { Menu } from "lucide-react"
 import { MapPin, Phone, Mail } from "lucide-react"
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react"
+import { useRef, useState, useEffect } from "react"
 
 export default function BeaconOfHopePage() {
+  const hopeGalleryRef = useRef<HTMLDivElement>(null)
+  const [hopeScrollPercent, setHopeScrollPercent] = useState(0)
+
+  useEffect(() => {
+    const gallery = hopeGalleryRef.current
+    if (!gallery) return
+
+    const handleScroll = () => {
+      const maxScroll = gallery.scrollWidth - gallery.clientWidth
+      const percent = maxScroll > 0 ? (gallery.scrollLeft / maxScroll) * 100 : 0
+      setHopeScrollPercent(percent)
+    }
+
+    gallery.addEventListener("scroll", handleScroll)
+    return () => gallery.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-900">
       <header className="sticky top-0 z-50 bg-white/60 backdrop-blur-md border-b border-white/30 shadow-sm">
@@ -147,22 +165,94 @@ export default function BeaconOfHopePage() {
       <section className="py-16 bg-blue-900 text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">Hope Needs Action</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <HopeCard
-              title="Food Distribution Throughout COVID-19"
-              description="During the severe waves of the COVID-19 pandemic, countless families across Telangana faced food insecurity like never before. INHRPO launched an emergency food distribution program that has continuously throughout the lockdown period."
-              imageSrc="src\images\home\food distribution1 1.png"
-            />
-            <HopeCard
-              title="Blanket Distribution To The Homeless"
-              description="During the harsh nights of the winter season, Telangana's homeless population faced brutal conditions with no access to shelter, warmth, or food. Our volunteers distributed blankets across urban areas, covering railway stations, footpaths, under-bridges, and roadside camps."
-              imageSrc="src\images\home\c4 1.png"
-            />
-            <HopeCard
-              title="Ration Distribution For The Underprivileged"
-              description="The pandemic lockdown left many vulnerable families without income, food, or security. Recognizing the severity of the situation, INHRPO organized systematic ration distribution to support the most vulnerable and migrant communities."
-              imageSrc="src\images\gallery\municiple workers 1.png"
-            />
+          <div>
+            <div
+              ref={hopeGalleryRef}
+              className="flex gap-8 overflow-x-auto scrollbar-hide"
+              style={{
+                WebkitOverflowScrolling: "touch",
+                scrollSnapType: "x mandatory",
+              }}
+            >
+              {/* Each HopeCard in a flex-shrink-0 container */}
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <HopeCard
+                  title="Food Distribution Throughout COVID-19"
+                  description="During the severe waves of the COVID-19 pandemic, countless families across Telangana faced food insecurity like never before. INHRPO launched an emergency food distribution program that has continuously throughout the lockdown period."
+                  imageSrc="src\\images\\home\\food distribution1 1.png"
+                />
+              </div>
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <HopeCard
+                  title="Blanket Distribution To The Homeless"
+                  description="During the harsh nights of the winter season, Telangana's homeless population faced brutal conditions with no access to shelter, warmth, or food. Our volunteers distributed blankets across urban areas, covering railway stations, footpaths, under-bridges, and roadside camps."
+                  imageSrc="src\\images\\home\\c4 1.png"
+                />
+              </div>
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <HopeCard
+                  title="Ration Distribution For The Underprivileged"
+                  description="The pandemic lockdown left many vulnerable families without income, food, or security. Recognizing the severity of the situation, INHRPO organized systematic ration distribution to support the most vulnerable and migrant communities."
+                  imageSrc="src\\images\\gallery\\municiple workers 1.png"
+                />
+              </div>
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <HopeCard
+                  title="Food Distribution Throughout COVID-19"
+                  description="During the severe waves of the COVID-19 pandemic, countless families across Telangana faced food insecurity like never before. INHRPO launched an emergency food distribution program that has continuously throughout the lockdown period."
+                  imageSrc="src\\images\\home\\food distribution1 1.png"
+                />
+              </div>
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <HopeCard
+                  title="Lunch Provided to Police during COVID-19"
+                  description="During the COVID-19 pandemic, INHRPO provided lunch to police personnel on duty, ensuring they had nutritious meals while serving the community."
+                  imageSrc="src\\images\\home\\c4 1.png"
+                />
+              </div>
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <HopeCard
+                  title="Bus Arrangement for Migrant Workers"
+                  description="During the COVID-19 pandemic, INHRPO arranged buses for migrant workers stranded in cities, ensuring they could return home safely."
+                  imageSrc="src\\images\\gallery\\municiple workers 1.png"
+                />
+              </div>
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <HopeCard
+                  title="Food and Ration Donation for Orphans"
+                  description="INHRPO organized food and ration donations for orphanages, ensuring that vulnerable children received essential supplies during the pandemic."
+                  imageSrc="src\\images\\home\\food distribution1 1.png"
+                />
+              </div>
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <HopeCard
+                  title="Oxygen Cylinder Donation"
+                  description="During the COVID-19 pandemic, INHRPO donated oxygen cylinders to hospitals and families in need, providing critical support during the health crisis."
+                  imageSrc="src\\images\\gallery\\municiple workers 1.png"
+                />
+              </div>
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <HopeCard
+                  title="Fruits and Ration Distributed to Municipal Workers"
+                  description="During the COVID-19 pandemic, INHRPO distributed fruits and ration to municipal workers, recognizing their essential role in keeping communities safe and clean."
+                  imageSrc="src\\images\\gallery\\municiple workers 1.png"
+                />
+              </div>
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <HopeCard
+                  title="Protecting Lives with masks and PPE kits"
+                  description="During the COVID-19 pandemic, INHRPO distributed masks and PPE kits to frontline workers, ensuring their safety while serving the community."
+                  imageSrc="src\\images\\gallery\\municiple workers 1.png"
+                />
+              </div>
+            </div>
+            {/* Stylish scrollbar below */}
+            <div className="relative mt-4 h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+              <div
+                className="absolute top-0 left-0 h-full bg-red-500 rounded-full transition-all"
+                style={{ width: `${hopeScrollPercent}%` }}
+              />
+            </div>
           </div>
         </div>
       </section>
