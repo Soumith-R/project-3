@@ -151,7 +151,9 @@ export default function WhatWeDoPage() {
             <br />
             Through every action, we restore dignity, hope, and human rights.
           </p>
-          <Button className="bg-red-600 hover:bg-red-700">Join Us</Button>
+          <Link to="/contact">
+            <Button className="bg-red-600 hover:bg-red-700">Join Us</Button>
+            </Link>
         </div>
       </section>
 

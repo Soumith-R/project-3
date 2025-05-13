@@ -266,7 +266,9 @@ export default function BeaconOfHopePage() {
             <br />
             With every life we touch, we shine a light of hope that never fades.
           </p>
-          <Button className="bg-red-600 hover:bg-red-700">Join Us</Button>
+          <Link to="/contact">
+            <Button className="bg-red-600 hover:bg-red-700">Join Us</Button>
+            </Link>
         </div>
       </section>
       <footer className="bg-[#1a1a2e] text-gray-100 py-12">

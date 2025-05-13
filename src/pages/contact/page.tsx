@@ -80,7 +80,9 @@ export default function ContactPage() {
           <p className="max-w-2xl mx-auto mb-8">
             Every message brings us closer to a world where every right is respected and every life is valued.
           </p>
-          <Button className="bg-red-600 hover:bg-red-700">JOIN US</Button>
+          <Link to="/login">
+            <Button className="bg-red-600 hover:bg-red-700">Join Us</Button>
+            </Link>
         </div>
       </section>
 

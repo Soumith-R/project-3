@@ -7,6 +7,7 @@ import { useRef, useState, useEffect } from "react"
 export default function HomePage() {
   const galleryRef = useRef<HTMLDivElement>(null)
   const [scrollPercent, setScrollPercent] = useState(0)
+  const [showDonateModal, setShowDonateModal] = useState(false)
 
   useEffect(() => {
     const gallery = galleryRef.current
@@ -24,6 +25,34 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      {/* Donate QR Modal */}
+      {showDonateModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+          onClick={() => setShowDonateModal(false)}
+        >
+          <div
+            className="bg-white rounded-lg shadow-lg p-8 relative max-w-xs w-full"
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-2 right-2 text-gray-500 hover:text-red-600 text-xl"
+              onClick={() => setShowDonateModal(false)}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <h2 className="text-xl font-bold mb-4 text-center text-gray-800">Scan to Donate</h2>
+            <img
+              src="src/images/home/qr-code.png"
+              alt="Donate QR Code"
+              className="w-48 h-48 mx-auto object-contain"
+            />
+            <p className="mt-4 text-center text-gray-600 text-sm">Scan this QR code with your payment app to donate.</p>
+          </div>
+        </div>
+      )}
+
       <header className="sticky top-0 z-50 bg-white/60 backdrop-blur-md border-b border-white/30 shadow-sm">
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between">
@@ -51,7 +80,12 @@ export default function HomePage() {
               </Link>
             </nav>
             <div className="flex items-center space-x-4">
-              <Button className="bg-red-600 hover:bg-red-700">Donate</Button>
+              <Button
+                className="bg-red-600 hover:bg-red-700"
+                onClick={() => setShowDonateModal(true)}
+              >
+                Donate
+              </Button>
               <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-6 w-6" />
               </Button>
@@ -65,7 +99,7 @@ export default function HomePage() {
         <section className="relative">
           <div className="absolute inset-0 bg-black/50 z-10"></div>          <div className="relative h-[500px]">
             <img
-              src="src\images\home\hero1.1.1.jpg"
+              src="src\images\home\police food donation1 1.png"
               alt="Volunteers distributing aid"
               className="w-full h-full object-cover"
             />
@@ -77,7 +111,7 @@ export default function HomePage() {
                   Where Human Dignity Begins, Peace And Justice Follow
                 </h1>
                 <p className="text-white text-lg mb-6">Compassion. Dedication. Service.</p>
-                <Button className="bg-red-600 hover:bg-red-700">Donate Now</Button>
+                <Button className="bg-red-600 hover:bg-red-700" onClick={() => setShowDonateModal(true)}>Donate Now</Button>
               </div>
             </div>
           </div>
@@ -95,9 +129,11 @@ export default function HomePage() {
                   in conflict-affected regions, provide immediate assistance to vulnerable communities, and advocate for
                   lasting solutions to global human rights challenges.
                 </p>
-                <Button variant="outline" className="border-red-600 text-red-600 hover:bg-red-50">
-                  Read More
-                </Button>
+                <Link to="/about-us">
+                  <Button variant="outline" className="border-red-600 text-red-600 hover:bg-red-50">
+                    Read More
+                  </Button>
+                </Link>
               </div>
               <div className="md:w-1/3 flex justify-center">
                 <div className="relative h-40 w-40">
@@ -214,7 +250,12 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12 text-center">
-            <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg">Donate</Button>
+            <Button
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg"
+              onClick={() => setShowDonateModal(true)}
+            >
+              Donate
+            </Button>
           </div>
         </section>
 
@@ -300,9 +341,11 @@ export default function HomePage() {
               />
             </div>
             <div className="text-center mt-8">
+              <Link to="/gallery">
               <Button variant="outline" className="border-red-600 text-red-600 hover:bg-red-50">
                 Read More
               </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -332,7 +375,9 @@ export default function HomePage() {
               Every act of kindness is a beacon of hope in someone's darkness. Together, we can create a world where
               dignity and compassion prevail.
             </p>
+            <Link to="/contact">
             <Button className="bg-red-600 hover:bg-red-700">Get Involved</Button>
+            </Link>
           </div>
         </section>
       </main>
@@ -426,9 +471,11 @@ function ServiceCard({
       <div className="p-6">
         <h3 className="text-xl font-bold mb-2">{title}</h3>
         <p className="text-gray-600 mb-4">{description}</p>
+        <Link to="/what-we-do">
         <Button variant="link" className="text-red-600 p-0 h-auto">
-          Learn More
+          Read More
         </Button>
+        </Link>
       </div>
     </div>
   )
@@ -451,9 +498,11 @@ function NewsCard({
       <div className="md:w-2/3">
         <h3 className="text-xl font-bold mb-2">{title}</h3>
         <p className="text-gray-600 mb-4">{description}</p>
+        <Link to="/gallery">
         <Button variant="link" className="text-red-600 p-0 h-auto">
           Read More
         </Button>
+        </Link>
       </div>
     </div>
   )

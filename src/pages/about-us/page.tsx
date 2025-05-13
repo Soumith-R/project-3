@@ -189,7 +189,9 @@ export default function AboutUsPage() {
             We are more than an organization – we are a movement for dignity and justice. Every life we touch
             strengthens the fabric of compassion we're weaving together.
           </p>
-          <Button className="bg-red-600 hover:bg-red-700">Join Us</Button>
+          <Link to="/contact">
+            <Button className="bg-red-600 hover:bg-red-700">Join Us</Button>
+            </Link>
         </div>
       </section>
       <footer className="bg-[#1a1a2e] text-gray-100 py-12">
