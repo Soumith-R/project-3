@@ -8,6 +8,7 @@ export default function HomePage() {
   const galleryRef = useRef<HTMLDivElement>(null)
   const [scrollPercent, setScrollPercent] = useState(0)
   const [showDonateModal, setShowDonateModal] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const gallery = galleryRef.current
@@ -86,12 +87,40 @@ export default function HomePage() {
               >
                 Donate
               </Button>
-              <Button variant="ghost" size="icon" className="md:hidden">
+              <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(true)}>
                 <Menu className="h-6 w-6" />
               </Button>
             </div>
           </div>
         </div>
+        {/* Mobile Menu Overlay */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 z-50 bg-black/80 flex flex-col md:hidden" onClick={() => setMobileMenuOpen(false)}>
+            <div className="bg-white shadow-lg p-6 w-full max-w-xs ml-auto h-full relative" onClick={e => e.stopPropagation()}>
+              <button className="absolute top-4 right-4 text-gray-500 hover:text-red-600 text-2xl" onClick={() => setMobileMenuOpen(false)} aria-label="Close">×</button>
+              <nav className="flex flex-col space-y-6 mt-8">
+                <Link to="/" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
+                  Home
+                </Link>
+                <Link to="/about-us" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
+                  About Us
+                </Link>
+                <Link to="/what-we-do" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
+                  Get Involved
+                </Link>
+                <Link to="/gallery" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
+                  Gallery
+                </Link>
+                <Link to="/contact" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
+                  Contact
+                </Link>
+                <Button className="bg-red-600 hover:bg-red-700 w-full" onClick={() => { setShowDonateModal(true); setMobileMenuOpen(false); }}>
+                  Donate
+                </Button>
+              </nav>
+            </div>
+          </div>
+        )}
       </header>
 
       <main className="flex-grow">

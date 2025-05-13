@@ -4,8 +4,11 @@ import { ContactForm } from "../../components/contact-form"
 import { TeamMember } from "../../components/team-member"
 import { Link } from "react-router-dom"
 import { Facebook, Twitter, Instagram, Youtube, Menu } from "lucide-react"
+import { useState } from "react"
 
 export default function AboutUsPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-900">
       <header className="sticky top-0 z-50 bg-white/60 backdrop-blur-md border-b border-white/30 shadow-sm">
@@ -36,12 +39,40 @@ export default function AboutUsPage() {
             </nav>
             <div className="flex items-center space-x-4">
               <Button className="bg-red-600 hover:bg-red-700">Donate</Button>
-              <Button variant="ghost" size="icon" className="md:hidden">
+              <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(true)}>
                 <Menu className="h-6 w-6" />
               </Button>
             </div>
           </div>
         </div>
+        {/* Mobile Menu Overlay */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 z-50 bg-black/80 flex flex-col md:hidden" onClick={() => setMobileMenuOpen(false)}>
+            <div className="bg-white shadow-lg p-6 w-full max-w-xs ml-auto h-full relative" onClick={e => e.stopPropagation()}>
+              <button className="absolute top-4 right-4 text-gray-500 hover:text-red-600 text-2xl" onClick={() => setMobileMenuOpen(false)} aria-label="Close">×</button>
+              <nav className="flex flex-col space-y-6 mt-8">
+                <Link to="/" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
+                  Home
+                </Link>
+                <Link to="/about-us" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
+                  About Us
+                </Link>
+                <Link to="/what-we-do" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
+                  Get Involved
+                </Link>
+                <Link to="/gallery" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
+                  Gallery
+                </Link>
+                <Link to="/contact" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
+                  Contact
+                </Link>
+                <Button className="bg-red-600 hover:bg-red-700 w-full" onClick={() => { setMobileMenuOpen(false); }}>
+                  Donate
+                </Button>
+              </nav>
+            </div>
+          </div>
+        )}
       </header>
       {/* Hero Section */}
       <section className="bg-gray-600 py-16">
