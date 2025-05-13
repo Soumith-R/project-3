@@ -18,10 +18,11 @@ export function PieChart() {
 
     // Data for pie chart
     const data = [
-      { value: 70, color: "#3b82f6" }, // blue
-      { value: 15, color: "#22c55e" }, // green
+      { value: 40, color: "#3b82f6" }, // blue
+      { value: 35, color: "#22c55e" }, // green
       { value: 10, color: "#eab308" }, // yellow
-      { value: 5, color: "#a855f7" }, // purple
+      { value: 10, color: "#a855f7" }, // purple
+      { value: 5, color: "#808080" }, 
     ]
 
     // Calculate total
