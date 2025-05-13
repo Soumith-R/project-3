@@ -7,7 +7,7 @@ import { Facebook, Twitter, Instagram, Youtube, Menu } from "lucide-react"
 
 export default function AboutUsPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-blue-900">
+    <div className="min-h-screen flex flex-col bg-gray-900">
       <header className="sticky top-0 z-50 bg-white/60 backdrop-blur-md border-b border-white/30 shadow-sm">
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between">

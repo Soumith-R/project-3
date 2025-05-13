@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about-us" element={<AboutUsPage />} />
-        <Route path="/beacon-of-hope" element={<BeaconOfHopePage />} />
+        <Route path="/gallery" element={<BeaconOfHopePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/what-we-do" element={<WhatWeDoPage />} />
       </Routes>
