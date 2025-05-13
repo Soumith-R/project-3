@@ -1,0 +1,39 @@
+@layer components {
+  /* Button variants */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-white transition-colors 
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 
+    disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-red-600 text-white hover:bg-red-700 h-10 px-4 py-2 rounded-md;
+  }
+
+  .btn-outline {
+    @apply border border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white;
+  }
+
+  /* Section styles */
+  .section {
+    @apply py-16;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold mb-12 text-center;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6;
+  }
+
+  /* Custom colors */
+  .bg-navy-900 {
+    @apply bg-[#1a1f2d];
+  }
+  
+  .text-navy-900 {
+    @apply text-[#1a1f2d];
+  }
+}
