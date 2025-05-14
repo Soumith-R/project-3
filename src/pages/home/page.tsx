@@ -701,32 +701,32 @@ function ServiceCard({
   )
 }
 
-function NewsCard({
-  title,
-  description,
-  imageSrc,
-}: {
-  title: string
-  description: string
-  imageSrc: string
-}) {
-  return (
-    <div className="flex flex-col md:flex-row gap-4">
-      <div className="md:w-1/3 relative h-48 md:h-auto">
-        <img src={imageSrc || "/placeholder.svg"} alt={title} className="w-full h-full object-cover rounded-lg" />
-      </div>
-      <div className="md:w-2/3">
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
-        <p className="text-gray-600 mb-4">{description}</p>
-        <Link to="/beacon-of-hope">
-        <Button variant="link" className="text-red-600 p-0 h-auto">
-          Read More
-        </Button>
-        </Link>
-      </div>
-    </div>
-  )
-}
+// function NewsCard({
+//   title,
+//   description,
+//   imageSrc,
+// }: {
+//   title: string
+//   description: string
+//   imageSrc: string
+// }) {
+//   return (
+//     <div className="flex flex-col md:flex-row gap-4">
+//       <div className="md:w-1/3 relative h-48 md:h-auto">
+//         <img src={imageSrc || "/placeholder.svg"} alt={title} className="w-full h-full object-cover rounded-lg" />
+//       </div>
+//       <div className="md:w-2/3">
+//         <h3 className="text-xl font-bold mb-2">{title}</h3>
+//         <p className="text-gray-600 mb-4">{description}</p>
+//         <Link to="/beacon-of-hope">
+//         <Button variant="link" className="text-red-600 p-0 h-auto">
+//           Read More
+//         </Button>
+//         </Link>
+//       </div>
+//     </div>
+//   )
+// }
 
 function DonationItem({
   color,

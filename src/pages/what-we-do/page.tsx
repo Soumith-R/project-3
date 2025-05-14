@@ -11,7 +11,6 @@ import emergencyResponseImg from '../../images/home/emergency respose 1.png';
 import qrCodeImg from '../../images/home/qr-code.png';
 import communityEducationImg from '../../images/home/community education 1.png';
 import youthEmpowermentImg from '../../images/home/youth empowerment 1.png';
-import upscaleImg from '../../images/home/upscal.png';
 
 
 // ServiceCard component
