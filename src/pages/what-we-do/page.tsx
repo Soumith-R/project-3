@@ -60,7 +60,7 @@ export default function WhatWeDoPage() {
     }, [])
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#0E0E30]">
       {/* Donate QR Modal */}
       {showDonateModal && (
         <div
@@ -160,8 +160,8 @@ export default function WhatWeDoPage() {
         </div>
       </section>
 
-      {/* Mission Content */}
-      <section className="py-16">
+      {/* Mission Content */} 
+      <section className="py-16 text-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/3">
@@ -174,13 +174,13 @@ export default function WhatWeDoPage() {
               </div>
             </div>
             <div className="md:w-2/3">
-              <p className="text-gray-700 mb-6">
+              <p className="mb-6">
                 At the International Human Rights and Domestic Protection Organization (IHRDPO), our mission is rooted in the belief that every human being deserves dignity, protection, and equal opportunity. We work tirelessly to safeguard the rights of the underprivileged and respond swiftly to crises affecting vulnerable populations. During the COVID-19 pandemic, our team mobilized across Telangana to deliver food, medical supplies, and emotional support to thousands of individuals and families struggling to survive. Our services extended to frontline workers, migrant laborers, orphans, and the elderly — ensuring no one was left behind. Beyond immediate aid, we actively advocate for the rights of those facing domestic violence, poverty, and systemic injustice, connecting them to legal aid, social services, and safety resources. At every stage, our goal remains the same: to restore hope and protect humanity where it’s most at risk.
               </p>
-              <p className="text-gray-700 mb-6">
+              <p className="mb-6">
                 Beyond emergency relief, IHRDPO is deeply committed to building long-term, sustainable support systems that uplift communities from within. We believe that lasting change comes through empowerment, not charity alone. That’s why we partner with grassroots organizations, local authorities, and corporate sponsors to run welfare programs that address core issues like hunger, homelessness, child protection, and women’s safety. Our volunteer network — made up of passionate individuals from all walks of life — plays a vital role in identifying community needs, organizing field activities, and delivering aid with compassion and integrity. Each initiative we undertake is guided by our principles of equality, transparency, and inclusivity, ensuring that every voice is heard and every person matters.
               </p>
-              <p className="text-gray-700 mb-6">
+              <p className="mb-6">
                 Education and awareness are equally critical to our mission. We conduct workshops, seminars, and community campaigns to educate people about their basic rights, domestic protection laws, and the channels available to seek justice. From hosting legal literacy sessions for women in rural areas to engaging youth in civic education, our goal is to equip individuals with the knowledge and tools to advocate for themselves and others. In every action, we blend emergency response with capacity building — not only helping people survive difficult times but empowering them to thrive in the future. At IHRDPO, we don’t just respond to crises — we work to prevent them by addressing their root causes, one family, one neighborhood, and one life at a time.
               </p>
             </div>
@@ -189,7 +189,7 @@ export default function WhatWeDoPage() {
       </section>
 
       {/* What We Do Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-[#0E0E30] text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">What We Do</h2>
           <div>
