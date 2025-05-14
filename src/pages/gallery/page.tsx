@@ -7,39 +7,17 @@ import qrCodeImg from '../../images/home/qr-code.png';
 import { Menu } from "lucide-react"
 import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react"
 
-// Import all images from gallery and home folders
-import aboutUsImg from '../../images/gallery/about us 1.png';
-import c8Img from '../../images/gallery/c8 2.png';
-import cc1Img from '../../images/gallery/cc1 1.png';
-import d2Img from '../../images/gallery/d2 1.png';
-import getInTouchImg from '../../images/gallery/getintouchup 1.png';
-import k1Img from '../../images/gallery/k1 1.png';
-import k2Img from '../../images/gallery/k2 1.png';
-import municipleWorkersImg from '../../images/gallery/municiple workers 1.png';
-import whatWeDoUpImg from '../../images/gallery/what we doup 2.png';
-import c4Img from '../../images/home/c4 1.png';
-import c5Img from '../../images/home/c5 1.png';
-import c7Img from '../../images/home/c7 1.png';
-import c9Img from '../../images/home/c9 1.png';
-import collImg from '../../images/home/coll 1.png';
-import collage1Img from '../../images/home/collage1 1.png';
-import communityEducationImg from '../../images/home/community education 1.png';
-import domesticViolenceImg from '../../images/home/Domestic Violence 1.png';
-import donate2Img from '../../images/home/donate2 1.png';
-import emergencyResponseImg from '../../images/home/emergency respose 1.png';
-import foodDistributionImg from '../../images/home/food distribution1 1.png';
-import heroImg from '../../images/home/police food donation1 1.png';
-import humanRightsImg from '../../images/home/human rights advocacy image 1.png';
-import migrantsImg from '../../images/home/migrants1 1.png';
-import rationDistributionImg from '../../images/home/ration distribution1 1.png';
-import upscaleImg from '../../images/home/upscal.png';
-import youthEmpowermentImg from '../../images/home/youth empowerment 1.png';
+// Import all images from gallery folder automatically
+type GalleryImage = { src: string; name: string };
 
-const galleryImages = [
-  aboutUsImg, c8Img, cc1Img, d2Img, getInTouchImg, k1Img, k2Img, municipleWorkersImg, whatWeDoUpImg,
-  c4Img, c5Img, c7Img, c9Img, collImg, collage1Img, communityEducationImg, domesticViolenceImg, donate2Img,
-  emergencyResponseImg, foodDistributionImg, heroImg, humanRightsImg, migrantsImg, rationDistributionImg, upscaleImg, youthEmpowermentImg
-];
+// Use import.meta.glob to import all images from gallery folder
+type GalleryImagesType = Record<string, { default: string }>;
+
+const galleryImageModules: GalleryImagesType = import.meta.glob('../../images/gallery1/*.{png,jpg,jpeg,gif,webp}', { eager: true });
+
+const galleryImages: string[] = Object.values(galleryImageModules)
+  .map((mod) => mod.default)
+  .filter(Boolean);
 
 export default function GalleryPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)

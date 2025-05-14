@@ -92,9 +92,9 @@ export default function HomePage() {
                 </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <Link to="/" className="flex items-center">
-                <img src={logoImg} alt="Logo" className="w-10 h-10 rounded-full object-cover" />
-              </Link>
+                <Link to="/" className="flex items-center">
+                <img src={logoImg} alt="Logo" className="w-16 h-16 rounded-none object-cover" />
+                </Link>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
               <Link to="/" className="font-medium text-gray-900 hover:text-red-600">
