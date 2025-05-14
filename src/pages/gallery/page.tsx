@@ -8,7 +8,7 @@ import { Menu } from "lucide-react"
 import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react"
 
 // Import all images from gallery folder automatically
-type GalleryImage = { src: string; name: string };
+// type GalleryImage = { src: string; name: string };
 
 // Use import.meta.glob to import all images from gallery folder
 type GalleryImagesType = Record<string, { default: string }>;

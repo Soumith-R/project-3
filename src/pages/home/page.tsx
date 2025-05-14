@@ -346,7 +346,7 @@ export default function HomePage() {
                 <img
                   src={c4Img}
                   alt="Collage image 1"
-                  className="w-full h-full object-cover rounded-lg transition-transform duration-200 group-hover:scale-105 group-active:scale-95 group-hover:shadow-lg cursor-pointer"
+                  className="w-full h-full object-cover rounded-lg cursor-pointer"
                   style={{ height: "100%", minHeight: 0 }}
                 />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
@@ -363,7 +363,7 @@ export default function HomePage() {
                 <img
                   src={collImg}
                   alt="Large collage image"
-                  className="w-full h-full object-cover rounded-lg transition-transform duration-200 group-hover:scale-105 group-active:scale-95 group-hover:shadow-lg cursor-pointer"
+                  className="w-full h-full object-cover rounded-lg cursor-pointer"
                   style={{ height: "100%", minHeight: 0 }}
                 />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
@@ -380,7 +380,7 @@ export default function HomePage() {
                 <img
                   src={c9Img}
                   alt="Collage image 2"
-                  className="w-full h-full object-cover rounded-lg transition-transform duration-200 group-hover:scale-105 group-active:scale-95 group-hover:shadow-lg cursor-pointer"
+                  className="w-full h-full object-cover rounded-lg cursor-pointer"
                   style={{ height: "100%", minHeight: 0 }}
                 />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
@@ -397,7 +397,7 @@ export default function HomePage() {
                 <img
                   src={c5Img}
                   alt="Collage image 5"
-                  className="w-full h-full object-cover rounded-lg transition-transform duration-200 group-hover:scale-105 group-active:scale-95 group-hover:shadow-lg cursor-pointer"
+                  className="w-full h-full object-cover rounded-lg cursor-pointer"
                   style={{ height: "100%", minHeight: 0 }}
                 />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
@@ -413,7 +413,7 @@ export default function HomePage() {
                 <img
                   src={c7Img}
                   alt="Collage image 6"
-                  className="w-full h-full object-cover rounded-lg transition-transform duration-200 group-hover:scale-105 group-active:scale-95 group-hover:shadow-lg cursor-pointer"
+                  className="w-full h-full object-cover rounded-lg cursor-pointer"
                   style={{ height: "100%", minHeight: 0 }}
                 />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
@@ -429,7 +429,7 @@ export default function HomePage() {
                 <img
                   src={collage1Img}
                   alt="Collage image 3"
-                  className="w-full h-full object-cover rounded-lg transition-transform duration-200 group-hover:scale-105 group-active:scale-95 group-hover:shadow-lg cursor-pointer"
+                  className="w-full h-full object-cover rounded-lg cursor-pointer"
                   style={{ height: "100%", minHeight: 0 }}
                 />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
