@@ -6,6 +6,7 @@ import GalleryPage from './pages/gallery/page'
 import ContactPage from './pages/contact/page'
 import HomePage from './pages/home/page'
 import WhatWeDoPage from './pages/what-we-do/page'
+import { NotFound } from './components/not-found-page'
 import './App.css'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/beacon-of-hope" element={<BeaconOfHopePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/what-we-do" element={<WhatWeDoPage />} />
+        <Route path="/login" element={<NotFound />} />  
       </Routes>
     </Router>
   )
