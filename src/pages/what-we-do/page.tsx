@@ -165,9 +165,9 @@ export default function WhatWeDoPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/3">
-              <div className="bg-gray-200 h-full w-full">
+              <div className="bg-gray-200 h-100 w-100">
                 <img
-                  src="/placeholder.svg?height=500&width=400"
+                  src="/placeholder.svg?height=300&width=300"
                   alt="Our mission"
                   className="w-full h-full object-cover"
                 />
@@ -200,41 +200,41 @@ export default function WhatWeDoPage() {
                 scrollSnapType: "x mandatory",
               }}
             >
-              {[
-                {
-                  title: "Domestic Protection Services",
-                  description: "We provide essential services to vulnerable communities, including shelter, food, healthcare, and education support for those in need.",
-                  imageSrc: domesticViolenceImg,
-                },
-                {
-                  title: "Human Rights Advocacy",
-                  description: "We advocate for policy changes, raise awareness about human rights violations, and work with governments to implement lasting solutions.",
-                  imageSrc: humanRightsImg,
-                },
-                {
-                  title: "Emergency Relief & Crisis Management",
-                  description: "We respond rapidly to humanitarian crises with emergency aid, medical assistance, and long-term recovery support for affected communities.",
-                  imageSrc: emergencyResponseImg,
-                },
-                {
-                  title: "Youth Empowerment and Leadership development",
-                  description: "We empower youth through education, skills training, and leadership development programs to become advocates for change in their communities.",
-                  imageSrc: youthEmpowermentImg,
-                },
-                {
-                  title: "Commnity Education and Awareness",
-                  description: "We conduct educational programs and awareness campaigns to inform communities about their rights and promote social justice.",
-                  imageSrc: communityEducationImg,
-                },
-              ].map((card, idx) => (
-                <div
-                  key={idx}
-                  className="flex-shrink-0 w-[360px] h-[460px] min-w-[360px] min-h-[460px] max-w-[360px] max-h-[460px]"
-                  style={{ scrollSnapAlign: "start" }}
-                >
-                  <ServiceCard {...card} />
-                </div>
-              ))}
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <ServiceCard
+                  title="Domestic Protection Services"
+                  description="We provide essential services to vulnerable communities, including shelter, food, healthcare, and education support for those in need."
+                  imageSrc={domesticViolenceImg}
+                />
+              </div>
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <ServiceCard
+                  title="Human Rights Advocacy"
+                  description="We advocate for policy changes, raise awareness about human rights violations, and work with governments to implement lasting solutions."
+                  imageSrc={humanRightsImg}
+                />
+              </div>
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <ServiceCard
+                  title="Emergency Relief & Crisis Management"
+                  description="We respond rapidly to humanitarian crises with emergency aid, medical assistance, and long-term recovery support for affected communities."
+                  imageSrc={emergencyResponseImg}
+                />
+              </div>
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <ServiceCard
+                  title="Youth Empowerment and Leadership development"
+                  description="We empower youth through education, skills training, and leadership development programs to become advocates for change in their communities."
+                  imageSrc={youthEmpowermentImg}
+                />
+              </div>
+              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <ServiceCard
+                  title="Commnity Education and Awareness"
+                  description="We conduct educational programs and awareness campaigns to inform communities about their rights and promote social justice."
+                  imageSrc={communityEducationImg}
+                />
+              </div>
             </div>
             {/* Stylish scrollbar below */}
             <div className="relative mt-4 h-2 w-full bg-gray-200 rounded-full overflow-hidden">
