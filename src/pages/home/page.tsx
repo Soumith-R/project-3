@@ -6,7 +6,7 @@ import { useRef, useState, useEffect } from "react"
 import logoImg from '../../images/home/logo.jpeg';
 import qrCodeImg from '../../images/home/qr-code.png';
 import heroImg from '../../images/home/hero1.1.1.jpg';
-import upscaleImg from '../../images/home/upscal.png';
+import upscaleImg from '../../images/home/whatwedo.jpg';
 import domesticViolenceImg from '../../images/home/Domestic Violence 1.png';
 import humanRightsImg from '../../images/home/human rights advocacy image 1.png';
 import emergencyResponseImg from '../../images/home/emergency respose 1.png';
@@ -75,21 +75,21 @@ export default function HomePage() {
 
       <header className="sticky top-0 z-50 bg-white/80 border-b border-white/30 shadow-lg transition-all duration-300">
         <div className="container mx-auto px-2 sm:px-4 py-2">
-              <div className="flex items-center justify-between mb-4 w-screen left-1/2 right-1/2 -translate-x-1/2 relative bg-[#0E0E30] p-4 text-white">
-              <div className="flex items-center space-x-4">
-                <MailIcon />
-                <p>info@loremipsu.com</p>
-                <Phone />
-                <p>123-456-7890</p>
-              </div>
-              <div className="flex items-center space-x-4">
-                <Facebook />
-                <Twitter />
-                <Instagram />
-                <Linkedin />
-                <Youtube />
-              </div>
-              </div>
+                <div className="hidden md:flex items-center justify-between mb-4 w-screen left-1/2 right-1/2 -translate-x-1/2 relative bg-[#0E0E30] p-4 text-white">
+                <div className="flex items-center space-x-4">
+                  <MailIcon />
+                  <p>info@loremipsu.com</p>
+                  <Phone />
+                  <p>123-456-7890</p>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Facebook />
+                  <Twitter />
+                  <Instagram />
+                  <Linkedin />
+                  <Youtube />
+                </div>
+                </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <Link to="/" className="flex items-center">
@@ -175,7 +175,7 @@ export default function HomePage() {
                 <p className="text-white text-lg mb-6">Empowering Communities, Defending Rights, And Protecting Lives Across the Globe</p>
                 <Link to={"/"}>
                 <Button className="bg-red-600 hover:bg-red-700 text-white">
-                  Read More
+                  READ MORE
                 </Button>
                 </Link>
               </div>
@@ -190,15 +190,13 @@ export default function HomePage() {
               <div className="md:w-2/3 flex flex-col justify-center">
                 <h2 className="text-3xl font-bold mb-4">Who We Are</h2>
                 <p className="text-gray-700 mb-6">
-                  International Society for Human Rights Protection (NONPROFIT) is a non-profit organization dedicated
-                  to promoting and protecting human rights worldwide. We work tirelessly to address humanitarian crises
-                  in conflict-affected regions, provide immediate assistance to vulnerable communities, and advocate for
-                  lasting solutions to global human rights challenges.
+                  International Human Rights and Domestic Protection Organization (IHRDPO) is a non-profit committed to defending human dignity and ensuring justice for vulnerable communities worldwide. We work at the grassroots and international levels to uphold human rights, provide domestic protection, and offer emergency support where it’s needed most.
+                  With a team of legal experts, counselors, and field workers, our efforts span education, advocacy, and direct aid.
                 </p>
                 <div className="flex justify-end">
                   <Link to="/about-us">
                     <Button variant="outline" className="bg-red-600 hover:bg-red-700 text-white">
-                      Read More
+                      READ MORE
                     </Button>
                   </Link>
                 </div>
@@ -208,7 +206,7 @@ export default function HomePage() {
                   <img
                     alt="upscale"
                     src={upscaleImg}
-                    className="absolute inset-0 w-full h-full object-cover object-top bg-gray-200"
+                    className="absolute inset-0 w-full h-full object-cover object-center bg-gray-200"
                   />
                 </div>
               </div>
@@ -229,38 +227,38 @@ export default function HomePage() {
                   scrollSnapType: "x mandatory",
                 }}
               >
-                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <div className="flex-shrink-0 min-w-[340px] min-h-[420px] max-w-[400px] max-h-[480px] w-full h-full" style={{ scrollSnapAlign: "start" }}>
                   <ServiceCard
                     title="Domestic Protection Services"
-                    description="We provide essential services to vulnerable communities, including shelter, food, healthcare, and education support for those in need."
+                    description="Our Domestic Protection Services are focused on safeguarding individuals—especially women, children, and marginalized groups—who are facing domestic abuse, violence, or threats to personal safety."
                     imageSrc={domesticViolenceImg}
                   />
                 </div>
-                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <div className="flex-shrink-0 min-w-[340px] min-h-[420px] max-w-[400px] max-h-[480px] w-full h-full" style={{ scrollSnapAlign: "start" }}>
                   <ServiceCard
                     title="Human Rights Advocacy"
-                    description="We advocate for policy changes, raise awareness about human rights violations, and work with governments to implement lasting solutions."
+                    description="Our Human Rights Advocacy programs aim to shine a spotlight on injustice, amplify marginalized voices, and influence meaningful change through education, legal reform, and public campaigns."
                     imageSrc={humanRightsImg}
                   />
                 </div>
-                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <div className="flex-shrink-0 min-w-[340px] min-h-[420px] max-w-[400px] max-h-[480px] w-full h-full" style={{ scrollSnapAlign: "start" }}>
                   <ServiceCard
                     title="Emergency Relief & Crisis Management"
-                    description="We respond rapidly to humanitarian crises with emergency aid, medical assistance, and long-term recovery support for affected communities."
+                    description="Our Emergency Relief and Crisis Response teams are trained to act quickly in high-risk areas to help those most affected."
                     imageSrc={emergencyResponseImg}
                   />
                 </div>
-                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <div className="flex-shrink-0 min-w-[340px] min-h-[420px] max-w-[400px] max-h-[480px] w-full h-full" style={{ scrollSnapAlign: "start" }}>
                   <ServiceCard
                     title="Youth Empowerment and Leadership development"
-                    description="We empower youth through education, skills training, and leadership development programs to become advocates for change in their communities."
+                    description="Young people are not just beneficiaries of change—they are drivers of it. IHRDPO fosters leadership, resilience, and vision among youth from underserved and at-risk communities."
                     imageSrc={youthEmpowermentImg}
                   />
                 </div>
-                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                <div className="flex-shrink-0 min-w-[340px] min-h-[420px] max-w-[400px] max-h-[480px] w-full h-full" style={{ scrollSnapAlign: "start" }}>
                   <ServiceCard
                     title="Commnity Education and Awareness"
-                    description="We conduct educational programs and awareness campaigns to inform communities about their rights and promote social justice."
+                    description="We empower communities through rights education. Our programs are accessible and culturally sensitive. We equip people to stand up for themselves and others."
                     imageSrc={communityEducationImg}
                   />
                 </div>
@@ -318,8 +316,7 @@ export default function HomePage() {
                     Be The Reason Someone Survives Today
                   </h2>
                   <p className="text-lg md:text-xl mb-8 leading-relaxed">
-                    Your donation can make a significant difference in someone's life. Join us in our mission to protect human
-                    dignity and provide essential support to those who need it most.
+                    From feeding the hungry during lockdowns to helping victims of abuse find shelter, your support turns compassion into real action. Every donation fuels our mission to bring hope and justice where it's needed most.Join us in protecting lives, restoring dignity, and defending human rights for those who need it most.
                   </p>
                 </div>
               </div>
@@ -331,7 +328,7 @@ export default function HomePage() {
               className="bg-red-600 hover:bg-red-700 text-white px-8 text-lg"
               onClick={() => setShowDonateModal(true)}
             >
-              Donate
+              DONATE
             </Button>
           </div>
         </section>
@@ -560,7 +557,7 @@ export default function HomePage() {
         <section className="py-16 bg-[#fbfdf9]">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-12 text-center">Our Proud Sponsors & Partners</h2>
-            <div className="flex gap-12 overflow-x-auto py-2 justify-center" style={{ scrollbarWidth: "auto" }}>
+            <div className="flex gap-12 overflow-x-auto px-2 py-2 justify-center" style={{ scrollbarWidth: "auto" }}>
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((item) => (
                 <div
                   key={item}
@@ -578,9 +575,8 @@ export default function HomePage() {
         <div className="container mx-auto px-4 max-w-2xl">
           <h2 className="text-3xl font-bold mb-6">Hope in Action</h2>
           <p className="mb-8">
-            Every act of kindness is a step toward justice.
+            Every act of kindness is a step toward justice.<br/>
             Together, we can build a world where no one is left behind.
-            Join us in our mission to protect human rights and uplift those in need.
           </p>
           <Link to="/contact">
             <Button className="bg-red-600 hover:bg-red-700">Join Us</Button>
@@ -685,20 +681,20 @@ function ServiceCard({
   imageSrc: string
 }) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
-      <div className="relative h-48">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-full w-full min-h-[420px] min-w-[340px] max-h-[480px] max-w-[400px]">
+      <div className="relative h-48 w-full">
         <img src={imageSrc || "/placeholder.svg"} alt={title} className="w-full h-full object-cover" />
       </div>
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-1">
         <h3 className="text-xl font-bold mb-2">{title}</h3>
-        <p className="text-gray-600 mb-4">{description}</p>
+        <p className="text-gray-600 mb-4 flex-1">{description}</p>
         <Link to="/what-we-do">
-        <Button variant="link" className="text-red-600 p-0 h-auto">
-          Read More
-        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full border-2 border-red-600 text-red-600 ml-2">
-          &gt;
-        </span>
-        </Button>
+          <Button variant="link" className="text-red-600 p-0 h-auto">
+            Read More
+            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full border-2 border-red-600 text-red-600 ml-2">
+              &gt;
+            </span>
+          </Button>
         </Link>
       </div>
     </div>
