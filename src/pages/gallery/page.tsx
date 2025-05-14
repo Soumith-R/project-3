@@ -54,7 +54,7 @@ export default function GalleryPage() {
       )}
       {/* Image Zoom Modal */}
       {modalImg && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={() => setModalImg(null)}>
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80" onClick={() => setModalImg(null)}>
           <div className="relative max-w-3xl w-full max-h-[90vh] flex items-center justify-center" onClick={e => e.stopPropagation()}>
             <button className="absolute top-2 right-2 text-white text-3xl z-10 hover:text-red-500" onClick={() => setModalImg(null)} aria-label="Close">×</button>
             <img src={modalImg} alt="Zoomed" className="object-contain max-h-[80vh] max-w-full rounded-lg shadow-2xl bg-white" />
@@ -94,6 +94,15 @@ export default function GalleryPage() {
             <div className="flex items-center space-x-4">
               <Button className="bg-red-600 hover:bg-red-700" onClick={() => setShowDonateModal(true)}>Donate</Button>
               <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(true)}>
+                <Menu className="h-6 w-6" />
+              </Button>
+            </div>
+          </div>
+        </div>
+        {/* Mobile Menu Overlay */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 z-50 bg-black/90 flex flex-col md:hidden transition-all duration-300" onClick={() => setMobileMenuOpen(false)}>
+            <div className="bg-white shadow-lg p-6 w-full max-w-xs ml-auto h-full relative" onClick={e => e.stopPropagation()}>
               <button className="absolute top-4 right-4 text-gray-500 hover:text-red-600 text-2xl" onClick={() => setMobileMenuOpen(false)} aria-label="Close">×</button>
               <nav className="flex flex-col space-y-6 mt-8">
                 <Link to="/" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>Home</Link>
@@ -113,8 +122,15 @@ export default function GalleryPage() {
             <h1 className="text-4xl font-bold text-white mb-8 text-center">Gallery</h1>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
               {galleryImages.map((img, idx) => (
-                <div key={idx} className="aspect-square bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center">
-                  <img src={img} alt={`Gallery ${idx + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                <div
+                  key={idx}
+                  className="aspect-square bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center group relative cursor-pointer"
+                  onClick={() => setModalImg(img)}
+                >
+                  <img src={img} alt={`Gallery ${idx + 1}`} className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105" loading="lazy" />
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
+                    <ZoomIn className="w-10 h-10 text-white drop-shadow-lg" />
+                  </div>
                 </div>
               ))}
             </div>
