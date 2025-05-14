@@ -227,41 +227,41 @@ export default function HomePage() {
                   scrollSnapType: "x mandatory",
                 }}
               >
-                <div className="flex-shrink-0 min-w-[340px] min-h-[420px] max-w-[400px] max-h-[480px] w-full h-full" style={{ scrollSnapAlign: "start" }}>
-                  <ServiceCard
-                    title="Domestic Protection Services"
-                    description="Our Domestic Protection Services are focused on safeguarding individuals—especially women, children, and marginalized groups—who are facing domestic abuse, violence, or threats to personal safety."
-                    imageSrc={domesticViolenceImg}
-                  />
-                </div>
-                <div className="flex-shrink-0 min-w-[340px] min-h-[420px] max-w-[400px] max-h-[480px] w-full h-full" style={{ scrollSnapAlign: "start" }}>
-                  <ServiceCard
-                    title="Human Rights Advocacy"
-                    description="Our Human Rights Advocacy programs aim to shine a spotlight on injustice, amplify marginalized voices, and influence meaningful change through education, legal reform, and public campaigns."
-                    imageSrc={humanRightsImg}
-                  />
-                </div>
-                <div className="flex-shrink-0 min-w-[340px] min-h-[420px] max-w-[400px] max-h-[480px] w-full h-full" style={{ scrollSnapAlign: "start" }}>
-                  <ServiceCard
-                    title="Emergency Relief & Crisis Management"
-                    description="Our Emergency Relief and Crisis Response teams are trained to act quickly in high-risk areas to help those most affected."
-                    imageSrc={emergencyResponseImg}
-                  />
-                </div>
-                <div className="flex-shrink-0 min-w-[340px] min-h-[420px] max-w-[400px] max-h-[480px] w-full h-full" style={{ scrollSnapAlign: "start" }}>
-                  <ServiceCard
-                    title="Youth Empowerment and Leadership development"
-                    description="Young people are not just beneficiaries of change—they are drivers of it. IHRDPO fosters leadership, resilience, and vision among youth from underserved and at-risk communities."
-                    imageSrc={youthEmpowermentImg}
-                  />
-                </div>
-                <div className="flex-shrink-0 min-w-[340px] min-h-[420px] max-w-[400px] max-h-[480px] w-full h-full" style={{ scrollSnapAlign: "start" }}>
-                  <ServiceCard
-                    title="Commnity Education and Awareness"
-                    description="We empower communities through rights education. Our programs are accessible and culturally sensitive. We equip people to stand up for themselves and others."
-                    imageSrc={communityEducationImg}
-                  />
-                </div>
+                {[
+                  {
+                    title: "Domestic Protection Services",
+                    description: "Our Domestic Protection Services are focused on safeguarding individuals—especially women, children, and marginalized groups—who are facing domestic abuse, violence, or threats to personal safety.",
+                    imageSrc: domesticViolenceImg,
+                  },
+                  {
+                    title: "Human Rights Advocacy",
+                    description: "Our Human Rights Advocacy programs aim to shine a spotlight on injustice, amplify marginalized voices, and influence meaningful change through education, legal reform, and public campaigns.",
+                    imageSrc: humanRightsImg,
+                  },
+                  {
+                    title: "Emergency Relief & Crisis Management",
+                    description: "Our Emergency Relief and Crisis Response teams are trained to act quickly in high-risk areas to help those most affected.",
+                    imageSrc: emergencyResponseImg,
+                  },
+                  {
+                    title: "Youth Empowerment and Leadership development",
+                    description: "Young people are not just beneficiaries of change—they are drivers of it. IHRDPO fosters leadership, resilience, and vision among youth from underserved and at-risk communities.",
+                    imageSrc: youthEmpowermentImg,
+                  },
+                  {
+                    title: "Commnity Education and Awareness",
+                    description: "We empower communities through rights education. Our programs are accessible and culturally sensitive. We equip people to stand up for themselves and others.",
+                    imageSrc: communityEducationImg,
+                  },
+                ].map((card, idx) => (
+                  <div
+                    key={idx}
+                    className="flex-shrink-0 w-[360px] h-[460px] min-w-[360px] min-h-[460px] max-w-[360px] max-h-[460px]"
+                    style={{ scrollSnapAlign: "start" }}
+                  >
+                    <ServiceCard {...card} />
+                  </div>
+                ))}
               </div>
               {/* Stylish scrollbar below */}
               <div className="relative mt-4 h-2 w-full bg-gray-200 rounded-full overflow-hidden">

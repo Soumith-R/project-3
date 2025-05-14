@@ -1,12 +1,13 @@
 import { MapPin, Phone, Mail } from "lucide-react"
 import { Button } from "../../components/ui/button"
 import { ContactForm } from "../../components/contact-form"
-import { TeamMember } from "../../components/team-member"
 import { Link } from "react-router-dom"
 import { Facebook, Twitter, Instagram, Youtube, Menu, Linkedin } from "lucide-react"
 import { useState } from "react"
 import logoImg from '../../images/home/logo.jpeg'
 import qrCodeImg from '../../images/home/qr-code.png'
+import pres from '../../images/about/president.jpg'
+import ch from '../../images/about/chairman.jpg'
 
 export default function AboutUsPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
@@ -134,7 +135,8 @@ export default function AboutUsPage() {
       {/* Form Section */}
       <section className="py-16 bg-gray-600">
         <div className="container mx-auto px-4">
-          <div className="max-w-md">
+          <div className="max-w-md flex flex-row justify-between mx-auto py-26">
+            <div>
             <h2 className="text-white text-sm uppercase font-bold mb-2">LOREM</h2>
             <h3 className="text-white text-3xl font-bold mb-4">Lorem Ipsum</h3>
             <p className="text-gray-300 mb-6">
@@ -143,6 +145,7 @@ export default function AboutUsPage() {
               Ipsum has been the industry's standard
               dummy text ever since the 1500s.
             </p>
+            </div>
             <Button className="rounded-full text-gray-800 hover:bg-black">
               <svg width="79" height="77" viewBox="0 0 79 77" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M75.796 38.8069C75.7981 45.8194 73.6784 52.675 69.7048 58.5067C65.7313 64.3383 60.0825 68.884 53.4728 71.569C46.8632 74.2539 39.5895 74.9575 32.5719 73.5906C25.5542 72.2238 19.1078 68.848 14.0478 63.8901C8.98781 58.9322 5.54162 52.615 4.14503 45.7374C2.74844 38.8598 3.46426 31.7306 6.20184 25.2517C8.93942 18.7728 13.5757 13.2351 19.5247 9.33895C25.4736 5.44281 32.4678 3.36328 39.6227 3.36328C49.2147 3.36328 58.4139 7.09715 65.1975 13.7438C71.981 20.3905 75.7933 29.4058 75.796 38.8069Z" stroke="white" stroke-width="5" stroke-miterlimit="10"/>
@@ -158,13 +161,17 @@ export default function AboutUsPage() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">Meet Our Team</h2>
           <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 py-2 px-1">
-            <div className="flex gap-8 min-w-[900px] max-w-full" style={{width: '100%'}}>
-              <div className="min-w-[300px] flex-shrink-0"><TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" /></div>
-              <div className="min-w-[300px] flex-shrink-0"><TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" /></div>
-              <div className="min-w-[300px] flex-shrink-0"><TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" /></div>
-              <div className="min-w-[300px] flex-shrink-0"><TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" /></div>
-              <div className="min-w-[300px] flex-shrink-0"><TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" /></div>
-              <div className="min-w-[300px] flex-shrink-0"><TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" /></div>
+            <div className="flex gap-8 min-w-[600px] max-w-full justify-center" style={{width: '100%'}}>
+              <div className="min-w-[180px] flex-shrink-0 flex flex-col items-center">
+                <img src={ch} alt="Chairman" className="w-40 h-40 object-cover rounded-none mx-auto" />
+                <div className="mt-3 text-center font-semibold text-lg">Mohammed Ishrath Jahan</div>
+                <div className="text-sm text-gray-300">Chairman</div>
+              </div>
+              <div className="min-w-[180px] flex-shrink-0 flex flex-col items-center">
+                <img src={pres} alt="President" className="w-40 h-40 object-cover rounded-none mx-auto" />
+                <div className="mt-3 text-center font-semibold text-lg">Dr. Mohammed Khaja Khan</div>
+                <div className="text-sm text-gray-300">President</div>
+              </div>
             </div>
           </div>
         </div>
