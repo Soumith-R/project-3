@@ -75,7 +75,7 @@ export default function HomePage() {
 
       <header className="sticky top-0 z-50 bg-white/80 border-b border-white/30 shadow-lg transition-all duration-300">
         <div className="container mx-auto px-2 sm:px-4 py-2">
-                <div className="hidden md:flex items-center justify-between mb-4 w-screen left-1/2 right-1/2 -translate-x-1/2 relative bg-[#0E0E30] p-4 text-white">
+                <div className="hidden md:flex items-center justify-between w-full fixed top-0 left-0 right-0 z-50 bg-[#0E0E30] p-1 text-white m-0">
                 <div className="flex items-center space-x-4">
                   <MailIcon />
                   <p>info@loremipsu.com</p>
@@ -90,7 +90,7 @@ export default function HomePage() {
                   <Youtube />
                 </div>
                 </div>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mt-10">
             <div className="flex items-center">
                 <Link to="/" className="flex items-center">
                 <img src={logoImg} alt="Logo" className="w-16 h-16 rounded-none object-cover" />
