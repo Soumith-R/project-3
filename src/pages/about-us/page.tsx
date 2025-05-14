@@ -69,7 +69,7 @@ export default function AboutUsPage() {
             <nav className="hidden md:flex items-center space-x-6">
               <Link to="/" className="font-medium text-gray-900 hover:text-red-600">Home</Link>
               <Link to="/about-us" className="font-medium text-gray-900 hover:text-red-600">About Us</Link>
-              <Link to="/what-we-do" className="font-medium text-gray-900 hover:text-red-600">Get Involved</Link>
+              <Link to="/get-involved" className="font-medium text-gray-900 hover:text-red-600">Get Involved</Link>
               <Link to="/gallery" className="font-medium text-gray-900 hover:text-red-600">Gallery</Link>
               <Link to="/contact" className="font-medium text-gray-900 hover:text-red-600">Contact</Link>
             </nav>
@@ -89,7 +89,7 @@ export default function AboutUsPage() {
               <nav className="flex flex-col space-y-6 mt-8">
                 <Link to="/" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>Home</Link>
                 <Link to="/about-us" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
-                <Link to="/what-we-do" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>Get Involved</Link>
+                <Link to="/get-involved" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>Get Involved</Link>
                 <Link to="/gallery" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>Gallery</Link>
                 <Link to="/contact" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
                 <Button className="bg-red-600 hover:bg-red-700 w-full" onClick={() => { setShowDonateModal(true); setMobileMenuOpen(false); }}>Donate</Button>
@@ -163,12 +163,12 @@ export default function AboutUsPage() {
           <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 py-2 px-1">
             <div className="flex gap-8 min-w-[600px] max-w-full justify-center" style={{width: '100%'}}>
               <div className="min-w-[180px] flex-shrink-0 flex flex-col items-center">
-                <img src={ch} alt="Chairman" className="w-40 h-40 object-cover rounded-none mx-auto" />
+                <img src={ch} alt="Chairman" className="w-40 h-40 object-top object-cover rounded-none mx-auto" />
                 <div className="mt-3 text-center font-semibold text-lg">Mohammed Ishrath Jahan</div>
                 <div className="text-sm text-gray-300">Chairman</div>
               </div>
               <div className="min-w-[180px] flex-shrink-0 flex flex-col items-center">
-                <img src={pres} alt="President" className="w-40 h-40 object-cover rounded-none mx-auto" />
+                <img src={pres} alt="President" className="w-40 h-40 object-top object-cover rounded-none mx-auto" />
                 <div className="mt-3 text-center font-semibold text-lg">Dr. Mohammed Khaja Khan</div>
                 <div className="text-sm text-gray-300">President</div>
               </div>
@@ -257,7 +257,7 @@ export default function AboutUsPage() {
                 <div className="flex flex-col gap-2">
                   <Link to="/" className="hover:underline">Home</Link>
                   <Link to="/about-us" className="hover:underline">About us</Link>
-                  <Link to="/what-we-do" className="hover:underline">Get involved</Link>
+                  <Link to="/get-involved" className="hover:underline">Get involved</Link>
                 </div>
                 <div className="flex flex-col gap-2">
                   <Link to="/" className="hover:underline">Donate</Link>

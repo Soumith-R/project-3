@@ -98,7 +98,7 @@ export default function BeaconOfHopePage() {
             <nav className="hidden md:flex items-center space-x-6">
               <Link to="/" className="font-medium text-gray-900 hover:text-red-600">Home</Link>
               <Link to="/about-us" className="font-medium text-gray-900 hover:text-red-600">About Us</Link>
-              <Link to="/what-we-do" className="font-medium text-gray-900 hover:text-red-600">Get Involved</Link>
+              <Link to="/get-involved" className="font-medium text-gray-900 hover:text-red-600">Get Involved</Link>
               <Link to="/gallery" className="font-medium text-gray-900 hover:text-red-600">Gallery</Link>
               <Link to="/contact" className="font-medium text-gray-900 hover:text-red-600">Contact</Link>
             </nav>
@@ -118,7 +118,7 @@ export default function BeaconOfHopePage() {
               <nav className="flex flex-col space-y-6 mt-8">
                 <Link to="/" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>Home</Link>
                 <Link to="/about-us" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
-                <Link to="/what-we-do" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>Get Involved</Link>
+                <Link to="/get-involved" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>Get Involved</Link>
                 <Link to="/gallery" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>Gallery</Link>
                 <Link to="/contact" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
                 <Button className="bg-red-600 hover:bg-red-700 w-full" onClick={() => { setShowDonateModal(true); setMobileMenuOpen(false); }}>Donate</Button>
@@ -333,7 +333,7 @@ export default function BeaconOfHopePage() {
                 <div className="flex flex-col gap-2">
                   <Link to="/" className="hover:underline">Home</Link>
                   <Link to="/about-us" className="hover:underline">About us</Link>
-                  <Link to="/what-we-do" className="hover:underline">Get involved</Link>
+                  <Link to="/get-involved" className="hover:underline">Get involved</Link>
                 </div>
                 <div className="flex flex-col gap-2">
                   <Link to="/" className="hover:underline">Donate</Link>

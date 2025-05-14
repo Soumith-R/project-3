@@ -1,28 +1,20 @@
-// Gallery page: displays all images in a responsive grid
 import { Link } from "react-router-dom"
 import { Button } from "../../components/ui/button"
-import { useState } from "react"
-import logoImg from '../../images/home/logo.jpeg';
-import qrCodeImg from '../../images/home/qr-code.png';
+import { ContactFormFull } from "../../components/contact-form-full"
 import { Menu } from "lucide-react"
-import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, Linkedin, ZoomIn } from "lucide-react"
+import { MapPin, Phone, Mail } from "lucide-react"
+import { Facebook, Twitter, Instagram, Youtube, Linkedin } from "lucide-react"
+import { useState } from "react"
+import logoImg from '../../images/home/logo.jpeg'
+import qrCodeImg from '../../images/home/qr-code.png'
+import getInTouchImg from '../../images/contact/getintouchup1.png'
 
-// Import all images from gallery folder automatically
-// type GalleryImage = { src: string; name: string };
 
-// Use import.meta.glob to import all images from gallery folder
-type GalleryImagesType = Record<string, { default: string }>;
 
-const galleryImageModules: GalleryImagesType = import.meta.glob('../../images/gallery1/*.{png,jpg,jpeg,gif,webp}', { eager: true });
-
-const galleryImages: string[] = Object.values(galleryImageModules)
-  .map((mod) => mod.default)
-  .filter(Boolean);
-
-export default function GalleryPage() {
+export default function GetInvolvedPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [modalImg, setModalImg] = useState<string | null>(null)
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-900">
       {/* Donate QR Modal */}
@@ -52,15 +44,7 @@ export default function GalleryPage() {
           </div>
         </div>
       )}
-      {/* Image Zoom Modal */}
-      {modalImg && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80" onClick={() => setModalImg(null)}>
-          <div className="relative max-w-3xl w-full max-h-[90vh] flex items-center justify-center" onClick={e => e.stopPropagation()}>
-            <button className="absolute top-2 right-2 text-white text-3xl z-10 hover:text-red-500" onClick={() => setModalImg(null)} aria-label="Close">×</button>
-            <img src={modalImg} alt="Zoomed" className="object-contain max-h-[80vh] max-w-full rounded-lg shadow-2xl bg-white" />
-          </div>
-        </div>
-      )}
+
       <header className="sticky top-0 z-50 bg-white/80 border-b border-white/30 shadow-lg transition-all duration-300">
         <div className="container mx-auto px-2 sm:px-4 py-2">
             <div className="hidden md:flex items-center justify-between w-full fixed top-0 left-0 right-0 z-50 bg-[#0E0E30] p-1 text-white m-0">
@@ -101,8 +85,9 @@ export default function GalleryPage() {
         </div>
         {/* Mobile Menu Overlay */}
         {mobileMenuOpen && (
-          <div className="fixed inset-0 z-50 bg-black/90 flex flex-col md:hidden transition-all duration-300" onClick={() => setMobileMenuOpen(false)}>
-            <div className="bg-white shadow-lg p-6 w-full max-w-xs ml-auto h-full relative" onClick={e => e.stopPropagation()}>
+          <div className="fixed inset-0 z-50 flex md:hidden transition-all duration-300" onClick={() => setMobileMenuOpen(false)}>
+            <div className="flex-1 bg-black/40" />
+            <div className="bg-white shadow-2xl border border-gray-200 rounded-l-xl p-6 w-full max-w-xs h-full relative" onClick={e => e.stopPropagation()}>
               <button className="absolute top-4 right-4 text-gray-500 hover:text-red-600 text-2xl" onClick={() => setMobileMenuOpen(false)} aria-label="Close">×</button>
               <nav className="flex flex-col space-y-6 mt-8">
                 <Link to="/" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>Home</Link>
@@ -116,27 +101,51 @@ export default function GalleryPage() {
           </div>
         )}
       </header>
-      <main className="flex-grow">
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <h1 className="text-4xl font-bold text-white mb-8 text-center">Gallery</h1>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {galleryImages.map((img, idx) => (
-                <div
-                  key={idx}
-                  className="aspect-square bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center group relative cursor-pointer"
-                  onClick={() => setModalImg(img)}
-                >
-                  <img src={img} alt={`Gallery ${idx + 1}`} className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105" loading="lazy" />
-                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
-                    <ZoomIn className="w-10 h-10 text-white drop-shadow-lg" />
-                  </div>
-                </div>
-              ))}
-            </div>
+
+      {/* Hero Section */}
+      <section className="relative">
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <div className="relative h-[400px]">
+          <img
+            src={getInTouchImg}
+            alt="Children reaching out"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 z-20 flex items-center justify-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white">Get Involved</h1>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="py-16 bg-navy-900 text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-6 text-center">We're Here To Listen, Help, And Collaborate</h2>
+          <p className="text-center max-w-2xl mx-auto mb-12">
+            Whether you need support, want to volunteer, have questions, or are ready to make a difference – we are just
+            a message away.
+          </p>
+
+          <div className="max-w-3xl mx-auto">
+            <ContactFormFull />
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-16 bg-black text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6">One Message. Endless Possibilities for Good.</h2>
+          <p className="max-w-2xl mx-auto mb-8">
+            Every message brings us closer to a world where every right is respected and every life is valued.
+          </p>
+          <Link to="/login">
+            <Button className="bg-red-600 hover:bg-red-700">Join Us</Button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Copyright */}
       <footer className="bg-[#18162a] text-white pt-12 pb-6">
         <div className="container mx-auto px-4">
           <div className="gap-12">
@@ -159,7 +168,7 @@ export default function GalleryPage() {
             </div>
             {/* Contact Us */}
             <div>
-              <h3 className="text-2xl font-bold mb-2 py-4">Contact Us</h3>
+              <h3 className="text-2xl font-bold mb-2 py-4">Get Involved</h3>
               <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
               <ul className="space-y-6 text-base">
                 <li className="flex items-start gap-4">
@@ -222,3 +231,4 @@ export default function GalleryPage() {
     </div>
   )
 }
+

@@ -103,7 +103,7 @@ export default function HomePage() {
               <Link to="/about-us" className="font-medium text-gray-900 hover:text-red-600">
                 About Us
               </Link>
-              <Link to="/what-we-do" className="font-medium text-gray-900 hover:text-red-600">
+              <Link to="/get-involved" className="font-medium text-gray-900 hover:text-red-600">
                 Get Involved
               </Link>
               <Link to="/gallery" className="font-medium text-gray-900 hover:text-red-600">
@@ -138,7 +138,7 @@ export default function HomePage() {
                 <Link to="/about-us" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
                   About Us
                 </Link>
-                <Link to="/what-we-do" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/get-involved" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
                   Get Involved
                 </Link>
                 <Link to="/gallery" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
@@ -596,7 +596,7 @@ export default function HomePage() {
                 <div className="flex flex-col gap-2">
                   <Link to="/" className="hover:underline">Home</Link>
                   <Link to="/about-us" className="hover:underline">About us</Link>
-                  <Link to="/what-we-do" className="hover:underline">Get involved</Link>
+                  <Link to="/get-involved" className="hover:underline">Get involved</Link>
                 </div>
                 <div className="flex flex-col gap-2">
                   <Link to="/" className="hover:underline">Donate</Link>
