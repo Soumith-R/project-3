@@ -13,7 +13,7 @@ export default function AboutUsPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-900">
+    <div className="min-h-screen flex flex-col bg-[#1B1926]">
       {/* Donate QR Modal */}
       {showDonateModal && (
         <div
@@ -111,24 +111,11 @@ export default function AboutUsPage() {
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-2/3">
               <p className="text-white mb-6">
-                The International Human Rights and Domestic Protection Organization (INHRPO) is a non-profit
-                organization committed to defending human dignity, promoting the vulnerable, and improving justice for
-                all.
+                The International Human Rights and Domestic Protection Organization (IHRDPO) is a non-profit organization committed to defending human dignity, protecting the vulnerable, and promoting justice for all. Founded during one of humanity’s most challenging times, the COVID-19 pandemic, we witnessed firsthand the critical gaps in access to food, healthcare, and human rights protection — especially for the marginalized.
               </p>
               <p className="text-white mb-6">
-                Throughout some of humanity's most challenging times, the COVID-19 pandemic, we witnessed firsthand the
-                critical gaps in access to food, healthcare, and human rights protection – especially for the
-                marginalized.
-              </p>
-              <p className="text-white mb-6">
-                Operating from Telangana, India, and expanding across various districts, we provide immediate relief
-                during crises, and a voice to those without one. We offer legal assistance, vocational training, and a
-                network of dedicated volunteers.
-              </p>
-              <p className="text-white mb-6">
-                Thanks to our unwavering supporters, our dedicated field volunteers, and the generous support of people
-                like you who believe in a fairer kinder world. Together, we build bridges where walls once stood.
-                Together, we protect humanity.
+                Operating from Telangana, India, and expanding across various districts, we provide immediate aid, long-term support, and a voice to those unheard — be it daily wage workers, orphaned children, migrant laborers, or survivors of domestic violence. Our strength lies in our unwavering compassion, our dedicated field volunteers, and the generous support of people like you who believe in a fairer, kinder world.
+                Together, we build bridges where walls once stood. Together, we protect humanity.
               </p>
             </div>
             <div className="md:w-1/3">
@@ -151,12 +138,16 @@ export default function AboutUsPage() {
             <h2 className="text-white text-sm uppercase font-bold mb-2">LOREM</h2>
             <h3 className="text-white text-3xl font-bold mb-4">Lorem Ipsum</h3>
             <p className="text-gray-300 mb-6">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s.
+              Lorem Ipsum is simply dummy text of the
+              printing and typesetting industry. Lorem
+              Ipsum has been the industry's standard
+              dummy text ever since the 1500s.
             </p>
-            <Button className="rounded-full bg-white text-gray-800 hover:bg-gray-200">
-              <span className="sr-only">Arrow</span>
-              <span className="flex items-center justify-center h-10 w-10">→</span>
+            <Button className="rounded-full text-gray-800 hover:bg-black">
+              <svg width="79" height="77" viewBox="0 0 79 77" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M75.796 38.8069C75.7981 45.8194 73.6784 52.675 69.7048 58.5067C65.7313 64.3383 60.0825 68.884 53.4728 71.569C46.8632 74.2539 39.5895 74.9575 32.5719 73.5906C25.5542 72.2238 19.1078 68.848 14.0478 63.8901C8.98781 58.9322 5.54162 52.615 4.14503 45.7374C2.74844 38.8598 3.46426 31.7306 6.20184 25.2517C8.93942 18.7728 13.5757 13.2351 19.5247 9.33895C25.4736 5.44281 32.4678 3.36328 39.6227 3.36328C49.2147 3.36328 58.4139 7.09715 65.1975 13.7438C71.981 20.3905 75.7933 29.4058 75.796 38.8069Z" stroke="white" stroke-width="5" stroke-miterlimit="10"/>
+              <path d="M33.9648 31.2461L46.7391 38.1412L33.9648 45.5303V31.2461Z" fill="white"/>
+              </svg>
             </Button>
           </div>
         </div>
@@ -166,16 +157,14 @@ export default function AboutUsPage() {
       <section className="py-16 bg-navy-900 text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">Meet Our Team</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" />
-            <TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" />
-            <TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" />
-          </div>
-          <div className="flex justify-center mt-8">
-            <div className="flex space-x-2">
-              <div className="h-2 w-2 rounded-full bg-white"></div>
-              <div className="h-2 w-2 rounded-full bg-gray-500"></div>
-              <div className="h-2 w-2 rounded-full bg-gray-500"></div>
+          <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 py-2 px-1">
+            <div className="flex gap-8 min-w-[900px] max-w-full" style={{width: '100%'}}>
+              <div className="min-w-[300px] flex-shrink-0"><TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" /></div>
+              <div className="min-w-[300px] flex-shrink-0"><TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" /></div>
+              <div className="min-w-[300px] flex-shrink-0"><TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" /></div>
+              <div className="min-w-[300px] flex-shrink-0"><TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" /></div>
+              <div className="min-w-[300px] flex-shrink-0"><TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" /></div>
+              <div className="min-w-[300px] flex-shrink-0"><TeamMember name="Lorem Ipsum" role="Lorem" imageSrc="/placeholder.svg?height=300&width=300" /></div>
             </div>
           </div>
         </div>
@@ -237,7 +226,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* Rooted in Humanity */}
-      <section className="py-16 bg-black text-white text-center">
+      <section className="py-16 bg-[#1B1926] text-white text-center">
         <div className="container mx-auto px-4 max-w-2xl">
           <h2 className="text-3xl font-bold mb-6">Rooted in Humanity, Driven by Purpose</h2>
           <p className="mb-8">
@@ -250,7 +239,7 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      <footer className="bg-[#18162a] text-white pt-12 pb-6">
+      <footer className="bg-[#0E0E30] text-white pt-12 pb-6">
         <div className="container mx-auto px-4">
           <div className="gap-12">
             {/* Other Links */}
