@@ -8,13 +8,43 @@ import whatWeDoImg from '../../images/what-we-do/what we doup 2.png';
 import domesticViolenceImg from '../../images/home/Domestic Violence 1.png';
 import humanRightsImg from '../../images/home/human rights advocacy image 1.png';
 import emergencyResponseImg from '../../images/home/emergency respose 1.png';
+import qrCodeImg from '../../images/home/qr-code.png';
 
 export default function WhatWeDoPage() {
+  const [showDonateModal, setShowDonateModal] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="sticky top-0 z-50 bg-white/60 backdrop-blur-md border-b border-white/30 shadow-sm">
+      {/* Donate QR Modal */}
+      {showDonateModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+          onClick={() => setShowDonateModal(false)}
+        >
+          <div
+            className="bg-white rounded-lg shadow-lg p-8 relative max-w-xs w-full"
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-2 right-2 text-gray-500 hover:text-red-600 text-xl"
+              onClick={() => setShowDonateModal(false)}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <h2 className="text-xl font-bold mb-4 text-center text-gray-800">Scan to Donate</h2>
+            <img
+              src={qrCodeImg}
+              alt="Donate QR Code"
+              className="w-48 h-48 mx-auto object-contain"
+            />
+            <p className="mt-4 text-center text-gray-600 text-sm">Scan this QR code with your payment app to donate.</p>
+          </div>
+        </div>
+      )}
+
+      <header className="sticky top-0 z-50 bg-white/80 border-b border-white/30 shadow-lg transition-all duration-300">
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -41,7 +71,7 @@ export default function WhatWeDoPage() {
               </Link>
             </nav>
             <div className="flex items-center space-x-4">
-              <Button className="bg-red-600 hover:bg-red-700">Donate</Button>
+              <Button className="bg-red-600 hover:bg-red-700" onClick={() => setShowDonateModal(true)}>Donate</Button>
               <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(true)}>
                 <Menu className="h-6 w-6" />
               </Button>
@@ -69,7 +99,7 @@ export default function WhatWeDoPage() {
                 <Link to="/contact" className="font-medium text-gray-900 hover:text-red-600" onClick={() => setMobileMenuOpen(false)}>
                   Contact
                 </Link>
-                <Button className="bg-red-600 hover:bg-red-700 w-full" onClick={() => { setMobileMenuOpen(false); }}>
+                <Button className="bg-red-600 hover:bg-red-700 w-full" onClick={() => { setShowDonateModal(true); setMobileMenuOpen(false); }}>
                   Donate
                 </Button>
               </nav>
