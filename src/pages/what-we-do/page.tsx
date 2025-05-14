@@ -189,7 +189,7 @@ export default function WhatWeDoPage() {
       </section>
 
       {/* What We Do Section */}
-      <section className="py-16 bg-[#0E0E30] text-white">
+      <section className="py-16 bg-[#0E0E30]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">What We Do</h2>
           <div>
