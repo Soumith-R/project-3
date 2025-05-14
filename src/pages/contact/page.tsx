@@ -14,7 +14,7 @@ export default function ContactPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-900">
+    <div className="min-h-screen flex flex-col bg-[#0E0E30]">
       {/* Donate QR Modal */}
       {showDonateModal && (
         <div
@@ -130,7 +130,7 @@ export default function ContactPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-black text-white">
+      <section className="py-16 bg-[#1B1926] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">One Message. Endless Possibilities for Good.</h2>
           <p className="max-w-2xl mx-auto mb-8">
@@ -143,7 +143,7 @@ export default function ContactPage() {
       </section>
 
       {/* Copyright */}
-      <footer className="bg-[#18162a] text-white pt-12 pb-6">
+      <footer className="bg-[#0E0E30] text-white pt-12 pb-6">
         <div className="container mx-auto px-4">
           <div className="gap-12">
             {/* Other Links */}
