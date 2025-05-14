@@ -585,7 +585,7 @@ export default function HomePage() {
       </section>
       </main>
 
-      <footer className="bg-[#18162a] text-white pt-12 pb-6">
+      <footer className="bg-[#0E0E30] text-white pt-12 pb-6">
         <div className="container mx-auto px-4">
           <div className="gap-12">
             {/* Other Links */}

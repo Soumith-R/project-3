@@ -7,12 +7,20 @@ import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Youtube, Linkedin } 
 import { useRef, useState, useEffect } from "react"
 import logoImg from '../../images/home/logo.jpeg';
 import aboutUsImg from '../../images/gallery/about us 1.png';
-import cc1Img from '../../images/gallery/cc1 1.png';
+import c4 from '../../images/home/c4 1.png';
+import cc1Img from '../../images/gallery/municiple workers 1.png';
 import c8Img from '../../images/gallery/c8 2.png';
 import k1Img from '../../images/gallery/k1 1.png';
-import d2Img from '../../images/gallery/d2 1.png';
-import getInTouchImg from '../../images/gallery/getintouchup 1.png';
+import m1 from '../../images/home/migrants1 1.png';
+import c8 from '../../images/gallery/c8 2.png';
+import p1 from '../../images/home/poloice food 1.png';
+import getInTouchImg from '../../images/home/food distribution1 1.png';
 import qrCodeImg from '../../images/home/qr-code.png';
+import imb1 from '../../images/home/Image-box.png';
+import fo1 from '../../images/home/food orphans 1.png';
+import cc1 from '../../images/gallery/cc1.png';
+import k2 from '../../images/gallery/k2 1.png';
+import cc2 from '../../images/gallery/cc2.png';
 
 export default function BeaconOfHopePage() {
   const hopeGalleryRef = useRef<HTMLDivElement>(null)
@@ -142,7 +150,7 @@ export default function BeaconOfHopePage() {
             <div className="md:w-1/3">
               <div className="bg-white p-2 mb-4">
                 <img
-                  src={cc1Img}
+                  src={cc1}
                   alt="Our mission"
                   className="w-full h-full object-cover"
                 />
@@ -150,34 +158,12 @@ export default function BeaconOfHopePage() {
             </div>
             <div className="md:w-2/3">
               <p className="mb-4">
-                In the darkest of times, even a single act of kindness can ignite a flame of hope. The International
-                Human Rights and Domestic Protection Organization (INHRPO) stands as a beacon of light in communities
-                facing adversity. Our mission is simple yet profound: to bring protection, compassion, and unwavering
-                support when it is needed most.
+                In the darkest of times, even a single act of kindness can ignite a flame of hope. The International Human Rights and Domestic Protection Organization (IHRDPO) stands as a beacon of hope for countless individuals and families across Telangana and beyond — offering protection, compassion, and unwavering support when it is needed most.
+                When the COVID-19 pandemic ravaged communities, stripping people of livelihoods, safety, and stability, we rose to meet the moment. We extended helping hands to the homeless, the hungry, frontline workers, orphans, and vulnerable families. Whether it was a warm meal, a life-saving oxygen cylinder, a safe journey home, or simply someone to listen — our team showed up with empathy and resolve. Our mission transcends immediate aid; it is about restoring dignity, inspiring resilience, and reminding people they are not alone.
               </p>
               <p className="mb-4">
-                When the COVID-19 pandemic ravaged communities, threatening livelihoods, safety, and stability, we rose
-                to meet the moment. We extended helping hands to the homeless, the hungry, frontline workers, orphans,
-                and vulnerable families. Whether it was a warm meal, a life-saving oxygen cylinder, or essential
-                supplies during lockdowns – our team showed up with empathy and resolve. Our mission transcends
-                immediate aid; it is about fostering dignity, inspiring resilience, and reminding people they are not
-                alone.
-              </p>
-              <p className="mb-4">
-                Our beacon shines not only in crises but in everyday struggles – advocating for human rights, offering
-                legal aid, protecting women and children from abuse, and empowering underprivileged voices. Through our
-                dedicated volunteers, generous donors, and compassionate partners, we've created a network of support
-                that grows stronger and deeper. We believe hope is contagious. With every life uplifted and every hand
-                held, our light spreads farther and brighter. Together, we can ensure no one is left in the shadows.
-              </p>
-              <p className="mb-4">
-                In the darkest of times, even a single act of kindness can ignite a flame of hope. The International
-                Human Rights and Domestic Protection Organization (INHRPO) stands as a beacon of light in communities
-                facing adversity. Our mission is simple yet profound: to bring protection, compassion, and unwavering
-                support when it is needed most.
-              </p>
-              <p className="mb-4">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, quas, adipisci, nihil ullam minus facilis commodi laborum sint accusantium et assumenda magni ex. Ipsum accusantium, similique necessitatibus id dolorem quo!
+                Our beacon shines not only in crises but in everyday struggles — advocating for human rights, offering legal aid, protecting women and children from abuse, and empowering underrepresented voices. Through our dedicated volunteers, generous donors, and compassionate partners, we bring light to places overshadowed by injustice and despair.
+                We believe hope is contagious. With every life uplifted and every hand held, our light spreads farther and brighter. Together, we can ensure no one is left in the shadows.
               </p>
             </div>
           </div>
@@ -185,32 +171,40 @@ export default function BeaconOfHopePage() {
       </section>
 
       {/* In Service of Humanity */}
-      <section className="py-16 bg-blue-900 text-white">
+      <section className="py-16 bg-[#0E0E30] text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">In Service of Humanity</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center"> 
-            <div className="flex flex-col gap-4"> 
-              <div className="aspect-square relative">
-                <img
-                  src={k1Img} 
-                  alt="Gallery image 1"
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
-              {/* Image 3 (Bottom-Left) */}
-              <div className="aspect-square relative">
-                <img
-                  src={c8Img}
-                  alt="Gallery image 3"
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
-            </div>
-            <div className="aspect-square relative w-full h-full"> 
+          <div className="grid grid-cols-3 grid-rows-2 gap-4 items-stretch min-h-[500px]">
+            {/* Top left (1) */}
+            <div className="col-span-1 row-span-1">
               <img
-                src={cc1Img} 
-                alt="Gallery image 2 spanning"
-                className="w-full h-full object-cover rounded-lg"
+                src={k1Img}
+                alt="Gallery image 1"
+                className="w-full h-full object-cover rounded-lg min-h-[180px] max-h-[300px]"
+              />
+            </div>
+            {/* Top middle (2) */}
+            <div className="col-span-1 row-span-1">
+              <img
+                src={k2}
+                alt="Gallery image 2"
+                className="w-full h-full object-cover rounded-lg min-h-[180px] max-h-[300px]"
+              />
+            </div>
+            {/* Right (4) - large, spans both rows */}
+            <div className="col-span-1 row-span-2">
+              <img
+                src={cc2}
+                alt="Gallery image 4"
+                className="w-full h-full object-cover rounded-lg min-h-full max-h-full"
+              />
+            </div>
+            {/* Bottom left (3) - wide */}
+            <div className="col-span-2 row-span-1">
+              <img
+                src={c8Img}
+                alt="Gallery image 3"
+                className="w-full h-full object-cover object-top rounded-lg min-h-[180px] max-h-[300px]"
               />
             </div>
           </div>
@@ -218,7 +212,7 @@ export default function BeaconOfHopePage() {
       </section>
 
       {/* Hope Needs Action */}
-      <section className="py-16 bg-blue-900 text-white">
+      <section className="py-16 bg-[#0E0E30] text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">Hope Needs Action</h2>
           <div>
@@ -234,71 +228,71 @@ export default function BeaconOfHopePage() {
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Food Distribution Throughout COVID-19"
-                  description="During the severe waves of the COVID-19 pandemic, countless families across Telangana faced food insecurity like never before. INHRPO launched an emergency food distribution program that has continuously throughout the lockdown period."
+                  description="During the devastating waves of the COVID-19 pandemic, countless families across Telangana faced food insecurity like never before.IHRDPO launched an extensive food donation and distribution campaign that ran continuously throughout the lockdown period."
                   imageSrc={getInTouchImg}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Blanket Distribution To The Homeless"
-                  description="During the harsh nights of the winter season, Telangana's homeless population faced brutal conditions with no access to shelter, warmth, or food. Our volunteers distributed blankets across urban areas, covering railway stations, footpaths, under-bridges, and roadside camps."
-                  imageSrc={d2Img}
+                  description="During the harsh nights of the COVID lockdown, Telangana’s homeless population faced brutal conditions with no access to shelter, warmth, or food.IHRDPO organized emergency blanket distribution drives, covering railway stations, footpaths, under-bridges, and roadside camps."
+                  imageSrc={c4}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Ration Distribution For The Underprivileged"
-                  description="The pandemic lockdown left many vulnerable families without income, food, or security. Recognizing the severity of the situation, INHRPO organized systematic ration distribution to support the most vulnerable and migrant communities."
+                  description="The extended lockdown left many vulnerable families without income, food, or security. Recognizing the severity of the situation, IHRDPO organized systematic ration distribution drives across urban slums, villages, and migrant communities."
                   imageSrc={cc1Img}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
-                  title="Food Distribution Throughout COVID-19"
-                  description="During the severe waves of the COVID-19 pandemic, countless families across Telangana faced food insecurity like never before. INHRPO launched an emergency food distribution program that has continuously throughout the lockdown period."
-                  imageSrc={getInTouchImg}
+                  title="Food Distribution to Hospitals and COVID-19 Patients"
+                  description="Hospitals became battlegrounds during COVID-19, and both patients and healthcare staff faced immense hardship. IHRDPO launched an initiative to supply cooked meals, fruits, snacks, and immunity boosters to hospitals treating COVID patients."
+                  imageSrc={c8}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
-                  title="Lunch Provided to Police during COVID-19"
-                  description="During the COVID-19 pandemic, INHRPO provided lunch to police personnel on duty, ensuring they had nutritious meals while serving the community."
-                  imageSrc={d2Img}
+                  title="Lunch Provided to Police during Lockdown"
+                  description="The police forces of Telangana played a crucial role during the lockdown, working overtime to ensure public safety, manage check-posts, and enforce pandemic protocols. Understanding the physical and mental toll of their duties"
+                  imageSrc={p1}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
-                  title="Bus Arrangement for Migrant Workers"
-                  description="During the COVID-19 pandemic, INHRPO arranged buses for migrant workers stranded in cities, ensuring they could return home safely."
-                  imageSrc={cc1Img}
+                  title="Bus Arrangement for Migrant Returning Home"
+                  description="The sudden lockdowns left thousands of migrant workers stranded, desperate to return to their hometowns outside Telangana. Moved by their plight, IHRDPO coordinated with local authorities and transport agencies to arrange special buses for safe and organized travel."
+                  imageSrc={m1}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
-                  title="Food and Ration Donation for Orphans"
-                  description="INHRPO organized food and ration donations for orphanages, ensuring that vulnerable children received essential supplies during the pandemic."
-                  imageSrc={getInTouchImg}
+                  title="Food and Ration Donation for Orphans and Orphanages"
+                  description="Children in orphanages were among the hardest hit during the pandemic, with supply chains disrupted and donations dwindling. Recognizing their vulnerability, IHRDPO extended dedicated support to orphanages and childcare homes, delivering food kits, ration supplies, hygiene products, and essential medicines."
+                  imageSrc={fo1}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Oxygen Cylinder Donation"
-                  description="During the COVID-19 pandemic, INHRPO donated oxygen cylinders to hospitals and families in need, providing critical support during the health crisis."
-                  imageSrc={cc1Img}
+                  description="As COVID-19 cases surged across Telangana, hospitals faced an overwhelming shortage of oxygen supplies. Lives were at stake every minute.IHRDPO stepped in by arranging and distributing life-saving oxygen cylinders"
+                  imageSrc={imb1}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Fruits and Ration Distributed to Municipal Workers"
-                  description="During the COVID-19 pandemic, INHRPO distributed fruits and ration to municipal workers, recognizing their essential role in keeping communities safe and clean."
-                  imageSrc={cc1Img}
+                  description="While the rest of the world stayed home, sanitation workers, municipal cleaners, and daily-wage laborers remained on the frontlines, keeping our cities clean and safe. IHRDPO launched a special outreach program to distribute fresh fruits, ration kits, and hygiene supplies to these unsung heroes."
+                  imageSrc={imb1}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Protecting Lives with masks and PPE kits"
-                  description="During the COVID-19 pandemic, INHRPO distributed masks and PPE kits to frontline workers, ensuring their safety while serving the community."
-                  imageSrc={cc1Img}
+                  description="During the peak of COVID-19, we distributed thousands of free masks and PPE kits to frontline workers, vulnerable communities, and those most at risk. Our mission was to safeguard lives, curb the spread of the virus, and empower people with the protection they deserved."
+                  imageSrc={imb1}
                 />
               </div>
             </div>
@@ -314,7 +308,7 @@ export default function BeaconOfHopePage() {
       </section>
 
       {/* Lighting Lives */}
-      <section className="py-16 bg-black text-white text-center">
+      <section className="py-16 bg-[#1B1926] text-white text-center">
         <div className="container mx-auto px-4 max-w-2xl">
           <h2 className="text-3xl font-bold mb-6">Lighting Lives in the Darkest Times</h2>
           <p className="mb-8">
@@ -328,7 +322,7 @@ export default function BeaconOfHopePage() {
         </div>
       </section>
 
-      <footer className="bg-[#18162a] text-white pt-12 pb-6">
+      <footer className="bg-[#0E0E30] text-white pt-12 pb-6">
         <div className="container mx-auto px-4">
           <div className="gap-12">
             {/* Other Links */}
