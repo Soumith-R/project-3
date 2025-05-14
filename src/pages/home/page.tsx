@@ -389,7 +389,7 @@ export default function HomePage() {
               />
             </div>
             <div className="text-center mt-8">
-              <Link to="/gallery">
+              <Link to="/beacon-of-hope">
               <Button variant="outline" className="border-red-600 text-red-600 hover:bg-red-50">
                 Read More
               </Button>
@@ -546,7 +546,7 @@ function NewsCard({
       <div className="md:w-2/3">
         <h3 className="text-xl font-bold mb-2">{title}</h3>
         <p className="text-gray-600 mb-4">{description}</p>
-        <Link to="/gallery">
+        <Link to="/beacon-of-hope">
         <Button variant="link" className="text-red-600 p-0 h-auto">
           Read More
         </Button>
