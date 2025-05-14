@@ -167,33 +167,32 @@ export default function BeaconOfHopePage() {
       <section className="py-16 bg-blue-900 text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">In Service of Humanity</h2>
-          <div className="grid grid-cols-2 gap-4 md:gap-8 max-w-210 max-h-210 transform scale-90 mt-4 items-center"> 
-          <div className="flex flex-col gap-4"> 
-            <div className="aspect-square relative">
-              <img
-                src={k1Img} 
-                alt="Gallery image 1"
-                className="w-full h-full object-cover rounded-lg"
-              />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center"> 
+            <div className="flex flex-col gap-4"> 
+              <div className="aspect-square relative">
+                <img
+                  src={k1Img} 
+                  alt="Gallery image 1"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              {/* Image 3 (Bottom-Left) */}
+              <div className="aspect-square relative">
+                <img
+                  src={c8Img}
+                  alt="Gallery image 3"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
             </div>
-
-            {/* Image 3 (Bottom-Left) */}
-            <div className="aspect-square relative">
+            <div className="aspect-square relative w-full h-full"> 
               <img
-                src={c8Img}
-                alt="Gallery image 3"
+                src={cc1Img} 
+                alt="Gallery image 2 spanning"
                 className="w-full h-full object-cover rounded-lg"
               />
             </div>
           </div>
-          <div className="aspect-square relative h-full"> 
-            <img
-              src={cc1Img} 
-              alt="Gallery image 2 spanning"
-              className="w-full h-full object-cover rounded-lg"
-            />
-          </div>
-        </div>
         </div>
       </section>
 
