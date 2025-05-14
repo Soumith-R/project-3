@@ -1,18 +1,65 @@
 import { Link } from "react-router-dom"
 import { Button } from "../../components/ui/button"
-import { ServiceDetailCard } from "../../components/service-detail-card"
 import { Menu, MapPin, Phone, Mail, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
 import { useState } from "react"
+import { useEffect, useRef } from "react"
 import logoImg from '../../images/home/logo.jpeg';
 import whatWeDoImg from '../../images/what-we-do/what we doup 2.png';
 import domesticViolenceImg from '../../images/home/Domestic Violence 1.png';
 import humanRightsImg from '../../images/home/human rights advocacy image 1.png';
 import emergencyResponseImg from '../../images/home/emergency respose 1.png';
 import qrCodeImg from '../../images/home/qr-code.png';
+import communityEducationImg from '../../images/home/community education 1.png';
+import youthEmpowermentImg from '../../images/home/youth empowerment 1.png';
+import upscaleImg from '../../images/home/upscal.png';
+
+
+// ServiceCard component
+function ServiceCard({
+  title,
+  description,
+  imageSrc,
+}: {
+  title: string
+  description: string
+  imageSrc: string
+}) {
+  return (
+    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="relative h-48">
+        <img src={imageSrc || "/placeholder.svg"} alt={title} className="w-full h-full object-cover" />
+      </div>
+      <div className="p-6">
+        <h3 className="text-xl font-bold mb-2">{title}</h3>
+        <p className="text-gray-600 mb-4">{description}</p>
+        <Link to="/what-we-do">
+          <Button variant="link" className="text-red-600 p-0 h-auto">
+            Read More
+          </Button>
+        </Link>
+      </div>
+    </div>
+  )
+}
 
 export default function WhatWeDoPage() {
+  const galleryRef = useRef<HTMLDivElement>(null)
   const [showDonateModal, setShowDonateModal] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [scrollPercent, setScrollPercent] = useState(0)
+  useEffect(() => {
+      const gallery = galleryRef.current
+      if (!gallery) return
+  
+      const handleScroll = () => {
+        const maxScroll = gallery.scrollWidth - gallery.clientWidth
+        const percent = maxScroll > 0 ? (gallery.scrollLeft / maxScroll) * 100 : 0
+        setScrollPercent(percent)
+      }
+  
+      gallery.addEventListener("scroll", handleScroll)
+      return () => gallery.removeEventListener("scroll", handleScroll)
+    }, [])
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -175,28 +222,65 @@ export default function WhatWeDoPage() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <ServiceDetailCard
-              title="Domestic Protection Services"
-              description="Our Domestic Protection Services are focused on safeguarding individuals—especially women, children, and marginalized groups—who are facing domestic abuse, violence, or threats to personal safety."
-              imageSrc={domesticViolenceImg}
-            />
-            <ServiceDetailCard
-              title="Human Rights Advocacy"
-              description="Our Human Rights Advocacy programs aim to shine a spotlight on injustice, amplify marginalized voices, and influence meaningful change through education, legal reform, and public campaigns."
-              imageSrc={humanRightsImg}
-            />
-            <ServiceDetailCard
-              title="Emergency Relief & Crisis Response"
-              description="Our Emergency Relief and Crisis Response teams are trained to act quickly in high-risk areas to help those most affected."
-              imageSrc={emergencyResponseImg}
-            />
+        {/* What We Do Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-12 text-center">What We Do</h2>
+            <div>
+              <div
+                ref={galleryRef}
+                className="flex gap-8 overflow-x-auto scrollbar-hide"
+                style={{
+                  WebkitOverflowScrolling: "touch",
+                  scrollSnapType: "x mandatory",
+                }}
+              >
+                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                  <ServiceCard
+                    title="Domestic Protection Services"
+                    description="We provide essential services to vulnerable communities, including shelter, food, healthcare, and education support for those in need."
+                    imageSrc={domesticViolenceImg}
+                  />
+                </div>
+                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                  <ServiceCard
+                    title="Human Rights Advocacy"
+                    description="We advocate for policy changes, raise awareness about human rights violations, and work with governments to implement lasting solutions."
+                    imageSrc={humanRightsImg}
+                  />
+                </div>
+                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                  <ServiceCard
+                    title="Emergency Relief & Crisis Management"
+                    description="We respond rapidly to humanitarian crises with emergency aid, medical assistance, and long-term recovery support for affected communities."
+                    imageSrc={emergencyResponseImg}
+                  />
+                </div>
+                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                  <ServiceCard
+                    title="Youth Empowerment and Leadership development"
+                    description="We empower youth through education, skills training, and leadership development programs to become advocates for change in their communities."
+                    imageSrc={youthEmpowermentImg}
+                  />
+                </div>
+                <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
+                  <ServiceCard
+                    title="Commnity Education and Awareness"
+                    description="We conduct educational programs and awareness campaigns to inform communities about their rights and promote social justice."
+                    imageSrc={communityEducationImg}
+                  />
+                </div>
+              </div>
+              {/* Stylish scrollbar below */}
+              <div className="relative mt-4 h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  className="absolute top-0 left-0 h-full bg-red-500 rounded-full transition-all"
+                  style={{ width: `${scrollPercent}%` }}
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* Pagination Dots */}
       <div className="flex justify-center py-8 bg-gray-100">

@@ -18,12 +18,13 @@ export function PieChart() {
 
     // Data for pie chart
     const data = [
-      { value: 40, color: "#3b82f6" }, // blue
-      { value: 35, color: "#22c55e" }, // green
-      { value: 10, color: "#eab308" }, // yellow
-      { value: 10, color: "#a855f7" }, // purple
-      { value: 5, color: "#808080" }, 
-    ]
+      { value: 40, color: "#c1f1bd" },   // Organizing Events - light green
+      { value: 35, color: "#bfaefb" },   // Skills Training - lavender
+      { value: 10, color: "#fff0cc" },   // Helping people - cream
+      { value: 10, color: "#ffd76a" },   // Human safety - yellow
+      { value: 5, color: "#fb90c7" },    // Feeding the poor - pink
+    ];
+
 
     // Calculate total
     const total = data.reduce((sum, item) => sum + item.value, 0)
