@@ -7,6 +7,7 @@ import { Facebook, Twitter, Instagram, Youtube, Linkedin } from "lucide-react"
 import { useState } from "react"
 import logoImg from '../../images/home/logo.jpeg'
 import qrCodeImg from '../../images/home/qr-code.png'
+import getInTouchImg from '../../images/contact/getintouchup1.png'
 
 export default function ContactPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
@@ -103,7 +104,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         <div className="relative h-[400px]">
           <img
-            src="src\images\contact\getintouchup1.png"
+            src={getInTouchImg}
             alt="Children reaching out"
             className="w-full h-full object-cover"
           />
