@@ -103,7 +103,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         <div className="relative h-[400px]">
           <img
-            src="src\images\contact\getintouchup 1.png"
+            src="src\images\contact\getintouchup1.png"
             alt="Children reaching out"
             className="w-full h-full object-cover"
           />
