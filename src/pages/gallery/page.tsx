@@ -137,29 +137,30 @@ export default function GalleryPage() {
           </div>
         </section>
       </main>
-      <footer className="bg-[#18162a] text-white pt-12 pb-6">
-        <div className="container mx-auto px-4">
-          <div className="gap-12">
-            {/* Other Links */}
+      <footer className="bg-[#18162a] text-white pt-12 pb-6">        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">            {/* Other Links */}
             <div>
               <h3 className="text-2xl font-bold mb-2">Other Links</h3>
               <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
-              <div className="flex flex-wrap gap-x-12 gap-y-2 text-base">                <div className="flex flex-col gap-2">
+              <div className="grid grid-cols-3 gap-x-6 gap-y-2 text-base">
+                <div className="flex flex-col gap-2">
                   <Link to="/" className="hover:underline">Home</Link>
                   <Link to="/about-us" className="hover:underline">About us</Link>
-                  <Link to="/get-involved" className="hover:underline">Get involved</Link>
-                  <Link to="/certifications" className="hover:underline">Certifications</Link>
                 </div>
                 <div className="flex flex-col gap-2">
+                  <Link to="/get-involved" className="hover:underline">Get involved</Link>
                   <Link to="/" className="hover:underline">Donate</Link>
-                  <Link to="/contact" className="hover:underline">Volunteer</Link>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <Link to="/certifications" className="hover:underline">Certifications</Link>
                   <Link to="/contact" className="hover:underline">Contact</Link>
                 </div>
               </div>
             </div>
+            
             {/* Contact Us */}
             <div>
-              <h3 className="text-2xl font-bold mb-2 py-4">Contact Us</h3>
+              <h3 className="text-2xl font-bold mb-2">Contact Us</h3>
               <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
               <ul className="space-y-6 text-base">
                 <li className="flex items-start gap-4">
@@ -192,30 +193,38 @@ export default function GalleryPage() {
                 </li>
               </ul>
             </div>
-          </div>
-          {/* Divider */}
+
+            {/* About IHRDPO */}
+            <div>
+              <h3 className="text-2xl font-bold mb-2">About IHRDPO</h3>
+              <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
+              <p className="text-base text-gray-300 mb-6">
+                Committed to defending human dignity, protecting the vulnerable, and promoting justice for all through compassionate action and dedicated service.
+              </p>
+              <div className="flex gap-4">
+                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                  <Twitter className="h-5 w-5" />
+                </a>
+                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                  <Youtube className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+          </div>          {/* Divider */}
           <div className="border-t border-white/20 mt-12 mb-4"></div>
-          {/* Bottom copyright and social */}
+          {/* Bottom copyright */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <p className="text-sm text-white/80">
               2025 Copyright <span className="font-bold text-white">International Human Rights And Domestic Protection Organization </span> 
               | <br/>
               Passionately crafted by <span className="font-bold text-white">Solutions</span>. All rights are reserved.
             </p>
-            <div className="flex gap-4 mt-2 md:mt-0">
-              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Youtube className="h-5 w-5" />
-              </a>
-            </div>
           </div>
         </div>
       </footer>
