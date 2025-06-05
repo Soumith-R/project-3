@@ -178,24 +178,28 @@ export default function CertificationsPage() {
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {certificationPDFs.map((pdf, idx) => (
-                  <div
+                {certificationPDFs.map((pdf, idx) => (                  <div
                     key={idx}
                     className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group cursor-pointer"
                     onClick={() => openPDFModal(pdf.src, pdf.name)}
                   >
                     {/* PDF Preview/Thumbnail */}
-                    <div className="aspect-[3/4] bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center relative overflow-hidden">
-                      <div className="text-center">
-                        <FileText className="w-16 h-16 text-red-600 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                        <div className="text-xs text-red-600 font-medium px-2">PDF Certificate</div>
-                      </div>
+                    <div className="aspect-[3/4] bg-gray-100 relative overflow-hidden">
+                      <iframe
+                        src={`${pdf.src}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                        className="w-full h-full border-0 pointer-events-none scale-100 origin-top-left"
+                        title={`Preview - ${formatCertificateName(pdf.name)}`}
+                        style={{ 
+                          transform: 'scale(1)',
+                          transformOrigin: 'top left'
+                        }}
+                      />
                       
                       {/* Hover overlay */}
-                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
                         <div className="text-white text-center">
                           <FileText className="w-12 h-12 mx-auto mb-2" />
-                          <div className="text-sm font-medium">Click to view</div>
+                          <div className="text-sm font-medium">Click to view full document</div>
                         </div>
                       </div>
                     </div>
