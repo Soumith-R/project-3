@@ -30,7 +30,7 @@ export default function AboutUsPage() {
               onClick={() => setShowDonateModal(false)}
               aria-label="Close"
             >
-              ×
+              
             </button>
             <h2 className="text-xl font-bold mb-4 text-center text-gray-800">Scan to Donate</h2>
             <img
@@ -164,12 +164,12 @@ export default function AboutUsPage() {
             <div className="flex gap-8 min-w-[600px] max-w-full justify-center" style={{width: '100%'}}>
               <div className="min-w-[180px] flex-shrink-0 flex flex-col items-center">
                 <img src={ch} alt="Chairman" className="w-40 h-40 object-top object-cover rounded-none mx-auto" />
-                <div className="mt-3 text-center font-semibold text-lg">Mohammed Ishrath Jahan</div>
+                <div className="mt-3 text-center font-semibold text-lg">Dr. Mohammed Khaja Khan</div>
                 <div className="text-sm text-gray-300">Chairman</div>
               </div>
               <div className="min-w-[180px] flex-shrink-0 flex flex-col items-center">
                 <img src={pres} alt="President" className="w-40 h-40 object-top object-cover rounded-none mx-auto" />
-                <div className="mt-3 text-center font-semibold text-lg">Dr. Mohammed Khaja Khan</div>
+                <div className="mt-3 text-center font-semibold text-lg">Mohammed Ishrath Jahan</div>
                 <div className="text-sm text-gray-300">President</div>
               </div>
             </div>
@@ -253,11 +253,11 @@ export default function AboutUsPage() {
             <div>
               <h3 className="text-2xl font-bold mb-2">Other Links</h3>
               <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
-              <div className="flex flex-wrap gap-x-12 gap-y-2 text-base">
-                <div className="flex flex-col gap-2">
+              <div className="flex flex-wrap gap-x-12 gap-y-2 text-base">                <div className="flex flex-col gap-2">
                   <Link to="/" className="hover:underline">Home</Link>
                   <Link to="/about-us" className="hover:underline">About us</Link>
                   <Link to="/get-involved" className="hover:underline">Get involved</Link>
+                  <Link to="/certifications" className="hover:underline">Certifications</Link>
                 </div>
                 <div className="flex flex-col gap-2">
                   <Link to="/" className="hover:underline">Donate</Link>

@@ -150,11 +150,11 @@ export default function ContactPage() {
             <div>
               <h3 className="text-2xl font-bold mb-2">Other Links</h3>
               <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
-              <div className="flex flex-wrap gap-x-12 gap-y-2 text-base">
-                <div className="flex flex-col gap-2">
+              <div className="flex flex-wrap gap-x-12 gap-y-2 text-base">                <div className="flex flex-col gap-2">
                   <Link to="/" className="hover:underline">Home</Link>
                   <Link to="/about-us" className="hover:underline">About us</Link>
                   <Link to="/get-involved" className="hover:underline">Get involved</Link>
+                  <Link to="/certifications" className="hover:underline">Certifications</Link>
                 </div>
                 <div className="flex flex-col gap-2">
                   <Link to="/" className="hover:underline">Donate</Link>
