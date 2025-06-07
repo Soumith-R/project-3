@@ -3,7 +3,7 @@ import { Button } from "../../components/ui/button"
 import { ContactFormFull } from "../../components/contact-form-full"
 import { Menu } from "lucide-react"
 import { MapPin, Phone, Mail } from "lucide-react"
-import { Facebook, Twitter, Instagram, Youtube, Linkedin } from "lucide-react"
+import { Facebook, Twitter, Instagram, Youtube } from "lucide-react"
 import { useState } from "react"
 import logoImg from '../../images/home/download.png'
 import qrCodeImg from '../../images/home/qr-code.png'
@@ -50,12 +50,10 @@ export default function ContactPage() {
               <p>contact@ihrcdpo.com</p>
               <Phone />
               <p>(+91) 9000700741</p>
-            </div>
-            <div className="flex items-center space-x-4">
+            </div>            <div className="flex items-center space-x-4">
               <Facebook />
               <Twitter />
               <Instagram />
-              <Linkedin />
               <Youtube />
             </div>
           </div>
@@ -99,7 +97,7 @@ export default function ContactPage() {
       </header>      {/* Hero Section */}
       <section className="relative">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <div className="relative h-64 sm:h-80 md:h-96 lg:h-[400px]">
+        <div className="relative h-80 sm:h-96 md:h-[450px] lg:h-[450px]">
           <img
             src={getInTouchImg}
             alt="Children reaching out"

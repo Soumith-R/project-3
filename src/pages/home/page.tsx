@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { PieChart } from "../../components/pie-chart"
 import { Button } from "../../components/ui/button"
-import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, Menu, MailIcon, Linkedin, X } from "lucide-react"
+import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, Menu, MailIcon, X } from "lucide-react"
 import { useRef, useState, useEffect } from "react"
 import logoImg from '../../images/home/download.png';
 import qrCodeImg from '../../images/home/qr-code.png';
@@ -239,12 +239,10 @@ export default function HomePage() {
                   <p>contact@ihrcdpo.com</p>
                   <Phone />
                   <p>(+91) 9000700741</p>
-                </div>
-                <div className="flex items-center space-x-4">
+                </div>                <div className="flex items-center space-x-4">
                   <Facebook />
                   <Twitter />
                   <Instagram />
-                  <Linkedin />
                   <Youtube />
                 </div>
                 </div>
@@ -313,9 +311,8 @@ export default function HomePage() {
         )}
       </header>
 
-      <main className="flex-grow">        {/* Hero Section */}
-        <section className="relative">
-          <div className="absolute inset-0 bg-black/50 z-10"></div>          <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px]">
+      <main className="flex-grow">        {/* Hero Section */}        <section className="relative">
+          <div className="absolute inset-0 bg-black/50 z-10"></div>          <div className="relative h-80 sm:h-96 md:h-[450px] lg:h-[550px]">
             <img
               src={heroImg}
               alt="Volunteers distributing aid"
@@ -456,7 +453,7 @@ export default function HomePage() {
         </section>
 
         {/* Call to Action Section */}        <section className="relative bg-gray-900 py-32"> {/* Added bg-blue-900 and py-16 */}
-          <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px]">
+          <div className="relative h-80 sm:h-96 md:h-[450px] lg:h-[550px]">
             <div className="absolute inset-0 bg-black/50 z-10"></div>
             <img
               src={donate2Img}

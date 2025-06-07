@@ -5,7 +5,7 @@ import { useState } from "react"
 import logoImg from '../../images/home/download.png';
 import qrCodeImg from '../../images/home/qr-code.png';
 import { Menu } from "lucide-react"
-import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, Linkedin, FileText, Download, X } from "lucide-react"
+import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, FileText, Download, X } from "lucide-react"
 
 // Import all PDF files from certifications folder automatically
 type CertificationPDFsType = Record<string, { default: string }>;
@@ -114,12 +114,10 @@ export default function CertificationsPage() {
               <p>contact@ihrcdpo.com</p>
               <Phone />
               <p>(+91) 9000700741</p>
-            </div>
-            <div className="flex items-center space-x-4">
+            </div>            <div className="flex items-center space-x-4">
               <Facebook />
               <Twitter />
               <Instagram />
-              <Linkedin />
               <Youtube />
             </div>
           </div>

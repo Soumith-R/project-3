@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { Button } from "../../components/ui/button"
-import { Menu, MapPin, Phone, Mail, Facebook, Twitter, Instagram, Youtube, Linkedin } from "lucide-react"
+import { Menu, MapPin, Phone, Mail, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
 import { useState } from "react"
 import { useEffect, useRef } from "react"
 import logoImg from '../../images/home/download.png';
@@ -96,12 +96,10 @@ export default function WhatWeDoPage() {
               <p>contact@ihrcdpo.com</p>
               <Phone />
               <p>(+91) 9000700741</p>
-            </div>
-            <div className="flex items-center space-x-4">
+            </div>            <div className="flex items-center space-x-4">
               <Facebook />
               <Twitter />
               <Instagram />
-              <Linkedin />
               <Youtube />
             </div>
           </div>
@@ -145,7 +143,7 @@ export default function WhatWeDoPage() {
       </header>      {/* Hero Section */}
       <section className="relative">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <div className="relative h-64 sm:h-80 md:h-96 lg:h-[450px]">
+        <div className="relative h-80 sm:h-96 md:h-[450px] lg:h-[500px]">
           <img
             src={whatWeDoImg}
             alt="Children in need"
