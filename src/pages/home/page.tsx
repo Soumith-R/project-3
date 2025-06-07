@@ -23,6 +23,7 @@ import foodDistributionImg from '../../images/home/food distribution1 1.png';
 import migrantsImg from '../../images/home/migrants1 1.png';
 import rationDistributionImg from '../../images/home/ration distribution1 1.png';
 import popupImage from '../../images/popup/download.png';
+import logoMckImg from '../../images/sponsers/logomck.png';
 
 export default function HomePage() {
   const galleryRef = useRef<HTMLDivElement>(null);
@@ -233,12 +234,11 @@ export default function HomePage() {
 
       <header className="sticky top-0 z-50 bg-white/80 border-b border-white/30 shadow-lg transition-all duration-300">
         <div className="container mx-auto px-2 sm:px-4 py-2">
-                <div className="hidden md:flex items-center justify-between w-full fixed top-0 left-0 right-0 z-50 bg-[#0E0E30] p-1 text-white m-0">
-                <div className="flex items-center space-x-4">
+                <div className="hidden md:flex items-center justify-between w-full fixed top-0 left-0 right-0 z-50 bg-[#0E0E30] p-1 text-white m-0">                <div className="flex items-center space-x-4">
                   <MailIcon />
-                  <p>info@loremipsu.com</p>
+                  <p>contact@ihrcdpo.com</p>
                   <Phone />
-                  <p>123-456-7890</p>
+                  <p>(+91) 9000700741</p>
                 </div>
                 <div className="flex items-center space-x-4">
                   <Facebook />
@@ -442,13 +442,12 @@ export default function HomePage() {
               We understand that when you make a donation, you want to know exactly where your money is going and we pledge to be transparent.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="md:w-1/2">
-                <ul className="space-y-4 text-left">
-                  <DonationItem color="bg-[#c1f1bd]" percentage="40%" label="Oraganizing Events" />
-                  <DonationItem color="bg-[#bfaefb]" percentage="35%" label="Skills Training" />
-                  <DonationItem color="bg-[#fff0cc]" percentage="10%" label="Helping people" />
-                  <DonationItem color="bg-[#ffd76a]" percentage="10%" label="Human safety" />
-                  <DonationItem color="bg-[#fb90c7]" percentage="5%" label="Feeding the poor" />
+              <div className="md:w-1/2">                <ul className="space-y-4 text-left">
+                   <DonationItem color="bg-[#1e3a8a]" percentage="50%" label="Feeding Poor" />
+                  <DonationItem color="bg-[#bdf2bf]" percentage="20%" label="Organizing Events" />
+                  <DonationItem color="bg-[#fff0c9]" percentage="10%" label="Skills Training" />
+                  <DonationItem color="bg-[#facf64]" percentage="10%" label="Helping people" />
+                  <DonationItem color="bg-[#f28fbf]" percentage="10%" label="Human safety" />
                 </ul>
               </div>
               <div className="md:w-1/2 flex justify-center">
@@ -709,19 +708,28 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-        </section>
-
-        {/* Sponsors Section */}
+        </section>        {/* Sponsors Section */}
         <section className="py-16 bg-[#fbfdf9]">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-12 text-center">Our Proud Sponsors & Partners</h2>
-            <div className="flex gap-12 overflow-x-auto px-2 py-2 justify-center" style={{ scrollbarWidth: "auto" }}>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((item) => (
+            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-8 justify-items-center">
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
                 <div
                   key={item}
-                  className="w-28 h-28 bg-[#0E0E30] rounded-none flex items-center justify-center flex-shrink-0"
+                  className={`w-28 h-28 rounded-none flex items-center justify-center ${
+                    item === 1 ? 'bg-white p-2' : 'bg-[#0E0E30]'
+                  }`}
                 >
-                  {/* Empty for now, just a dark square */}
+                  {item === 1 ? (
+                    <img
+                      src={logoMckImg}
+                      alt="MCK Logo"
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    /* Empty for now, just a dark square */
+                    null
+                  )}
                 </div>
               ))}
             </div>
@@ -771,20 +779,18 @@ export default function HomePage() {
                 <li className="flex items-start gap-4">
                   <span className="mt-1">
                     <MapPin className="h-6 w-6 text-white" />
-                  </span>
-                  <span>
-                    Lorem Ipsum Is Simply Dummy<br />
-                    Text Of The Printing<br />
-                    Typesetting.
+                  </span>                  <span>
+                    Gayatri Co-Operative Urban Bank Ltd,<br />
+                    Opp: Railway Station, Bhongir-508116,<br />
+                    Yadadri Bhongir Dist.
                   </span>
                 </li>
                 <li className="flex items-start gap-4">
                   <span className="mt-1">
                     <Phone className="h-6 w-6 text-white" />
-                  </span>
-                  <span>
-                    Phone 123-456-7890<br />
-                    Phone 123-456-7890
+                  </span>                  <span>
+                    Phone (+91) 9000700741<br />
+                    Phone (+91) 9000700739
                   </span>
                 </li>
                 <li className="flex items-start gap-4">
@@ -792,8 +798,8 @@ export default function HomePage() {
                     <Mail className="h-6 w-6 text-white" />
                   </span>
                   <span>
-                    info@lorem.com<br />
-                    Fact That A
+                    contact@ihrcdpo.com<br />
+                    For Support & Help
                   </span>
                 </li>
               </ul>

@@ -3,7 +3,7 @@ import { Button } from "../../components/ui/button"
 import { ContactForm } from "../../components/contact-form"
 import { Link } from "react-router-dom"
 import { Facebook, Twitter, Instagram, Youtube, Menu, Linkedin } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import logoImg from '../../images/home/logo.jpeg'
 import qrCodeImg from '../../images/home/qr-code.png'
 import pres from '../../images/about/president.jpg'
@@ -12,6 +12,91 @@ import ch from '../../images/about/chairman.jpg'
 export default function AboutUsPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const slideIntervalRef = useRef<NodeJS.Timeout | null>(null)
+
+  // Team members data
+  const teamMembers = [
+    {
+      name: "Dr. MD. Khaja Khan",
+      title: "Chairman and Founder",
+      image: ch,
+      hasImage: true
+    },
+    {
+      name: "Dr. MD. Khaleel Khan",
+      title: "Vice Chairman",
+      image: "",
+      hasImage: false
+    },
+    {
+      name: "Syeda Ishrath Jahan",
+      title: "President and Founder",
+      image: pres,
+      hasImage: true
+    },
+    {
+      name: "MD. Abdul Sattar",
+      title: "Vice President",
+      image: "",
+      hasImage: false
+    },
+    {
+      name: "Vasam Nikhil Kumar",
+      title: "Principal Secretary",
+      image: "",
+      hasImage: false
+    },
+    {
+      name: "Vacant",
+      title: "Joint Secretary",
+      image: "",
+      hasImage: false
+    },
+    {
+      name: "MD. Adil Kaif Khan",
+      title: "Chief Executive Officer",
+      image: "",
+      hasImage: false
+    },
+    {
+      name: "Mohammed Asif",
+      title: "HR and Admin Manager",
+      image: "",
+      hasImage: false
+    }  ]  // Auto-scroll functionality
+  useEffect(() => {
+    const startAutoScroll = () => {
+      slideIntervalRef.current = setInterval(() => {
+        setCurrentSlide((prev) => {
+          return (prev + 1) % teamMembers.length // Cycle through all members
+        })
+      }, 3000) // 3 seconds delay
+    }
+
+    startAutoScroll()
+
+    return () => {
+      if (slideIntervalRef.current) {
+        clearInterval(slideIntervalRef.current)
+      }
+    }
+  }, [teamMembers.length])
+
+  // Pause auto-scroll on hover
+  const handleMouseEnter = () => {
+    if (slideIntervalRef.current) {
+      clearInterval(slideIntervalRef.current)
+    }
+  }
+  // Resume auto-scroll when mouse leaves
+  const handleMouseLeave = () => {
+    slideIntervalRef.current = setInterval(() => {
+      setCurrentSlide((prev) => {
+        return (prev + 1) % teamMembers.length
+      })
+    }, 3000)
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-[#1B1926]">
@@ -45,12 +130,11 @@ export default function AboutUsPage() {
 
       <header className="sticky top-0 z-50 bg-white/80 border-b border-white/30 shadow-lg transition-all duration-300">
         <div className="container mx-auto px-2 sm:px-4 py-2">
-            <div className="hidden md:flex items-center justify-between w-full fixed top-0 left-0 right-0 z-50 bg-[#0E0E30] p-1 text-white m-0">
-            <div className="flex items-center space-x-4">
+            <div className="hidden md:flex items-center justify-between w-full fixed top-0 left-0 right-0 z-50 bg-[#0E0E30] p-1 text-white m-0">            <div className="flex items-center space-x-4">
               <Mail />
-              <p>info@loremipsu.com</p>
+              <p>contact@ihrcdpo.com</p>
               <Phone />
-              <p>123-456-7890</p>
+              <p>(+91) 9000700741</p>
             </div>
             <div className="flex items-center space-x-4">
               <Facebook />
@@ -154,24 +238,58 @@ export default function AboutUsPage() {
             </Button>
           </div>
         </div>
-      </section>
-
-      {/* Meet Our Team */}
+      </section>      {/* Meet Our Team */}
       <section className="py-16 bg-navy-900 text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">Meet Our Team</h2>
-          <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 py-2 px-1">
-            <div className="flex gap-8 min-w-[600px] max-w-full justify-center" style={{width: '100%'}}>
-              <div className="min-w-[180px] flex-shrink-0 flex flex-col items-center">
-                <img src={ch} alt="Chairman" className="w-40 h-40 object-top object-cover rounded-none mx-auto" />
-                <div className="mt-3 text-center font-semibold text-lg">Dr. Mohammed Khaja Khan</div>
-                <div className="text-sm text-gray-300">Chairman</div>
+          <div 
+            className="relative max-w-md mx-auto"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            {/* Single team member display */}
+            <div className="overflow-hidden">
+              <div className="flex flex-col items-center group">
+                <div className="relative overflow-hidden rounded-lg mb-6 bg-gray-700 w-48 h-48 flex items-center justify-center mx-auto">
+                  {teamMembers[currentSlide]?.hasImage ? (
+                    <img 
+                      src={teamMembers[currentSlide].image} 
+                      alt={teamMembers[currentSlide].name} 
+                      className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" 
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
+                      <div className="w-20 h-20 bg-gray-500 rounded-full flex items-center justify-center">
+                        <svg className="w-10 h-10 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div className="text-center w-full">
+                  <h3 className="font-semibold text-xl mb-2 text-white group-hover:text-red-400 transition-colors duration-300">
+                    {teamMembers[currentSlide]?.name}
+                  </h3>
+                  <p className="text-base text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
+                    {teamMembers[currentSlide]?.title}
+                  </p>
+                </div>
               </div>
-              <div className="min-w-[180px] flex-shrink-0 flex flex-col items-center">
-                <img src={pres} alt="President" className="w-40 h-40 object-top object-cover rounded-none mx-auto" />
-                <div className="mt-3 text-center font-semibold text-lg">Mohammed Ishrath Jahan</div>
-                <div className="text-sm text-gray-300">President</div>
-              </div>
+            </div>
+            
+            {/* Pagination dots */}
+            <div className="flex justify-center mt-8 space-x-2">
+              {teamMembers.map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                    currentSlide === index ? 'bg-red-600' : 'bg-gray-400 hover:bg-gray-300'
+                  }`}
+                  onClick={() => setCurrentSlide(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -194,9 +312,8 @@ export default function AboutUsPage() {
                     <MapPin className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-white font-bold">Reach Us</h4>
-                    <p className="text-gray-300">
-                      Lorem Ipsum is Simply Dummy Text Of The Printing Typesetting, Manage 123/A
+                    <h4 className="text-white font-bold">Reach Us</h4>                    <p className="text-gray-300">
+                      Gayatri Co-Operative Urban Bank Ltd, Opp: Railway Station, Bhongir-508116, Yadadri Bhongir Dist.
                     </p>
                   </div>
                 </div>
@@ -204,11 +321,10 @@ export default function AboutUsPage() {
                 <div className="flex items-start">
                   <div className="bg-navy-900 p-3 mr-4">
                     <Phone className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
+                  </div>                  <div>
                     <h4 className="text-white font-bold">Contact Us</h4>
-                    <p className="text-gray-300">123-456-7890</p>
-                    <p className="text-gray-300">123-456-7890</p>
+                    <p className="text-gray-300">(+91) 9000700741</p>
+                    <p className="text-gray-300">(+91) 9000700739</p>
                   </div>
                 </div>
 
@@ -218,8 +334,8 @@ export default function AboutUsPage() {
                   </div>
                   <div>
                     <h4 className="text-white font-bold">Write to Us</h4>
-                    <p className="text-gray-300">info@inhrpo.com</p>
-                    <p className="text-gray-300">help@inhrpo.com</p>
+                    <p className="text-gray-300">contact@ihrcdpo.com</p>
+                    <p className="text-gray-300">Contact & Support</p>
                   </div>
                 </div>
               </div>
@@ -272,20 +388,18 @@ export default function AboutUsPage() {
                 <li className="flex items-start gap-4">
                   <span className="mt-1">
                     <MapPin className="h-6 w-6 text-white" />
-                  </span>
-                  <span>
-                    Lorem Ipsum Is Simply Dummy<br />
-                    Text Of The Printing<br />
-                    Typesetting.
+                  </span>                  <span>
+                    Gayatri Co-Operative Urban Bank Ltd,<br />
+                    Opp: Railway Station, Bhongir-508116,<br />
+                    Yadadri Bhongir Dist.
                   </span>
                 </li>
                 <li className="flex items-start gap-4">
                   <span className="mt-1">
                     <Phone className="h-6 w-6 text-white" />
-                  </span>
-                  <span>
-                    Phone 123-456-7890<br />
-                    Phone 123-456-7890
+                  </span>                  <span>
+                    Phone (+91) 9000700741<br />
+                    Phone (+91) 9000700739
                   </span>
                 </li>
                 <li className="flex items-start gap-4">
@@ -293,8 +407,8 @@ export default function AboutUsPage() {
                     <Mail className="h-6 w-6 text-white" />
                   </span>
                   <span>
-                    info@lorem.com<br />
-                    Fact That A
+                    contact@ihrcdpo.com<br />
+                    For Support & Help
                   </span>
                 </li>
               </ul>

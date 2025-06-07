@@ -47,12 +47,11 @@ export default function GetInvolvedPage() {
 
       <header className="sticky top-0 z-50 bg-white/80 border-b border-white/30 shadow-lg transition-all duration-300">
         <div className="container mx-auto px-2 sm:px-4 py-2">
-            <div className="hidden md:flex items-center justify-between w-full fixed top-0 left-0 right-0 z-50 bg-[#0E0E30] p-1 text-white m-0">
-            <div className="flex items-center space-x-4">
+            <div className="hidden md:flex items-center justify-between w-full fixed top-0 left-0 right-0 z-50 bg-[#0E0E30] p-1 text-white m-0">            <div className="flex items-center space-x-4">
               <Mail />
-              <p>info@loremipsu.com</p>
+              <p>contact@ihrcdpo.com</p>
               <Phone />
-              <p>123-456-7890</p>
+              <p>(+91) 9000700741</p>
             </div>
             <div className="flex items-center space-x-4">
               <Facebook />
@@ -172,20 +171,18 @@ export default function GetInvolvedPage() {
                 <li className="flex items-start gap-4">
                   <span className="mt-1">
                     <MapPin className="h-6 w-6 text-white" />
-                  </span>
-                  <span>
-                    Lorem Ipsum Is Simply Dummy<br />
-                    Text Of The Printing<br />
-                    Typesetting.
+                  </span>                  <span>
+                    Gayatri Co-Operative Urban Bank Ltd,<br />
+                    Opp: Railway Station, Bhongir-508116,<br />
+                    Yadadri Bhongir Dist.
                   </span>
                 </li>
                 <li className="flex items-start gap-4">
                   <span className="mt-1">
                     <Phone className="h-6 w-6 text-white" />
-                  </span>
-                  <span>
-                    Phone 123-456-7890<br />
-                    Phone 123-456-7890
+                  </span>                  <span>
+                    Phone (+91) 9000700741<br />
+                    Phone (+91) 9000700739
                   </span>
                 </li>
                 <li className="flex items-start gap-4">
@@ -193,8 +190,8 @@ export default function GetInvolvedPage() {
                     <Mail className="h-6 w-6 text-white" />
                   </span>
                   <span>
-                    info@lorem.com<br />
-                    Fact That A
+                    contact@ihrcdpo.com<br />
+                    Every act of kindness creates ripples of change that transform communities and restore hope to those who need it most.
                   </span>
                 </li>
               </ul>
