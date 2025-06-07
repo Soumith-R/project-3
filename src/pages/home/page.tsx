@@ -28,10 +28,11 @@ import logoMckImg from '../../images/sponsers/logomck.png';
 
 export default function HomePage() {
   const galleryRef = useRef<HTMLDivElement>(null);
-  const [scrollPercent, setScrollPercent] = useState(0);
   const [showDonateModal, setShowDonateModal] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+  const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
+  const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false);
   
   // Check if localStorage is available
   const isLocalStorageAvailable = () => {
@@ -130,20 +131,37 @@ export default function HomePage() {
     window.addEventListener('keydown', handleKeyPress)
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [])
-
+  // Auto-scroll functionality for What We Do section
   useEffect(() => {
-    const gallery = galleryRef.current
-    if (!gallery) return
+    if (isAutoScrollPaused) return
 
-    const handleScroll = () => {
-      const maxScroll = gallery.scrollWidth - gallery.clientWidth
-      const percent = maxScroll > 0 ? (gallery.scrollLeft / maxScroll) * 100 : 0
-      setScrollPercent(percent)
-    }
+    const totalServices = 5 // Total number of service cards
+      const autoScrollInterval = setInterval(() => {
+      const gallery = galleryRef.current
+      if (!gallery) return
 
-    gallery.addEventListener("scroll", handleScroll)
-    return () => gallery.removeEventListener("scroll", handleScroll)
-  }, [])
+      setCurrentServiceIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % totalServices
+        
+        // Calculate the scroll position for the next card
+        const cardWidth = 360 + 32 // card width + gap
+        const targetScrollLeft = nextIndex * cardWidth
+        
+        gallery.scrollTo({
+          left: targetScrollLeft,
+          behavior: 'smooth'
+        })
+        
+        return nextIndex
+      })
+    }, 2000) // 2 seconds interval
+
+    return () => clearInterval(autoScrollInterval)
+  }, [isAutoScrollPaused, currentServiceIndex])
+
+  // Functions to handle hover pause/resume for What We Do section
+  const handleServiceMouseEnter = () => setIsAutoScrollPaused(true)
+  const handleServiceMouseLeave = () => setIsAutoScrollPaused(false)
 
   // Debug logging for component lifecycle
   useEffect(() => {
@@ -365,13 +383,14 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </section>
-
-        {/* What We Do Section */}
+        </section>        {/* What We Do Section */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-12 text-center">What We Do</h2>
-            <div>
+            <div
+              onMouseEnter={handleServiceMouseEnter}
+              onMouseLeave={handleServiceMouseLeave}
+            >
               <div
                 ref={galleryRef}
                 className="flex gap-8 overflow-x-auto scrollbar-hide"
@@ -415,13 +434,6 @@ export default function HomePage() {
                     <ServiceCard {...card} />
                   </div>
                 ))}
-              </div>
-              {/* Stylish scrollbar below */}
-              <div className="relative mt-4 h-2 w-full bg-gray-200 rounded-full overflow-hidden">
-                <div
-                  className="absolute top-0 left-0 h-full bg-red-500 rounded-full transition-all"
-                  style={{ width: `${scrollPercent}%` }}
-                />
               </div>
             </div>
           </div>
