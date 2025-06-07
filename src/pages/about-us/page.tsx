@@ -223,10 +223,8 @@ export default function AboutUsPage() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="md:w-1/2">
-              <ContactForm />
+            </div>            <div className="md:w-1/2">
+              <ContactForm source="about" />
             </div>
           </div>
         </div>

@@ -121,10 +121,8 @@ export default function ContactPage() {
           <p className="text-center max-w-2xl mx-auto mb-12">
             Whether you need support, want to volunteer, have questions, or are ready to make a difference – we are just
             a message away.
-          </p>
-
-          <div className="max-w-3xl mx-auto">
-            <ContactFormFull />
+          </p>          <div className="max-w-3xl mx-auto">
+            <ContactFormFull source="contact" />
           </div>
         </div>
       </section>

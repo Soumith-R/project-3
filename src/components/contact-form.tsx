@@ -4,7 +4,11 @@ import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Textarea } from "../components/ui/textarea"
 
-export function ContactForm() {
+interface ContactFormProps {
+  source?: string
+}
+
+export function ContactForm({ source = "contact" }: ContactFormProps) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -23,17 +27,16 @@ export function ContactForm() {
       [name]: value,
     }))
   }
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
     setError(null)
     setSuccess(false)
     try {
-      const res = await fetch("/api/send-email", {
+      const res = await fetch("http://localhost:5000/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, source }),
       })
       if (!res.ok) throw new Error("Failed to send email")
       setSuccess(true)
