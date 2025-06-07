@@ -463,10 +463,8 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </section>
-
-        {/* Call to Action Section */}        <section className="relative bg-gray-900 py-32"> {/* Added bg-blue-900 and py-16 */}
-          <div className="relative h-80 sm:h-96 md:h-[450px] lg:h-[550px]">
+        </section>        {/* Call to Action Section */}        <section className="relative bg-gray-900 py-32"> {/* Added bg-blue-900 and py-16 */}
+          <div className="relative h-[450px] sm:h-96 md:h-[450px] lg:h-[550px]">
             <div className="absolute inset-0 bg-black/50 z-10"></div>
             <img
               src={donate2Img}
