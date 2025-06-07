@@ -4,7 +4,7 @@ import { ContactForm } from "../../components/contact-form"
 import { Link } from "react-router-dom"
 import { Facebook, Twitter, Instagram, Youtube, Menu, Linkedin } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
-import logoImg from '../../images/home/logo.jpeg'
+import logoImg from '../../images/home/download.png'
 import qrCodeImg from '../../images/home/qr-code.png'
 import pres from '../../images/about/president.jpg'
 import ch from '../../images/about/chairman.jpg'
@@ -170,7 +170,7 @@ export default function AboutUsPage() {
           <div className="flex items-center justify-between mt-10">
             <div className="flex items-center">
               <Link to="/" className="flex items-center">
-                <img src={logoImg} alt="Logo" className="w-16 h-16 rounded-none object-cover" />
+                <img src={logoImg} alt="Logo" className="h-16 max-w-none object-contain" />
               </Link>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
@@ -483,11 +483,10 @@ export default function AboutUsPage() {
           </div>          {/* Divider */}
           <div className="border-t border-white/20 mt-12 mb-4"></div>
           {/* Bottom copyright */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <p className="text-sm text-white/80">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">            <p className="text-sm text-white/80">
               2025 Copyright <span className="font-bold text-white">International Human Rights And Domestic Protection Organization </span> 
               | <br/>
-              Passionately crafted by <span className="font-bold text-white">Solutions</span>. All rights are reserved.
+              Passionately crafted by <span className="font-bold text-white">Vasam IT Solutions</span>. All rights are reserved.
             </p>
           </div>        </div>
       </footer>

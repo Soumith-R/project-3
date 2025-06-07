@@ -3,7 +3,7 @@ import { PieChart } from "../../components/pie-chart"
 import { Button } from "../../components/ui/button"
 import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, Menu, MailIcon, Linkedin, X } from "lucide-react"
 import { useRef, useState, useEffect } from "react"
-import logoImg from '../../images/home/logo.jpeg';
+import logoImg from '../../images/home/download.png';
 import qrCodeImg from '../../images/home/qr-code.png';
 import heroImg from '../../images/home/hero1.1.1.jpg';
 import upscaleImg from '../../images/home/whatwedo.jpg';
@@ -248,10 +248,9 @@ export default function HomePage() {
                   <Youtube />
                 </div>
                 </div>
-          <div className="flex items-center justify-between mt-10">
-            <div className="flex items-center">
+          <div className="flex items-center justify-between mt-10">            <div className="flex items-center">
                 <Link to="/" className="flex items-center">
-                <img src={logoImg} alt="Logo" className="w-16 h-16 rounded-none object-cover" />
+                <img src={logoImg} alt="Logo" className="h-16 max-w-none object-contain" />
                 </Link>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
@@ -314,10 +313,9 @@ export default function HomePage() {
         )}
       </header>
 
-      <main className="flex-grow">
-        {/* Hero Section */}
+      <main className="flex-grow">        {/* Hero Section */}
         <section className="relative">
-          <div className="absolute inset-0 bg-black/50 z-10"></div>          <div className="relative h-[500px]">
+          <div className="absolute inset-0 bg-black/50 z-10"></div>          <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px]">
             <img
               src={heroImg}
               alt="Volunteers distributing aid"
@@ -457,9 +455,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Call to Action Section */}
-        <section className="relative bg-gray-900 py-32"> {/* Added bg-blue-900 and py-16 */}
-          <div className="relative h-[500px]">
+        {/* Call to Action Section */}        <section className="relative bg-gray-900 py-32"> {/* Added bg-blue-900 and py-16 */}
+          <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px]">
             <div className="absolute inset-0 bg-black/50 z-10"></div>
             <img
               src={donate2Img}
@@ -831,11 +828,10 @@ export default function HomePage() {
           {/* Divider */}
           <div className="border-t border-white/20 mt-12 mb-4"></div>
           {/* Bottom copyright and social */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <p className="text-sm text-white/80">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">            <p className="text-sm text-white/80">
               2025 Copyright <span className="font-bold text-white">International Human Rights And Domestic Protection Organization </span> 
               | <br/>
-              Passionately crafted by <span className="font-bold text-white">Solutions</span>. All rights are reserved.
+              Passionately crafted by <span className="font-bold text-white">Vasam IT Solutions</span>. All rights are reserved.
             </p>
             <div className="flex gap-4 mt-2 md:mt-0">
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">

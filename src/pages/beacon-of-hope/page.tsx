@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { Menu } from "lucide-react"
 import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Youtube, Linkedin } from "lucide-react"
 import { useRef, useState, useEffect } from "react"
-import logoImg from '../../images/home/logo.jpeg';
+import logoImg from '../../images/home/download.png';
 import aboutUsImg from '../../images/gallery/about us 1.png';
 import c4 from '../../images/home/c4 1.png';
 import cc1Img from '../../images/gallery/municiple workers 1.png';
@@ -91,7 +91,7 @@ export default function BeaconOfHopePage() {
           <div className="flex items-center justify-between mt-10">
             <div className="flex items-center">
               <Link to="/" className="flex items-center">
-                <img src={logoImg} alt="Logo" className="w-16 h-16 rounded-none object-cover" />
+                <img src={logoImg} alt="Logo" className="h-16 max-w-none object-contain" />
               </Link>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
@@ -125,12 +125,10 @@ export default function BeaconOfHopePage() {
             </div>
           </div>
         )}
-      </header>
-
-      {/* Hero Section */}
+      </header>      {/* Hero Section */}
       <section className="relative">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <div className="relative h-[400px]">
+        <div className="relative h-64 sm:h-80 md:h-96 lg:h-[400px]">
           <img
             src={aboutUsImg}
             alt="Children in need"
@@ -401,11 +399,10 @@ export default function BeaconOfHopePage() {
           {/* Divider */}
           <div className="border-t border-white/20 mt-12 mb-4"></div>
           {/* Bottom copyright and social */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <p className="text-sm text-white/80">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">            <p className="text-sm text-white/80">
               2025 Copyright <span className="font-bold text-white">International Human Rights And Domestic Protection Organization </span> 
               | <br/>
-              Passionately crafted by <span className="font-bold text-white">Solutions</span>. All rights are reserved.
+              Passionately crafted by <span className="font-bold text-white">Vasam IT Solutions</span>. All rights are reserved.
             </p>
             <div className="flex gap-4 mt-2 md:mt-0">
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">

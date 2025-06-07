@@ -5,7 +5,7 @@ import { Menu } from "lucide-react"
 import { MapPin, Phone, Mail } from "lucide-react"
 import { Facebook, Twitter, Instagram, Youtube, Linkedin } from "lucide-react"
 import { useState } from "react"
-import logoImg from '../../images/home/logo.jpeg'
+import logoImg from '../../images/home/download.png'
 import qrCodeImg from '../../images/home/qr-code.png'
 import getInTouchImg from '../../images/contact/getintouchup1.png'
 
@@ -62,7 +62,7 @@ export default function ContactPage() {
           <div className="flex items-center justify-between mt-10">
             <div className="flex items-center">
               <Link to="/" className="flex items-center">
-                <img src={logoImg} alt="Logo" className="w-16 h-16 rounded-none object-cover" />
+                <img src={logoImg} alt="Logo" className="h-16 max-w-none object-contain" />
               </Link>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
@@ -96,12 +96,10 @@ export default function ContactPage() {
             </div>
           </div>
         )}
-      </header>
-
-      {/* Hero Section */}
+      </header>      {/* Hero Section */}
       <section className="relative">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <div className="relative h-[400px]">
+        <div className="relative h-64 sm:h-80 md:h-96 lg:h-[400px]">
           <img
             src={getInTouchImg}
             alt="Children reaching out"
@@ -186,7 +184,7 @@ export default function ContactPage() {
                     <Mail className="h-6 w-6 text-white" />
                   </span>                  <span>
                     contact@ihrcdpo.com<br />
-                    Every act of kindness creates ripples of change that transform communities and restore hope to those who need it most.
+                    Fact That A
                   </span>
                 </li>
               </ul>
@@ -216,11 +214,10 @@ export default function ContactPage() {
           </div>          {/* Divider */}
           <div className="border-t border-white/20 mt-12 mb-4"></div>
           {/* Bottom copyright */}
-          <div className="text-center md:text-left">
-            <p className="text-sm text-white/80">
+          <div className="text-center md:text-left">            <p className="text-sm text-white/80">
               2025 Copyright <span className="font-bold text-white">International Human Rights And Domestic Protection Organization </span> 
               | <br/>
-              Passionately crafted by <span className="font-bold text-white">Solutions</span>. All rights are reserved.
+              Passionately crafted by <span className="font-bold text-white">Vasam IT Solutions</span>. All rights are reserved.
             </p>
           </div>
         </div>
