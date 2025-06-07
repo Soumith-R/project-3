@@ -4,8 +4,8 @@ import { Button } from "../../components/ui/button"
 import { useState } from "react"
 import logoImg from '../../images/home/download.png';
 import qrCodeImg from '../../images/home/qr-code.png';
-import { Menu } from "lucide-react"
-import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, ZoomIn } from "lucide-react"
+import { Menu, MapPin, Phone, Mail, ZoomIn } from "lucide-react"
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa"
 
 // Import all images from gallery folder automatically
 // type GalleryImage = { src: string; name: string };
@@ -69,10 +69,10 @@ export default function GalleryPage() {
               <Phone />
               <p>(+91) 9000700741</p>
             </div>            <div className="flex items-center space-x-4">
-              <Facebook />
-              <Twitter />
-              <Instagram />
-              <Youtube />
+              <FaFacebookF />
+              <FaTwitter />
+              <FaInstagram />
+              <FaYoutube />
             </div>
           </div>
           <div className="flex items-center justify-between mt-10">
@@ -196,18 +196,17 @@ export default function GalleryPage() {
               <p className="text-base text-gray-300 mb-6">
                 Committed to defending human dignity, protecting the vulnerable, and promoting justice for all through compassionate action and dedicated service.
               </p>
-              <div className="flex gap-4">
-                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Facebook className="h-5 w-5" />
+              <div className="flex gap-4">                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                  <FaFacebookF className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Twitter className="h-5 w-5" />
+                  <FaTwitter className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Instagram className="h-5 w-5" />
+                  <FaInstagram className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Youtube className="h-5 w-5" />
+                  <FaYoutube className="h-5 w-5" />
                 </a>
               </div>
             </div>

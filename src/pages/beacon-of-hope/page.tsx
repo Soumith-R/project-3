@@ -1,9 +1,8 @@
-// page.tsx
 import { Button } from "../../components/ui/button"
 import { HopeCard } from "../../components/hope-card"
 import { Link } from "react-router-dom"
-import { Menu } from "lucide-react"
-import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
+import { Menu, MapPin, Phone, Mail } from "lucide-react"
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa"
 import { useRef, useState, useEffect } from "react"
 import logoImg from '../../images/home/download.png';
 import aboutUsImg from '../../images/gallery/about us 1.png';
@@ -24,23 +23,57 @@ import cc2 from '../../images/gallery/cc2.png';
 
 export default function BeaconOfHopePage() {
   const hopeGalleryRef = useRef<HTMLDivElement>(null)
-  const [hopeScrollPercent, setHopeScrollPercent] = useState(0)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [showDonateModal, setShowDonateModal] = useState(false)
-
+  const [currentCardIndex, setCurrentCardIndex] = useState(0)
+  const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false)
+    // Total number of cards in the Hope Needs Action section
+  const totalCards = 10
+  
   useEffect(() => {
     const gallery = hopeGalleryRef.current
     if (!gallery) return
 
     const handleScroll = () => {
-      const maxScroll = gallery.scrollWidth - gallery.clientWidth
-      const percent = maxScroll > 0 ? (gallery.scrollLeft / maxScroll) * 100 : 0
-      setHopeScrollPercent(percent)
+      // Update current card index based on scroll position
+      const cardWidth = gallery.scrollWidth / totalCards
+      const newIndex = Math.round(gallery.scrollLeft / cardWidth)
+      setCurrentCardIndex(newIndex)
     }
 
     gallery.addEventListener("scroll", handleScroll)
     return () => gallery.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [totalCards])
+  // Auto-scroll functionality
+  useEffect(() => {
+    if (isAutoScrollPaused) return
+
+    const autoScrollInterval = setInterval(() => {
+      const gallery = hopeGalleryRef.current
+      if (!gallery) return
+
+      setCurrentCardIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % totalCards
+        
+        // Calculate the scroll position for the next card
+        const cardWidth = gallery.scrollWidth / totalCards
+        const targetScrollLeft = nextIndex * cardWidth
+        
+        gallery.scrollTo({
+          left: targetScrollLeft,
+          behavior: 'smooth'
+        })
+        
+        return nextIndex
+      })
+    }, 3000) // 3 seconds interval
+
+    return () => clearInterval(autoScrollInterval)
+  }, [isAutoScrollPaused, totalCards, currentCardIndex])
+
+  // Functions to handle hover pause/resume
+  const handleMouseEnter = () => setIsAutoScrollPaused(true)
+  const handleMouseLeave = () => setIsAutoScrollPaused(false)
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-900">
@@ -80,10 +113,10 @@ export default function BeaconOfHopePage() {
               <Phone />
               <p>(+91) 9000700741</p>
             </div>            <div className="flex items-center space-x-4">
-              <Facebook />
-              <Twitter />
-              <Instagram />
-              <Youtube />
+              <FaFacebookF />
+              <FaTwitter />
+              <FaInstagram />
+              <FaYoutube />
             </div>
           </div>
           <div className="flex items-center justify-between mt-10">
@@ -204,9 +237,7 @@ export default function BeaconOfHopePage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Hope Needs Action */}
+      </section>      {/* Hope Needs Action */}
       <section className="py-16 bg-[#0E0E30] text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">Hope Needs Action</h2>
@@ -218,6 +249,8 @@ export default function BeaconOfHopePage() {
                 WebkitOverflowScrolling: "touch",
                 scrollSnapType: "x mandatory",
               }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               {/* Each HopeCard in a flex-shrink-0 container */}
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
@@ -289,14 +322,28 @@ export default function BeaconOfHopePage() {
                   description="During the peak of COVID-19, we distributed thousands of free masks and PPE kits to frontline workers, vulnerable communities, and those most at risk. Our mission was to safeguard lives, curb the spread of the virus, and empower people with the protection they deserved."
                   imageSrc={imb1}
                 />
-              </div>
-            </div>
-            {/* Stylish scrollbar below */}
-            <div className="relative mt-4 h-2 w-full bg-gray-200 rounded-full overflow-hidden">
-              <div
-                className="absolute top-0 left-0 h-full bg-red-500 rounded-full transition-all"
-                style={{ width: `${hopeScrollPercent}%` }}
-              />
+              </div>            </div>
+            {/* Pagination dots */}
+            <div className="flex justify-center mt-8 space-x-2">
+              {Array.from({ length: totalCards }, (_, index) => (
+                <button
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                    currentCardIndex === index ? 'bg-red-600' : 'bg-gray-400 hover:bg-gray-300'
+                  }`}
+                  onClick={() => {
+                    const gallery = hopeGalleryRef.current
+                    if (gallery) {
+                      const cardWidth = gallery.scrollWidth / totalCards
+                      gallery.scrollTo({
+                        left: cardWidth * index,
+                        behavior: 'smooth'
+                      })
+                    }
+                  }}
+                  aria-label={`Go to hope card ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -377,19 +424,18 @@ export default function BeaconOfHopePage() {
               <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
               <p className="text-base text-gray-300 mb-6">
                 Committed to defending human dignity, protecting the vulnerable, and promoting justice for all through compassionate action and dedicated service.
-              </p>
-              <div className="flex gap-4">
+              </p>              <div className="flex gap-4">
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Facebook className="h-5 w-5" />
+                  <FaFacebookF className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Twitter className="h-5 w-5" />
+                  <FaTwitter className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Instagram className="h-5 w-5" />
+                  <FaInstagram className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Youtube className="h-5 w-5" />
+                  <FaYoutube className="h-5 w-5" />
                 </a>
               </div>
             </div>
@@ -401,19 +447,18 @@ export default function BeaconOfHopePage() {
               2025 Copyright <span className="font-bold text-white">International Human Rights And Domestic Protection Organization </span> 
               | <br/>
               Passionately crafted by <span className="font-bold text-white">Vasam IT Solutions</span>. All rights are reserved.
-            </p>
-            <div className="flex gap-4 mt-2 md:mt-0">
+            </p>            <div className="flex gap-4 mt-2 md:mt-0">
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Facebook className="h-5 w-5" />
+                <FaFacebookF className="h-5 w-5" />
               </a>
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Twitter className="h-5 w-5" />
+                <FaTwitter className="h-5 w-5" />
               </a>
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Instagram className="h-5 w-5" />
+                <FaInstagram className="h-5 w-5" />
               </a>
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Youtube className="h-5 w-5" />
+                <FaYoutube className="h-5 w-5" />
               </a>
             </div>
           </div>

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
 import { PieChart } from "../../components/pie-chart"
 import { Button } from "../../components/ui/button"
-import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, Menu, MailIcon, X } from "lucide-react"
+import { MapPin, Phone, Mail, Menu, MailIcon, X } from "lucide-react"
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa"
 import { useRef, useState, useEffect } from "react"
 import logoImg from '../../images/home/download.png';
 import qrCodeImg from '../../images/home/qr-code.png';
@@ -173,15 +174,14 @@ export default function HomePage() {
           <div 
             className="relative bg-white rounded-xl shadow-2xl overflow-hidden max-w-md w-full mx-4 animate-fadeIn"
             onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
+          >            {/* Close Button */}
             <button
-              className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center bg-white/90 hover:bg-white rounded-full shadow-md transition-all duration-200 hover:scale-110"
+              className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center hover:bg-gray-100/80 rounded-full transition-all duration-200 hover:scale-110 group"
               onClick={closeWelcomeModal}
               aria-label="Close"
               type="button"
             >
-              <X className="w-4 h-4 text-gray-600" />
+              <X className="w-5 h-5 text-gray-600 group-hover:text-gray-800" />
             </button>
             
             {/* Popup Image */}
@@ -240,10 +240,10 @@ export default function HomePage() {
                   <Phone />
                   <p>(+91) 9000700741</p>
                 </div>                <div className="flex items-center space-x-4">
-                  <Facebook />
-                  <Twitter />
-                  <Instagram />
-                  <Youtube />
+                  <FaFacebookF />
+                  <FaTwitter />
+                  <FaInstagram />
+                  <FaYoutube />
                 </div>
                 </div>
           <div className="flex items-center justify-between mt-10">            <div className="flex items-center">
@@ -805,19 +805,18 @@ export default function HomePage() {
               <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
               <p className="text-base text-gray-300 mb-6">
                 International Human Rights and Domestic Protection Organization is committed to defending human dignity and promoting justice for all.
-              </p>
-              <div className="flex gap-4">
+              </p>              <div className="flex gap-4">
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Facebook className="h-5 w-5" />
+                  <FaFacebookF className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Twitter className="h-5 w-5" />
+                  <FaTwitter className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Instagram className="h-5 w-5" />
+                  <FaInstagram className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Youtube className="h-5 w-5" />
+                  <FaYoutube className="h-5 w-5" />
                 </a>
               </div>
             </div>
@@ -829,19 +828,18 @@ export default function HomePage() {
               2025 Copyright <span className="font-bold text-white">International Human Rights And Domestic Protection Organization </span> 
               | <br/>
               Passionately crafted by <span className="font-bold text-white">Vasam IT Solutions</span>. All rights are reserved.
-            </p>
-            <div className="flex gap-4 mt-2 md:mt-0">
+            </p>            <div className="flex gap-4 mt-2 md:mt-0">
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Facebook className="h-5 w-5" />
+                <FaFacebookF className="h-5 w-5" />
               </a>
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Twitter className="h-5 w-5" />
+                <FaTwitter className="h-5 w-5" />
               </a>
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Instagram className="h-5 w-5" />
+                <FaInstagram className="h-5 w-5" />
               </a>
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Youtube className="h-5 w-5" />
+                <FaYoutube className="h-5 w-5" />
               </a>
             </div>
           </div>

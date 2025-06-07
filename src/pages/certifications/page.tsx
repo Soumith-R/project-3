@@ -4,8 +4,8 @@ import { Button } from "../../components/ui/button"
 import { useState } from "react"
 import logoImg from '../../images/home/download.png';
 import qrCodeImg from '../../images/home/qr-code.png';
-import { Menu } from "lucide-react"
-import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, FileText, Download, X } from "lucide-react"
+import { Menu, MapPin, Phone, Mail, FileText, Download, X } from "lucide-react"
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa"
 
 // Import all PDF files from certifications folder automatically
 type CertificationPDFsType = Record<string, { default: string }>;
@@ -115,10 +115,10 @@ export default function CertificationsPage() {
               <Phone />
               <p>(+91) 9000700741</p>
             </div>            <div className="flex items-center space-x-4">
-              <Facebook />
-              <Twitter />
-              <Instagram />
-              <Youtube />
+              <FaFacebookF />
+              <FaTwitter />
+              <FaInstagram />
+              <FaYoutube />
             </div>
           </div>
           <div className="flex items-center justify-between mt-10">
@@ -291,19 +291,18 @@ export default function CertificationsPage() {
               2025 Copyright <span className="font-bold text-white">International Human Rights And Domestic Protection Organization </span> 
               | <br/>
               Passionately crafted by <span className="font-bold text-white">Vasam IT Solutions</span>. All rights are reserved.
-            </p>
-            <div className="flex gap-4 mt-2 md:mt-0">
+            </p>            <div className="flex gap-4 mt-2 md:mt-0">
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Facebook className="h-5 w-5" />
+                <FaFacebookF className="h-5 w-5" />
               </a>
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Twitter className="h-5 w-5" />
+                <FaTwitter className="h-5 w-5" />
               </a>
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Instagram className="h-5 w-5" />
+                <FaInstagram className="h-5 w-5" />
               </a>
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <Youtube className="h-5 w-5" />
+                <FaYoutube className="h-5 w-5" />
               </a>
             </div>
           </div>

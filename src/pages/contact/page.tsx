@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom"
 import { Button } from "../../components/ui/button"
 import { ContactFormFull } from "../../components/contact-form-full"
-import { Menu } from "lucide-react"
-import { MapPin, Phone, Mail } from "lucide-react"
-import { Facebook, Twitter, Instagram, Youtube } from "lucide-react"
+import { Menu, MapPin, Phone, Mail } from "lucide-react"
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa"
 import { useState } from "react"
 import logoImg from '../../images/home/download.png'
 import qrCodeImg from '../../images/home/qr-code.png'
@@ -50,11 +49,10 @@ export default function ContactPage() {
               <p>contact@ihrcdpo.com</p>
               <Phone />
               <p>(+91) 9000700741</p>
-            </div>            <div className="flex items-center space-x-4">
-              <Facebook />
-              <Twitter />
-              <Instagram />
-              <Youtube />
+            </div>            <div className="flex items-center space-x-4">              <FaFacebookF />
+              <FaTwitter />
+              <FaInstagram />
+              <FaYoutube />
             </div>
           </div>
           <div className="flex items-center justify-between mt-10">
@@ -194,18 +192,17 @@ export default function ContactPage() {
               <p className="text-base mb-6">
                 International Human Rights And Domestic Protection Organization is dedicated to protecting and promoting human rights worldwide through advocacy, education, and direct action.
               </p>
-              <div className="flex gap-4">
-                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Facebook className="h-5 w-5" />
+              <div className="flex gap-4">                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                  <FaFacebookF className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Twitter className="h-5 w-5" />
+                  <FaTwitter className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Instagram className="h-5 w-5" />
+                  <FaInstagram className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <Youtube className="h-5 w-5" />
+                  <FaYoutube className="h-5 w-5" />
                 </a>
               </div>
             </div>
