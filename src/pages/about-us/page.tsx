@@ -97,9 +97,32 @@ export default function AboutUsPage() {
       })
     }, 3000)
   }
-
   return (
-    <div className="min-h-screen flex flex-col bg-[#1B1926]">
+    <>
+      <style>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
+      <div className="min-h-screen flex flex-col bg-[#1B1926]">
       {/* Donate QR Modal */}
       {showDonateModal && (
         <div
@@ -241,25 +264,34 @@ export default function AboutUsPage() {
       </section>      {/* Meet Our Team */}
       <section className="py-16 bg-navy-900 text-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Meet Our Team</h2>
-          <div 
+          <h2 className="text-3xl font-bold mb-12 text-center">Meet Our Team</h2>          <div 
             className="relative max-w-md mx-auto"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            {/* Single team member display */}
+            {/* Single team member display with smooth transitions */}
             <div className="overflow-hidden">
               <div className="flex flex-col items-center group">
-                <div className="relative overflow-hidden rounded-lg mb-6 bg-gray-700 w-48 h-48 flex items-center justify-center mx-auto">
+                <div className="relative overflow-hidden rounded-lg mb-6 bg-gray-700 w-48 h-48 flex items-center justify-center mx-auto transition-all duration-500 ease-in-out">
                   {teamMembers[currentSlide]?.hasImage ? (
                     <img 
+                      key={`img-${currentSlide}`}
                       src={teamMembers[currentSlide].image} 
                       alt={teamMembers[currentSlide].name} 
-                      className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" 
+                      className="w-full h-full object-cover object-top transition-all duration-500 ease-in-out group-hover:scale-105 opacity-0 animate-fadeIn" 
+                      style={{
+                        animation: 'fadeIn 0.5s ease-in-out forwards'
+                      }}
                     />
                   ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
-                      <div className="w-20 h-20 bg-gray-500 rounded-full flex items-center justify-center">
+                    <div 
+                      key={`placeholder-${currentSlide}`}
+                      className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center transition-all duration-500 ease-in-out opacity-0 animate-fadeIn"
+                      style={{
+                        animation: 'fadeIn 0.5s ease-in-out forwards'
+                      }}
+                    >
+                      <div className="w-20 h-20 bg-gray-500 rounded-full flex items-center justify-center transition-all duration-300">
                         <svg className="w-10 h-10 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                         </svg>
@@ -267,11 +299,23 @@ export default function AboutUsPage() {
                     </div>
                   )}
                 </div>
-                <div className="text-center w-full">
-                  <h3 className="font-semibold text-xl mb-2 text-white group-hover:text-red-400 transition-colors duration-300">
+                <div className="text-center w-full transition-all duration-500 ease-in-out">
+                  <h3 
+                    key={`name-${currentSlide}`}
+                    className="font-semibold text-xl mb-2 text-white group-hover:text-red-400 transition-all duration-500 ease-in-out opacity-0 animate-slideUp"
+                    style={{
+                      animation: 'slideUp 0.5s ease-in-out 0.2s forwards'
+                    }}
+                  >
                     {teamMembers[currentSlide]?.name}
                   </h3>
-                  <p className="text-base text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
+                  <p 
+                    key={`title-${currentSlide}`}
+                    className="text-base text-gray-300 group-hover:text-gray-200 transition-all duration-500 ease-in-out opacity-0 animate-slideUp"
+                    style={{
+                      animation: 'slideUp 0.5s ease-in-out 0.3s forwards'
+                    }}
+                  >
                     {teamMembers[currentSlide]?.title}
                   </p>
                 </div>
@@ -445,9 +489,9 @@ export default function AboutUsPage() {
               | <br/>
               Passionately crafted by <span className="font-bold text-white">Solutions</span>. All rights are reserved.
             </p>
-          </div>
-        </div>
+          </div>        </div>
       </footer>
-    </div>
+      </div>
+    </>
   )
 }
