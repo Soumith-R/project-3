@@ -195,12 +195,12 @@ export default function HomePage() {
             onClick={(e) => e.stopPropagation()}
           >            {/* Close Button */}
             <button
-              className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center hover:bg-gray-100/80 rounded-full transition-all duration-200 hover:scale-110 group"
+              className="absolute top-1 right-1 z-20 w-8 h-8 flex items-center justify-center hover:bg-black/10 rounded-full transition-all duration-200 hover:scale-110"
               onClick={closeWelcomeModal}
               aria-label="Close"
               type="button"
             >
-              <X className="w-5 h-5 text-gray-600 group-hover:text-gray-800" />
+              <X className="w-4 h-4 text-gray-400 hover:text-gray-600" />
             </button>
             
             {/* Popup Image */}
@@ -331,7 +331,7 @@ export default function HomePage() {
       </header>
 
       <main className="flex-grow">        {/* Hero Section */}        <section className="relative">
-          <div className="absolute inset-0 bg-black/50 z-10"></div>          <div className="relative h-80 sm:h-96 md:h-[450px] lg:h-[550px]">
+          <div className="absolute inset-0 bg-black/50 z-10"></div>          <div className="relative h-96 sm:h-[500px] md:h-[600px] lg:h-[700px]">
             <img
               src={heroImg}
               alt="Volunteers distributing aid"
@@ -497,9 +497,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Moments That Matter Section */}
-        <section className="py-16 w-full bg-white">
-          <div className="w-full max-w-5xl mx-auto px-0">
+        {/* Moments That Matter Section */}        <section className="py-16 w-full bg-white">
+          <div className="w-full max-w-5xl mx-auto px-4 md:px-0">
             <h2 className="text-3xl font-bold mb-12 text-center">Moments That Matter</h2>
             <div
               className="grid grid-cols-4 grid-rows-3 gap-2 md:gap-4 w-full mx-auto"
@@ -719,7 +718,18 @@ export default function HomePage() {
         <section className="py-16 bg-[#fbfdf9]">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-12 text-center">Our Proud Sponsors & Partners</h2>
-            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-8 justify-items-center">
+            {/* Mobile view - only show centered MCK logo */}
+            <div className="block md:hidden flex justify-center">
+              <div className="w-28 h-28 bg-white p-2 rounded-none flex items-center justify-center">
+                <img
+                  src={logoMckImg}
+                  alt="MCK Logo"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+            {/* Desktop view - show all 9 boxes in grid */}
+            <div className="hidden md:grid grid-cols-4 lg:grid-cols-9 gap-8 justify-items-center">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
                 <div
                   key={item}
@@ -834,26 +844,12 @@ export default function HomePage() {
             </div>
           </div>
           {/* Divider */}
-          <div className="border-t border-white/20 mt-12 mb-4"></div>
-          {/* Bottom copyright and social */}
+          <div className="border-t border-white/20 mt-12 mb-4"></div>          {/* Bottom copyright only */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">            <p className="text-sm text-white/80">
               2025 Copyright <span className="font-bold text-white">International Human Rights And Domestic Protection Organization </span> 
               | <br/>
               Passionately crafted by <span className="font-bold text-white">Vasam IT Solutions</span>. All rights are reserved.
-            </p>            <div className="flex gap-4 mt-2 md:mt-0">
-              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <FaFacebookF className="h-5 w-5" />
-              </a>
-              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <FaThreads className="h-5 w-5" />
-              </a>
-              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <FaInstagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <FaYoutube className="h-5 w-5" />
-              </a>
-            </div>
+            </p>
           </div>
         </div>
       </footer>
