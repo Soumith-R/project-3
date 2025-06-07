@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { PieChart } from "../../components/pie-chart"
 import { Button } from "../../components/ui/button"
-import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, Menu, MailIcon, Linkedin } from "lucide-react"
+import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, Menu, MailIcon, Linkedin, X } from "lucide-react"
 import { useRef, useState, useEffect } from "react"
 import logoImg from '../../images/home/logo.jpeg';
 import qrCodeImg from '../../images/home/qr-code.png';
@@ -22,12 +22,112 @@ import collage1Img from '../../images/home/collage1 1.png';
 import foodDistributionImg from '../../images/home/food distribution1 1.png';
 import migrantsImg from '../../images/home/migrants1 1.png';
 import rationDistributionImg from '../../images/home/ration distribution1 1.png';
+import popupImage from '../../images/popup/download.png';
 
 export default function HomePage() {
-  const galleryRef = useRef<HTMLDivElement>(null)
-  const [scrollPercent, setScrollPercent] = useState(0)
-  const [showDonateModal, setShowDonateModal] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const [scrollPercent, setScrollPercent] = useState(0);
+  const [showDonateModal, setShowDonateModal] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+  
+  // Check if localStorage is available
+  const isLocalStorageAvailable = () => {
+    try {
+      const test = '__localStorage_test__'
+      localStorage.setItem(test, test)
+      localStorage.removeItem(test)
+      return true
+    } catch (error) {
+      return false
+    }
+  }
+  
+  // Show welcome modal when component mounts (first visit)
+  useEffect(() => {
+    // Add a small delay to ensure component is fully mounted
+    const timer = setTimeout(() => {
+      try {
+        if (!isLocalStorageAvailable()) {
+          console.warn('localStorage not available, showing popup as fallback')
+          setShowWelcomeModal(true)
+          return
+        }
+
+        const hasSeenWelcome = localStorage.getItem('hasSeenWelcomeModal')
+        console.log('Checking localStorage for hasSeenWelcomeModal:', hasSeenWelcome)
+        
+        // Only show if the user hasn't seen it before
+        if (!hasSeenWelcome || hasSeenWelcome !== 'true') {
+          console.log('Showing welcome modal')
+          setShowWelcomeModal(true)
+        } else {
+          console.log('User has already seen welcome modal')
+        }
+      } catch (error) {
+        console.error('Error accessing localStorage:', error)
+        // Fallback: show modal if localStorage fails
+        setShowWelcomeModal(true)
+      }
+    }, 500) // Increased delay to ensure proper mounting
+
+    return () => clearTimeout(timer)
+  }, [])
+  const closeWelcomeModal = () => {
+    console.log('Closing welcome modal')
+    setShowWelcomeModal(false)
+    
+    try {
+      if (isLocalStorageAvailable()) {
+        localStorage.setItem('hasSeenWelcomeModal', 'true')
+        console.log('Set hasSeenWelcomeModal to true in localStorage')
+        
+        // Verify the value was set correctly
+        const verification = localStorage.getItem('hasSeenWelcomeModal')
+        console.log('Verification - localStorage value:', verification)
+      } else {
+        console.warn('localStorage not available, cannot persist popup state')
+      }
+    } catch (error) {
+      console.error('Error setting localStorage:', error)
+    }
+  }
+  // Add a debug function to manually trigger the popup (for testing)
+  const showPopupManually = () => {
+    setShowWelcomeModal(true)
+  }
+
+  // Function to reset popup (for testing)
+  const resetPopup = () => {
+    try {
+      localStorage.removeItem('hasSeenWelcomeModal')
+      setShowWelcomeModal(true)
+      console.log('Popup reset - removed localStorage flag and showing modal')
+    } catch (error) {
+      console.error('Error resetting popup:', error)
+    }
+  }
+
+  // Optional: Add keyboard event listeners for testing (remove in production)
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      // Ctrl+P to show popup manually
+      if (event.ctrlKey && event.key === 'p') {
+        event.preventDefault()
+        showPopupManually()
+        console.log('Manual popup triggered via Ctrl+P')
+      }
+      // Ctrl+R to reset popup
+      if (event.ctrlKey && event.key === 'r') {
+        event.preventDefault()
+        resetPopup()
+        console.log('Popup reset triggered via Ctrl+R')
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyPress)
+    return () => window.removeEventListener('keydown', handleKeyPress)
+  }, [])
 
   useEffect(() => {
     const gallery = galleryRef.current
@@ -43,8 +143,66 @@ export default function HomePage() {
     return () => gallery.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // Debug logging for component lifecycle
+  useEffect(() => {
+    console.log('HomePage component mounted')
+    return () => {
+      console.log('HomePage component unmounted')
+    }
+  }, [])
+
+  // Debug logging for modal state changes
+  useEffect(() => {
+    console.log('showWelcomeModal state changed to:', showWelcomeModal)
+  }, [showWelcomeModal])
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">      {/* Welcome Modal */}
+      {showWelcomeModal && (
+        <div 
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40 backdrop-blur-sm"
+          style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+          onClick={(e) => {
+            // Only close if clicking the backdrop, not the modal content
+            if (e.target === e.currentTarget) {
+              closeWelcomeModal()
+            }
+          }}
+        >
+          <div 
+            className="relative bg-white rounded-xl shadow-2xl overflow-hidden max-w-md w-full mx-4 animate-fadeIn"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center bg-white/90 hover:bg-white rounded-full shadow-md transition-all duration-200 hover:scale-110"
+              onClick={closeWelcomeModal}
+              aria-label="Close"
+              type="button"
+            >
+              <X className="w-4 h-4 text-gray-600" />
+            </button>
+            
+            {/* Popup Image */}
+            <div className="w-full">
+              <img
+                src={popupImage}
+                alt="Special Offer"
+                className="w-full h-auto object-cover"
+                onError={(e) => {
+                  console.error('Failed to load popup image:', e)
+                  // Hide modal if image fails to load
+                  closeWelcomeModal()
+                }}
+                onLoad={() => {
+                  console.log('Popup image loaded successfully')
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Donate QR Modal */}
       {showDonateModal && (
         <div
