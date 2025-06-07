@@ -2,7 +2,8 @@ import { Button } from "../../components/ui/button"
 import { HopeCard } from "../../components/hope-card"
 import { Link } from "react-router-dom"
 import { Menu, MapPin, Phone, Mail } from "lucide-react"
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa"
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa"
+import { FaThreads } from "react-icons/fa6"
 import { useRef, useState, useEffect } from "react"
 import logoImg from '../../images/home/download.png';
 import aboutUsImg from '../../images/gallery/about us 1.png';
@@ -114,7 +115,7 @@ export default function BeaconOfHopePage() {
               <p>(+91) 9000700741</p>
             </div>            <div className="flex items-center space-x-4">
               <FaFacebookF />
-              <FaTwitter />
+              <FaThreads />
               <FaInstagram />
               <FaYoutube />
             </div>
@@ -429,7 +430,7 @@ export default function BeaconOfHopePage() {
                   <FaFacebookF className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <FaTwitter className="h-5 w-5" />
+                  <FaThreads className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
                   <FaInstagram className="h-5 w-5" />
@@ -452,7 +453,7 @@ export default function BeaconOfHopePage() {
                 <FaFacebookF className="h-5 w-5" />
               </a>
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <FaTwitter className="h-5 w-5" />
+                <FaThreads className="h-5 w-5" />
               </a>
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
                 <FaInstagram className="h-5 w-5" />

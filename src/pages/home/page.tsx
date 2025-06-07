@@ -2,7 +2,8 @@ import { Link } from "react-router-dom"
 import { PieChart } from "../../components/pie-chart"
 import { Button } from "../../components/ui/button"
 import { MapPin, Phone, Mail, Menu, MailIcon, X } from "lucide-react"
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa"
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa"
+import { FaThreads } from "react-icons/fa6"
 import { useRef, useState, useEffect } from "react"
 import logoImg from '../../images/home/download.png';
 import qrCodeImg from '../../images/home/qr-code.png';
@@ -259,7 +260,7 @@ export default function HomePage() {
                   <p>(+91) 9000700741</p>
                 </div>                <div className="flex items-center space-x-4">
                   <FaFacebookF />
-                  <FaTwitter />
+                  <FaThreads />
                   <FaInstagram />
                   <FaYoutube />
                 </div>
@@ -820,9 +821,8 @@ export default function HomePage() {
               </p>              <div className="flex gap-4">
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
                   <FaFacebookF className="h-5 w-5" />
-                </a>
-                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <FaTwitter className="h-5 w-5" />
+                </a>                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                  <FaThreads className="h-5 w-5" />
                 </a>
                 <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
                   <FaInstagram className="h-5 w-5" />
@@ -845,7 +845,7 @@ export default function HomePage() {
                 <FaFacebookF className="h-5 w-5" />
               </a>
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <FaTwitter className="h-5 w-5" />
+                <FaThreads className="h-5 w-5" />
               </a>
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
                 <FaInstagram className="h-5 w-5" />
