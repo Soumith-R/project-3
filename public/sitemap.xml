@@ -3,7 +3,7 @@
   
   <!-- Home Page - Highest Priority -->
   <url>
-    <loc>https://ihrcdpo.xyz/</loc>
+    <loc>https://ihrcdpo.com/</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
   
   <!-- About Us - High Priority -->
   <url>
-    <loc>https://ihrcdpo.xyz/about-us</loc>
+    <loc>https://ihrcdpo.com/about-us</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -19,7 +19,7 @@
   
   <!-- What We Do - High Priority -->
   <url>
-    <loc>https://ihrcdpo.xyz/what-we-do</loc>
+    <loc>https://ihrcdpo.com/what-we-do</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -27,7 +27,7 @@
   
   <!-- Contact Us - High Priority -->
   <url>
-    <loc>https://ihrcdpo.xyz/contact</loc>
+    <loc>https://ihrcdpo.com/contact</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -35,7 +35,7 @@
   
   <!-- Get Involved - High Priority -->
   <url>
-    <loc>https://ihrcdpo.xyz/get-involved</loc>
+    <loc>https://ihrcdpo.com/get-involved</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -43,7 +43,7 @@
   
   <!-- Gallery - Medium Priority -->
   <url>
-    <loc>https://ihrcdpo.xyz/gallery</loc>
+    <loc>https://ihrcdpo.com/gallery</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -51,7 +51,7 @@
   
   <!-- Beacon of Hope - Medium Priority -->
   <url>
-    <loc>https://ihrcdpo.xyz/beacon-of-hope</loc>
+    <loc>https://ihrcdpo.com/beacon-of-hope</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -59,7 +59,7 @@
   
   <!-- Certifications - Lower Priority -->
   <url>
-    <loc>https://ihrcdpo.xyz/certifications</loc>
+    <loc>https://ihrcdpo.com/certifications</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
