@@ -1,52 +1,23 @@
-// Certifications page: displays all PDF certifications with PDF viewer functionality
+// Certifications page: displays professional certification information
 import { Link } from "react-router-dom"
 import { Button } from "../../components/ui/button"
 import { useState, useEffect } from "react"
 import { updateSEO, pageSEOConfig } from "../../lib/seo"
 import logoImg from '../../images/home/download.png';
 import qrCodeImg from '../../images/home/qr-code.png';
-import { Menu, MapPin, Phone, Mail, FileText, Download, X } from "lucide-react"
+import { Menu, MapPin, Phone, Mail, FileText } from "lucide-react"
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa"
 import { FaThreads } from "react-icons/fa6"
-
-// Import all PDF files from certifications folder automatically
-type CertificationPDFsType = Record<string, { default: string }>;
-
-const certificationPDFModules: CertificationPDFsType = import.meta.glob('../../certifications/*.pdf', { eager: true });
-
-const certificationPDFs: { src: string; name: string }[] = Object.entries(certificationPDFModules)
-  .map(([path, mod]) => ({
-    src: mod.default,
-    name: path.split('/').pop()?.replace('.pdf', '') || 'Unknown Certificate'
-  }))
-  .filter(Boolean);
-
-// Helper function to format certificate names
-const formatCertificateName = (name: string) => {
-  return name
-    .replace(/_/g, ' ')
-    .replace(/([A-Z])/g, ' $1')
-    .replace(/^\w/, c => c.toUpperCase())
-    .trim();
-};
 
 export default function CertificationsPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [modalPDF, setModalPDF] = useState<string | null>(null)
-  const [modalPDFName, setModalPDFName] = useState<string>('')
-  
-  const openPDFModal = (pdfSrc: string, pdfName: string) => {
-    setModalPDF(pdfSrc)
-    setModalPDFName(pdfName)
-  }
 
   useEffect(() => {
     updateSEO(pageSEOConfig.certifications)
   }, [])
-
   return (
-    <div className="min-h-screen flex flex-col bg-gray-900">
+    <div className="min-h-screen flex flex-col bg-[#101829]">
       {/* Donate QR Modal */}
       {showDonateModal && (
         <div
@@ -74,44 +45,7 @@ export default function CertificationsPage() {
           </div>
         </div>
       )}
-      
-      {/* PDF Viewer Modal */}
-      {modalPDF && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90" onClick={() => setModalPDF(null)}>
-          <div className="relative w-full h-full max-w-6xl max-h-[95vh] flex flex-col bg-white rounded-lg m-4" onClick={e => e.stopPropagation()}>
-            {/* Modal Header */}
-            <div className="flex items-center justify-between p-4 border-b bg-gray-50 rounded-t-lg">
-              <h3 className="text-lg font-semibold text-gray-800 truncate">{formatCertificateName(modalPDFName)}</h3>
-              <div className="flex items-center gap-2">
-                <a
-                  href={modalPDF}
-                  download={`${modalPDFName}.pdf`}
-                  className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                  title="Download PDF"
-                >
-                  <Download className="w-5 h-5" />
-                </a>
-                <button
-                  className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                  onClick={() => setModalPDF(null)}
-                  aria-label="Close"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-            
-            {/* PDF Viewer */}
-            <div className="flex-1 min-h-0">
-              <iframe
-                src={modalPDF}
-                className="w-full h-full border-0"
-                title={`PDF Viewer - ${formatCertificateName(modalPDFName)}`}
-              />
-            </div>
-          </div>
-        </div>
-      )}
+  
 
       <header className="sticky top-0 z-50 bg-white/80 border-b border-white/30 shadow-lg transition-all duration-300">
         <div className="container mx-auto px-2 sm:px-4 py-2">
@@ -169,79 +103,136 @@ export default function CertificationsPage() {
       <main className="flex-grow">
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h1 className="text-4xl font-bold text-white mb-8 text-center">Certifications</h1>
-            <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
-              View our official certifications, registrations, and legal documents that validate our organization's legitimacy and commitment to transparency.
+            <h1 className="text-4xl font-bold text-white mb-8 text-center">Certifications & Legal Status</h1>
+            <p className="text-center text-gray-300 mb-12 max-w-3xl mx-auto">
+              IHRCDPO operates with full legal compliance and transparency. Our organization holds all necessary certifications and registrations required for humanitarian and human rights work in India.
             </p>
             
-            {certificationPDFs.length === 0 ? (
-              <div className="text-center py-16">
-                <FileText className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-400 text-lg">No certifications available at the moment.</p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {certificationPDFs.map((pdf, idx) => (                  <div
-                    key={idx}
-                    className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group cursor-pointer"
-                    onClick={() => openPDFModal(pdf.src, pdf.name)}
-                  >
-                    {/* PDF Preview/Thumbnail */}
-                    <div className="aspect-[3/4] bg-gray-100 relative overflow-hidden">
-                      <iframe
-                        src={`${pdf.src}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
-                        className="w-full h-full border-0 pointer-events-none scale-100 origin-top-left"
-                        title={`Preview - ${formatCertificateName(pdf.name)}`}
-                        style={{ 
-                          transform: 'scale(1)',
-                          transformOrigin: 'top left'
-                        }}
-                      />
-                      
-                      {/* Hover overlay */}
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-                        <div className="text-white text-center">
-                          <FileText className="w-12 h-12 mx-auto mb-2" />
-                          <div className="text-sm font-medium">Click to view full document</div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* PDF Info */}
-                    <div className="p-4">
-                      <h3 className="font-semibold text-gray-800 text-sm mb-2 line-clamp-2 group-hover:text-red-600 transition-colors duration-300">
-                        {formatCertificateName(pdf.name)}
-                      </h3>
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                          PDF Document
-                        </span>
-                        <a
-                          href={pdf.src}
-                          download={`${pdf.name}.pdf`}
-                          className="p-1 text-gray-400 hover:text-blue-600 transition-colors duration-200"
-                          title="Download PDF"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <Download className="w-4 h-4" />
-                        </a>
-                      </div>
-                    </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">              {/* NGO Darpan Registration */}
+              <div className="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="flex items-center mb-4">                  <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center mr-4">
+                    <FileText className="w-6 h-6 text-gray-400" />
                   </div>
-                ))}
+                  <h3 className="text-xl font-semibold text-white">NGO Darpan Registration</h3>
+                </div>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Registered with the Government of India's NGO Darpan portal, ensuring transparency and accountability in our operations and funding activities.
+                </p>
+                <div className="mt-4 flex items-center text-white text-sm font-bold">
+                  <div className="w-2 h-2 bg-white rounded-full mr-2"></div>
+                  Verified & Active
+                </div>
               </div>
-            )}
+
+              {/* Udyam Registration */}              <div className="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="flex items-center mb-4">                  <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center mr-4">
+                    <FileText className="w-6 h-6 text-gray-400" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">Udyam Registration</h3>
+                </div>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Certified under the Government of India's Udyam Registration scheme, validating our organization's legal structure and operational capabilities.
+                </p>
+                <div className="mt-4 flex items-center text-white text-sm font-bold">
+                  <div className="w-2 h-2 bg-white rounded-full mr-2"></div>
+                  Government Certified
+                </div>
+              </div>
+
+              {/* International Human Rights Commission */}              <div className="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="flex items-center mb-4">                  <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center mr-4">
+                    <FileText className="w-6 h-6 text-gray-400" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">Human Rights Commission</h3>
+                </div>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Officially recognized as an International Human Rights Commission, authorized to work on human rights advocacy and protection services.
+                </p>
+                <div className="mt-4 flex items-center text-white text-sm font-bold">
+                  <div className="w-2 h-2 bg-white rounded-full mr-2"></div>
+                  International Recognition
+                </div>
+              </div>
+
+              {/* AACTI Registration */}              <div className="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="flex items-center mb-4">                  <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center mr-4">
+                    <FileText className="w-6 h-6 text-gray-400" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">AACTI Registration</h3>
+                </div>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Registered with AACTI (Association for Action and Community Training Initiative), enabling collaborative humanitarian work and community development.
+                </p>
+                <div className="mt-4 flex items-center text-white text-sm font-bold">
+                  <div className="w-2 h-2 bg-white rounded-full mr-2"></div>
+                  Community Certified
+                </div>
+              </div>
+
+              {/* Trademark Registration */}              <div className="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="flex items-center mb-4">                  <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center mr-4">
+                    <FileText className="w-6 h-6 text-gray-400" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">Trademark Protection</h3>
+                </div>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Our organization name and logo are protected under trademark law, ensuring brand integrity and preventing unauthorized use.
+                </p>
+                <div className="mt-4 flex items-center text-white text-sm font-bold">
+                  <div className="w-2 h-2 bg-white rounded-full mr-2"></div>
+                  Legally Protected
+                </div>
+              </div>
+
+              {/* Trust & Transparency */}              <div className="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border-2 border-gray-700">
+                <div className="flex items-center mb-4">                  <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center mr-4">
+                    <FileText className="w-6 h-6 text-gray-400" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">Transparency Commitment</h3>
+                </div>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  All our certifications and legal documents are maintained as per regulatory requirements. We operate with complete transparency and accountability.
+                </p>
+                <div className="mt-4 flex items-center text-white text-sm font-bold">
+                  <div className="w-2 h-2 bg-white rounded-full mr-2"></div>
+                  100% Compliant
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* Expanded Legal Compliance & Verification section, full-width */}
+        <section className="py-16 bg-[#1B1926]">
+          <h2 className="text-2xl font-bold text-white mb-4 text-center">Legal Compliance & Verification</h2>
+          <p className="text-gray-300 mb-6 max-w-3xl mx-auto text-center">
+            IHRCDPO maintains all necessary legal documentation and certifications required for operating as a humanitarian organization in India. 
+            Our commitment to transparency ensures that all stakeholders can trust in our legitimate operations and ethical practices.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-red-500 mb-2">5+</div>
+              <p className="text-gray-300">Official Certifications</p>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-red-500 mb-2">100%</div>
+              <p className="text-gray-300">Legal Compliance</p>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-red-500 mb-2">2024</div>
+              <p className="text-gray-300">Established</p>
+            </div>
           </div>
         </section>
       </main>
       
-      <footer className="bg-[#18162a] text-white pt-12 pb-6">
+      <footer className="bg-[#0E0E30] text-white pt-12 pb-6">
         <div className="container mx-auto px-4">
-          <div className="gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {/* Other Links */}
             <div>
               <h3 className="text-2xl font-bold mb-2">Other Links</h3>
-              <div className="w-12 h-0.5 bg-white/30 mb-6"></div>              <div className="grid grid-cols-3 gap-x-6 gap-y-2 text-base">
+              <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
+              <div className="grid grid-cols-3 gap-x-6 gap-y-2 text-base">
                 <div className="flex flex-col gap-2">
                   <Link to="/" className="hover:underline">Home</Link>
                   <Link to="/about-us" className="hover:underline">About us</Link>
@@ -264,7 +255,8 @@ export default function CertificationsPage() {
                 <li className="flex items-start gap-4">
                   <span className="mt-1">
                     <MapPin className="h-6 w-6 text-white" />
-                  </span>                  <span>
+                  </span>
+                  <span>
                     Gayatri Co-Operative Urban Bank Ltd,<br />
                     Opp: Railway Station, Bhongir-508116,<br />
                     Yadadri Bhongir Dist.
@@ -273,7 +265,8 @@ export default function CertificationsPage() {
                 <li className="flex items-start gap-4">
                   <span className="mt-1">
                     <Phone className="h-6 w-6 text-white" />
-                  </span>                  <span>
+                  </span>
+                  <span>
                     Phone (+91) 9000700741<br />
                     Phone (+91) 9000700739
                   </span>
@@ -293,14 +286,17 @@ export default function CertificationsPage() {
           {/* Divider */}
           <div className="border-t border-white/20 mt-12 mb-4"></div>
           {/* Bottom copyright and social */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">            <p className="text-sm text-white/80">
-              2025 Copyright <span className="font-bold text-white">International Human Rights Commission and Domestic Protection Organization </span> 
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <p className="text-sm text-white/80">
+              2025 Copyright <span className="font-bold text-white">International Human Rights Commission and Domestic Protection Organization </span>
               | <br/>
               Passionately crafted by <span className="font-bold text-white">Vasam IT Solutions</span>. All rights are reserved.
-            </p><div className="flex gap-4 mt-2 md:mt-0">
+            </p>
+            <div className="flex gap-4 mt-2 md:mt-0">
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
                 <FaFacebookF className="h-5 w-5" />
-              </a>              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+              </a>
+              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
                 <FaThreads className="h-5 w-5" />
               </a>
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">

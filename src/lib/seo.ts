@@ -42,16 +42,30 @@ export const updateSEO = ({
   // Update basic meta tags
   updateMetaTag('description', description);
   updateMetaTag('keywords', keywords);
+  
+  // iOS Safari specific meta tags
+  updateMetaTag('apple-mobile-web-app-title', 'IHRCDPO');
+  updateMetaTag('apple-mobile-web-app-capable', 'yes');
+  updateMetaTag('apple-mobile-web-app-status-bar-style', 'black-translucent');
+  updateMetaTag('format-detection', 'telephone=yes');
+  updateMetaTag('HandheldFriendly', 'true');
+  updateMetaTag('MobileOptimized', 'width');
+  updateMetaTag('mobile-web-app-capable', 'yes');
+  
   // Update Open Graph tags
   updateMetaTag('og:title', ogTitle || title, true);
   updateMetaTag('og:description', ogDescription || description, true);
   updateMetaTag('og:image', ogImage || 'https://ihrcdpo.com/favicon.png', true);
   updateMetaTag('og:url', canonicalUrl || window.location.href, true);
-
+  updateMetaTag('og:type', 'website', true);
+  updateMetaTag('og:site_name', 'IHRCDPO', true);
+  updateMetaTag('og:locale', 'en_IN', true);
   // Update Twitter tags
+  updateMetaTag('twitter:card', 'summary_large_image');
   updateMetaTag('twitter:title', ogTitle || title);
   updateMetaTag('twitter:description', ogDescription || description);
   updateMetaTag('twitter:image', ogImage || 'https://ihrcdpo.com/favicon.png');
+  updateMetaTag('twitter:url', canonicalUrl || window.location.href);
 
   // Update canonical URL
   let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
@@ -61,6 +75,21 @@ export const updateSEO = ({
     document.head.appendChild(canonicalLink);
   }
   canonicalLink.setAttribute('href', canonicalUrl || window.location.href);
+  
+  // iOS Safari specific optimizations
+  const addAppleTouchIcon = (size: string) => {
+    const existingIcon = document.querySelector(`link[rel="apple-touch-icon"][sizes="${size}"]`);
+    if (!existingIcon) {
+      const iconLink = document.createElement('link');
+      iconLink.setAttribute('rel', 'apple-touch-icon');
+      iconLink.setAttribute('sizes', size);
+      iconLink.setAttribute('href', '/apple-touch-icon.png');
+      document.head.appendChild(iconLink);
+    }
+  };
+  
+  // Add multiple apple touch icon sizes for better iOS compatibility
+  ['57x57', '60x60', '72x72', '76x76', '114x114', '120x120', '144x144', '152x152', '180x180'].forEach(addAppleTouchIcon);
 };
 
 // Page-specific SEO configurations
