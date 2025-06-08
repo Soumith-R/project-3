@@ -42,17 +42,16 @@ export const updateSEO = ({
   // Update basic meta tags
   updateMetaTag('description', description);
   updateMetaTag('keywords', keywords);
-
   // Update Open Graph tags
   updateMetaTag('og:title', ogTitle || title, true);
   updateMetaTag('og:description', ogDescription || description, true);
-  updateMetaTag('og:image', ogImage || 'https://ihrcdpo.com/src/images/home/download.png', true);
+  updateMetaTag('og:image', ogImage || 'https://ihrcdpo.com/favicon.png', true);
   updateMetaTag('og:url', canonicalUrl || window.location.href, true);
 
   // Update Twitter tags
   updateMetaTag('twitter:title', ogTitle || title);
   updateMetaTag('twitter:description', ogDescription || description);
-  updateMetaTag('twitter:image', ogImage || 'https://ihrcdpo.com/src/images/home/download.png');
+  updateMetaTag('twitter:image', ogImage || 'https://ihrcdpo.com/favicon.png');
 
   // Update canonical URL
   let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
