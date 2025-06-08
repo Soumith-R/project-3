@@ -493,13 +493,11 @@ export default function HomePage() {
               DONATE
             </Button>
           </div>
-        </section>
-
-        {/* Moments That Matter Section */}        <section className="py-16 w-full bg-white">
-          <div className="w-full max-w-5xl mx-auto px-4 md:px-0">
+        </section>        {/* Moments That Matter Section */}        <section className="py-16 w-full bg-white">
+          <div className="w-full max-w-5xl mx-auto px-4 md:px-6 lg:px-8 xl:px-0">
             <h2 className="text-3xl font-bold mb-12 text-center">Moments That Matter</h2>
             <div
-              className="grid grid-cols-4 grid-rows-3 gap-2 md:gap-4 w-full mx-auto"
+              className="grid grid-cols-4 grid-rows-3 gap-2 md:gap-4 lg:gap-6 w-full mx-auto"
               style={{ minHeight: 500 }}
             >
               {/* Top left large vertical image */}
@@ -716,37 +714,15 @@ export default function HomePage() {
         <section className="py-16 bg-[#fbfdf9]">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-12 text-center">Our Proud Sponsors & Partners</h2>
-            {/* Mobile view - only show centered MCK logo */}
-            <div className="block md:hidden flex justify-center">
-              <div className="w-28 h-28 bg-white p-2 rounded-none flex items-center justify-center">
+            {/* Single centered sponsor logo for all screen sizes */}
+            <div className="flex justify-center">
+              <div className="w-32 h-32 md:w-40 md:h-40 bg-white p-4 rounded-lg shadow-md flex items-center justify-center">
                 <img
                   src={logoMckImg}
                   alt="MCK Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
-            </div>
-            {/* Desktop view - show all 9 boxes in grid */}
-            <div className="hidden md:grid grid-cols-4 lg:grid-cols-9 gap-8 justify-items-center">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
-                <div
-                  key={item}
-                  className={`w-28 h-28 rounded-none flex items-center justify-center ${
-                    item === 1 ? 'bg-white p-2' : 'bg-[#0E0E30]'
-                  }`}
-                >
-                  {item === 1 ? (
-                    <img
-                      src={logoMckImg}
-                      alt="MCK Logo"
-                      className="w-full h-full object-contain"
-                    />
-                  ) : (
-                    /* Empty for now, just a dark square */
-                    null
-                  )}
-                </div>
-              ))}
             </div>
           </div>
         </section>
