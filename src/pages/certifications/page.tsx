@@ -1,7 +1,8 @@
 // Certifications page: displays all PDF certifications with PDF viewer functionality
 import { Link } from "react-router-dom"
 import { Button } from "../../components/ui/button"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { updateSEO, pageSEOConfig } from "../../lib/seo"
 import logoImg from '../../images/home/download.png';
 import qrCodeImg from '../../images/home/qr-code.png';
 import { Menu, MapPin, Phone, Mail, FileText, Download, X } from "lucide-react"
@@ -39,6 +40,10 @@ export default function CertificationsPage() {
     setModalPDF(pdfSrc)
     setModalPDFName(pdfName)
   }
+
+  useEffect(() => {
+    updateSEO(pageSEOConfig.certifications)
+  }, [])
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-900">

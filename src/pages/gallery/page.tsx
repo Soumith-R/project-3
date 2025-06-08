@@ -1,7 +1,8 @@
 // Gallery page: displays all images in a responsive grid
 import { Link } from "react-router-dom"
 import { Button } from "../../components/ui/button"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { updateSEO, pageSEOConfig } from "../../lib/seo"
 import logoImg from '../../images/home/download.png';
 import qrCodeImg from '../../images/home/qr-code.png';
 import { Menu, MapPin, Phone, Mail, ZoomIn } from "lucide-react"
@@ -24,6 +25,9 @@ export default function GalleryPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [modalImg, setModalImg] = useState<string | null>(null)
+  useEffect(() => {
+    updateSEO(pageSEOConfig.gallery)
+  }, [])
   return (
     <div className="min-h-screen flex flex-col bg-gray-900">
       {/* Donate QR Modal */}

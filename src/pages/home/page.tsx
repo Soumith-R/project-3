@@ -5,6 +5,7 @@ import { MapPin, Phone, Mail, Menu, MailIcon, X } from "lucide-react"
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa"
 import { FaThreads } from "react-icons/fa6"
 import { useRef, useState, useEffect } from "react"
+import { updateSEO, pageSEOConfig } from "../../lib/seo"
 import logoImg from '../../images/home/download.png';
 import qrCodeImg from '../../images/home/qr-code.png';
 import heroImg from '../../images/home/hero1.1.1.jpg';
@@ -171,11 +172,15 @@ export default function HomePage() {
       console.log('HomePage component unmounted')
     }
   }, [])
-
   // Debug logging for modal state changes
   useEffect(() => {
     console.log('showWelcomeModal state changed to:', showWelcomeModal)
   }, [showWelcomeModal])
+
+  // SEO Implementation - Update meta tags when component mounts
+  useEffect(() => {
+    updateSEO(pageSEOConfig.home);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">      {/* Welcome Modal */}

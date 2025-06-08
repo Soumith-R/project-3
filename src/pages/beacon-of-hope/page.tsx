@@ -1,10 +1,11 @@
 import { Button } from "../../components/ui/button"
 import { HopeCard } from "../../components/hope-card"
 import { Link } from "react-router-dom"
-import { Menu, MapPin, Phone, Mail } from "lucide-react"
+import { Menu, Phone, Mail } from "lucide-react"
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa"
 import { FaThreads } from "react-icons/fa6"
 import { useRef, useState, useEffect } from "react"
+import { updateSEO, pageSEOConfig } from "../../lib/seo"
 import logoImg from '../../images/home/download.png';
 import aboutUsImg from '../../images/gallery/about us 1.png';
 import c4 from '../../images/home/c4 1.png';
@@ -30,6 +31,11 @@ export default function BeaconOfHopePage() {
   const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false)
     // Total number of cards in the Hope Needs Action section
   const totalCards = 10
+
+  // SEO implementation
+  useEffect(() => {
+    updateSEO(pageSEOConfig.beaconOfHope);
+  }, []);
   
   useEffect(() => {
     const gallery = hopeGalleryRef.current
@@ -334,15 +340,21 @@ export default function BeaconOfHopePage() {
                   }`}
                   onClick={() => {
                     const gallery = hopeGalleryRef.current
-                    if (gallery) {
-                      const cardWidth = gallery.scrollWidth / totalCards
-                      gallery.scrollTo({
-                        left: cardWidth * index,
-                        behavior: 'smooth'
-                      })
-                    }
+                    if (!gallery) return
+
+                    // Calculate the target scroll position
+                    const cardWidth = gallery.scrollWidth / totalCards
+                    const targetScrollLeft = index * cardWidth
+
+                    // Scroll to the target position
+                    gallery.scrollTo({
+                      left: targetScrollLeft,
+                      behavior: 'smooth'
+                    })
+
+                    setCurrentCardIndex(index)
                   }}
-                  aria-label={`Go to hope card ${index + 1}`}
+                  aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
             </div>
@@ -350,118 +362,66 @@ export default function BeaconOfHopePage() {
         </div>
       </section>
 
-      {/* Lighting Lives */}
-      <section className="py-16 bg-[#1B1926] text-white text-center">
-        <div className="container mx-auto px-4 max-w-2xl">
-          <h2 className="text-3xl font-bold mb-6">Lighting Lives in the Darkest Times</h2>
-          <p className="mb-8">
-            In every crisis, we choose compassion over fear.
-            <br />
-            With every life we touch, we shine a light of hope that never fades.
-          </p>
-          <Link to="/contact">
-            <Button className="bg-red-600 hover:bg-red-700">Join Us</Button>
-          </Link>
-        </div>
-      </section>      <footer className="bg-[#0E0E30] text-white pt-12 pb-6">
+      {/* Footer */}
+      <footer className="bg-[#0E0E30] text-white py-8">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {/* Other Links */}
-            <div>
-              <h3 className="text-2xl font-bold mb-2">Other Links</h3>
-              <div className="w-12 h-0.5 bg-white/30 mb-6"></div>              <div className="grid grid-cols-3 gap-x-6 gap-y-2 text-base">
-                <div className="flex flex-col gap-2">
-                  <Link to="/" className="hover:underline">Home</Link>
-                  <Link to="/about-us" className="hover:underline">About us</Link>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Link to="/get-involved" className="hover:underline">Get involved</Link>
-                  <Link to="/" className="hover:underline">Donate</Link>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Link to="/certifications" className="hover:underline">Certifications</Link>
-                  <Link to="/contact" className="hover:underline">Contact</Link>
-                </div>
-              </div>
+          <div className="flex flex-col md:flex-row justify-between gap-8">
+            <div className="md:w-1/3">
+              <h3 className="text-lg font-semibold mb-4">About Us</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                We are a non-profit organization dedicated to protecting and promoting human rights, providing humanitarian aid, and supporting sustainable development initiatives.
+              </p>
             </div>
-            
-            {/* Contact Us */}
-            <div>
-              <h3 className="text-2xl font-bold mb-2">Contact Us</h3>
-              <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
-              <ul className="space-y-6 text-base">
-                <li className="flex items-start gap-4">
-                  <span className="mt-1">
-                    <MapPin className="h-6 w-6 text-white" />
-                  </span>                  <span>
-                    Gayatri Co-Operative Urban Bank Ltd,<br />
-                    Opp: Railway Station, Bhongir-508116,<br />
-                    Yadadri Bhongir Dist.
-                  </span>
+            <div className="md:w-1/3">
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link to="/" className="text-gray-400 hover:text-white transition-colors duration-300">Home</Link>
                 </li>
-                <li className="flex items-start gap-4">
-                  <span className="mt-1">
-                    <Phone className="h-6 w-6 text-white" />
-                  </span>                  <span>
-                    Phone (+91) 9000700741<br />
-                    Phone (+91) 9000700739
-                  </span>
+                <li>
+                  <Link to="/about-us" className="text-gray-400 hover:text-white transition-colors duration-300">About Us</Link>
                 </li>
-                <li className="flex items-start gap-4">
-                  <span className="mt-1">
-                    <Mail className="h-6 w-6 text-white" />
-                  </span>
-                  <span>
-                    contact@ihrcdpo.com<br />
-                    Every act of kindness creates ripples of change that transform communities and restore hope to those who need it most.
-                  </span>
+                <li>
+                  <Link to="/get-involved" className="text-gray-400 hover:text-white transition-colors duration-300">Get Involved</Link>
+                </li>
+                <li>
+                  <Link to="/gallery" className="text-gray-400 hover:text-white transition-colors duration-300">Gallery</Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="text-gray-400 hover:text-white transition-colors duration-300">Contact</Link>
                 </li>
               </ul>
             </div>
-
-            {/* About IHRDPO */}
-            <div>
-              <h3 className="text-2xl font-bold mb-2">About IHRDPO</h3>
-              <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
-              <p className="text-base text-gray-300 mb-6">
-                Committed to defending human dignity, protecting the vulnerable, and promoting justice for all through compassionate action and dedicated service.
-              </p>              <div className="flex gap-4">
-                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+            <div className="md:w-1/3">
+              <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Email: contact@ihrcdpo.com
+              </p>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Phone: (+91) 9000700741
+              </p>
+              <div className="flex space-x-4 mt-4">
+                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
                   <FaFacebookF className="h-5 w-5" />
                 </a>
-                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <FaThreads className="h-5 w-5" />
-                </a>
-                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
                   <FaInstagram className="h-5 w-5" />
                 </a>
-                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
                   <FaYoutube className="h-5 w-5" />
-                </a>
-              </div>
+                </a>                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <FaThreads className="h-5 w-5" />
+                </a>              </div>
             </div>
           </div>
-          {/* Divider */}
           <div className="border-t border-white/20 mt-12 mb-4"></div>
-          {/* Bottom copyright and social */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">            <p className="text-sm text-white/80">
+          {/* Bottom copyright */}
+          <div className="text-center md:text-left">
+            <p className="text-sm text-white/80">
               2025 Copyright <span className="font-bold text-white">International Human Rights And Domestic Protection Organization </span> 
               | <br/>
               Passionately crafted by <span className="font-bold text-white">Vasam IT Solutions</span>. All rights are reserved.
-            </p>            <div className="flex gap-4 mt-2 md:mt-0">
-              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <FaFacebookF className="h-5 w-5" />
-              </a>
-              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <FaThreads className="h-5 w-5" />
-              </a>
-              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <FaInstagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                <FaYoutube className="h-5 w-5" />
-              </a>
-            </div>
+            </p>
           </div>
         </div>
       </footer>

@@ -4,7 +4,8 @@ import { ContactFormFull } from "../../components/contact-form-full"
 import { Menu, MapPin, Phone, Mail } from "lucide-react"
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa"
 import { FaThreads } from "react-icons/fa6"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { updateSEO, pageSEOConfig } from "../../lib/seo"
 import logoImg from '../../images/home/download.png'
 import qrCodeImg from '../../images/home/qr-code.png'
 import getInTouchImg from '../../images/contact/getintouchup1.png'
@@ -14,6 +15,11 @@ import getInTouchImg from '../../images/contact/getintouchup1.png'
 export default function GetInvolvedPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // SEO implementation
+  useEffect(() => {
+    updateSEO(pageSEOConfig.getInvolved);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-900">

@@ -5,6 +5,7 @@ import { Button } from "../../components/ui/button"
 import { ContactForm } from "../../components/contact-form"
 import { Link } from "react-router-dom"
 import { useState, useEffect, useRef } from "react"
+import { updateSEO, pageSEOConfig } from "../../lib/seo"
 import logoImg from '../../images/home/download.png'
 import qrCodeImg from '../../images/home/qr-code.png'
 import pres from '../../images/about/president.jpg'
@@ -65,7 +66,14 @@ export default function AboutUsPage() {
       title: "HR and Admin Manager",
       image: "",
       hasImage: false
-    }  ]  // Auto-scroll functionality
+    }  ]  
+    
+  // SEO implementation
+  useEffect(() => {
+    updateSEO(pageSEOConfig.about);
+  }, []);
+
+  // Auto-scroll functionality
   useEffect(() => {
     const startAutoScroll = () => {
       slideIntervalRef.current = setInterval(() => {
@@ -98,6 +106,7 @@ export default function AboutUsPage() {
       })
     }, 3000)
   }
+
   return (
     <>
       <style>{`

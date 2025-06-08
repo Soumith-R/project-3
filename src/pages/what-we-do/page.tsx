@@ -5,6 +5,7 @@ import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa"
 import { FaThreads } from "react-icons/fa6"
 import { useState } from "react"
 import { useEffect, useRef } from "react"
+import { updateSEO, pageSEOConfig } from "../../lib/seo"
 import logoImg from '../../images/home/download.png';
 import whatWeDoImg from '../../images/what-we-do/what we doup 2.png';
 import domesticViolenceImg from '../../images/home/Domestic Violence 1.png';
@@ -47,6 +48,12 @@ export default function WhatWeDoPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrollPercent, setScrollPercent] = useState(0)
+
+  // SEO implementation
+  useEffect(() => {
+    updateSEO(pageSEOConfig.whatWeDo);
+  }, []);
+
   useEffect(() => {
       const gallery = galleryRef.current
       if (!gallery) return
