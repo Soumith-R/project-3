@@ -294,10 +294,10 @@ export default function CertificationsPage() {
           <div className="border-t border-white/20 mt-12 mb-4"></div>
           {/* Bottom copyright and social */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">            <p className="text-sm text-white/80">
-              2025 Copyright <span className="font-bold text-white">International Human Rights And Domestic Protection Organization </span> 
+              2025 Copyright <span className="font-bold text-white">International Human Rights Commission and Domestic Protection Organization </span> 
               | <br/>
               Passionately crafted by <span className="font-bold text-white">Vasam IT Solutions</span>. All rights are reserved.
-            </p>            <div className="flex gap-4 mt-2 md:mt-0">
+            </p><div className="flex gap-4 mt-2 md:mt-0">
               <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
                 <FaFacebookF className="h-5 w-5" />
               </a>              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">

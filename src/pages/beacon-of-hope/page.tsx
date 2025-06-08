@@ -364,15 +364,8 @@ export default function BeaconOfHopePage() {
 
       {/* Footer */}
       <footer className="bg-[#0E0E30] text-white py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between gap-8">
-            <div className="md:w-1/3">
-              <h3 className="text-lg font-semibold mb-4">About Us</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                We are a non-profit organization dedicated to protecting and promoting human rights, providing humanitarian aid, and supporting sustainable development initiatives.
-              </p>
-            </div>
-            <div className="md:w-1/3">
+        <div className="container mx-auto px-4">          <div className="flex flex-col md:flex-row justify-between gap-8">
+            <div className="md:w-1/2">
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2 text-sm">
                 <li>
@@ -392,7 +385,7 @@ export default function BeaconOfHopePage() {
                 </li>
               </ul>
             </div>
-            <div className="md:w-1/3">
+            <div className="md:w-1/2">
               <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
                 Email: contact@ihrcdpo.com
@@ -400,28 +393,28 @@ export default function BeaconOfHopePage() {
               <p className="text-gray-400 text-sm leading-relaxed">
                 Phone: (+91) 9000700741
               </p>
-              <div className="flex space-x-4 mt-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                  <FaFacebookF className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                  <FaInstagram className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                  <FaYoutube className="h-5 w-5" />
-                </a>                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                  <FaThreads className="h-5 w-5" />
-                </a>              </div>
             </div>
           </div>
           <div className="border-t border-white/20 mt-12 mb-4"></div>
-          {/* Bottom copyright */}
-          <div className="text-center md:text-left">
-            <p className="text-sm text-white/80">
-              2025 Copyright <span className="font-bold text-white">International Human Rights And Domestic Protection Organization </span> 
+          {/* Bottom copyright */}          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">            <p className="text-sm text-white/80">
+              2025 Copyright <span className="font-bold text-white">International Human Rights Commission and Domestic Protection Organization </span> 
               | <br/>
               Passionately crafted by <span className="font-bold text-white">Vasam IT Solutions</span>. All rights are reserved.
             </p>
+            <div className="flex gap-4">
+              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                <FaFacebookF className="h-5 w-5" />
+              </a>
+              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                <FaInstagram className="h-5 w-5" />
+              </a>
+              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                <FaYoutube className="h-5 w-5" />
+              </a>
+              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                <FaThreads className="h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
       </footer>

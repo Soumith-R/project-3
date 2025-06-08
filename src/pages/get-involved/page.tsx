@@ -197,36 +197,28 @@ export default function GetInvolvedPage() {
                   </span>
                 </li>
               </ul>
-            </div>
-
-            {/* About IHRDPO */}
-            <div>
-              <h3 className="text-2xl font-bold mb-2">About IHRDPO</h3>
-              <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
-              <p className="text-base text-gray-300 mb-6">
-                Committed to defending human dignity, protecting the vulnerable, and promoting justice for all through compassionate action and dedicated service.
-              </p>
-              <div className="flex gap-4">                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <FaFacebookF className="h-5 w-5" />
-                </a>                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <FaThreads className="h-5 w-5" />
-                </a>
-                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <FaInstagram className="h-5 w-5" />
-                </a>
-                <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
-                  <FaYoutube className="h-5 w-5" />
-                </a>
-              </div>
-            </div>
-          </div>          {/* Divider */}
+            </div>          </div>          {/* Divider */}
           <div className="border-t border-white/20 mt-12 mb-4"></div>
-          {/* Bottom copyright */}
+          {/* Bottom copyright with social media icons */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">            <p className="text-sm text-white/80">
-              2025 Copyright <span className="font-bold text-white">International Human Rights And Domestic Protection Organization </span> 
+              2025 Copyright <span className="font-bold text-white">International Human Rights Commission and Domestic Protection Organization </span> 
               | <br/>
               Passionately crafted by <span className="font-bold text-white">Vasam IT Solutions</span>. All rights are reserved.
             </p>
+            <div className="flex gap-4">                
+              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                <FaFacebookF className="h-5 w-5" />
+              </a>                
+              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                <FaThreads className="h-5 w-5" />
+              </a>
+              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                <FaInstagram className="h-5 w-5" />
+              </a>
+              <a href="#" className="border border-white/40 rounded-full p-2 hover:bg-white/10 transition">
+                <FaYoutube className="h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
       </footer>
