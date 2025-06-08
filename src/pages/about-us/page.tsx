@@ -10,6 +10,7 @@ import logoImg from '../../images/home/download.png'
 import qrCodeImg from '../../images/home/qr-code.png'
 import pres from '../../images/about/president.jpg'
 import ch from '../../images/about/chairman.jpg'
+import ceoImg from '../../images/about/ceo.jpg'
 
 export default function AboutUsPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
@@ -54,12 +55,11 @@ export default function AboutUsPage() {
       title: "Joint Secretary",
       image: "",
       hasImage: false
-    },
-    {
+    },    {
       name: "MD. Adil Kaif Khan",
       title: "Chief Executive Officer",
-      image: "",
-      hasImage: false
+      image: ceoImg,
+      hasImage: true
     },
     {
       name: "Mohammed Asif",
