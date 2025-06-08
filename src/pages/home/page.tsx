@@ -9,6 +9,9 @@ import { updateSEO, pageSEOConfig } from "../../lib/seo"
 import logoImg from '../../images/home/download.png';
 import qrCodeImg from '../../images/home/qr-code.png';
 import heroImg from '../../images/home/hero1.1.1.jpg';
+import hero11Img from '../../images/home/hero11.jpg';
+import hero12Img from '../../images/home/hero12.png';
+import hero13Img from '../../images/home/hero13.png';
 import upscaleImg from '../../images/home/whatwedo.jpg';
 import domesticViolenceImg from '../../images/home/Domestic Violence 1.png';
 import humanRightsImg from '../../images/home/human rights advocacy image 1.png';
@@ -31,10 +34,30 @@ import logoMckImg from '../../images/sponsers/logomck.png';
 export default function HomePage() {
   const galleryRef = useRef<HTMLDivElement>(null);
   const [showDonateModal, setShowDonateModal] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);  const [showWelcomeModal, setShowWelcomeModal] = useState(false);
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false);
+    // Hero carousel state
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+  const heroImages = [hero11Img, hero12Img, hero13Img];
+    // Hero carousel auto-rotation
+  useEffect(() => {
+    const heroInterval = setInterval(() => {
+      setCurrentHeroIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 3000); // 3 seconds interval
+
+    return () => clearInterval(heroInterval);
+  }, [heroImages.length]);
+
+  // Preload hero images for better quality and performance
+  useEffect(() => {
+    heroImages.forEach((imageSrc) => {
+      const img = new Image();
+      img.src = imageSrc;
+      img.loading = 'eager';
+      img.decoding = 'async';
+    });
+  }, [heroImages]);
   
   // Check if localStorage is available
   const isLocalStorageAvailable = () => {
@@ -336,12 +359,33 @@ export default function HomePage() {
       </header>
 
       <main className="flex-grow">        {/* Hero Section */}        <section className="relative">
-          <div className="absolute inset-0 bg-black/50 z-10"></div>          <div className="relative h-96 sm:h-[500px] md:h-[600px] lg:h-[700px]">
-            <img
-              src={heroImg}
-              alt="Volunteers distributing aid"
-              className="w-full h-full object-cover"
+          <div className="absolute inset-0 bg-black/50 z-10"></div>          <div className="relative h-96 sm:h-[500px] md:h-[600px] lg:h-[700px]">            <img
+              src={heroImages[currentHeroIndex]}
+              alt="IHRCDPO Hero"
+              className="w-full h-full object-cover hero-img"
+              style={{
+                objectFit: 'cover',
+                objectPosition: 'center'
+              }}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
             />
+            {/* Animated Progress Indicators */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-30">
+              {heroImages.map((_, index) => (
+                <div
+                  key={index}
+                  className={`h-1 bg-white/40 rounded-full transition-all duration-300 ${
+                    index === currentHeroIndex 
+                      ? 'w-12 bg-white' 
+                      : index < currentHeroIndex 
+                        ? 'w-8 bg-white/60' 
+                        : 'w-4'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
           <div className="absolute inset-0 z-20 flex items-center">
             <div className="container mx-auto px-4">
@@ -350,7 +394,7 @@ export default function HomePage() {
                   Where Human Dignity Begins, Peace And Justice Follow
                 </h1>
                 <p className="text-white text-lg mb-6">Empowering Communities, Defending Rights, And Protecting Lives Across the Globe</p>
-                <Link to={"/"}>
+                <Link to={"/about-us"}>
                 <Button className="bg-red-600 hover:bg-red-700 text-white">
                   READ MORE
                 </Button>

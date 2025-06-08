@@ -10,3 +10,21 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
+
+/* Image quality improvements */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: high-quality;
+  -ms-interpolation-mode: bicubic;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Hero image specific improvements */
+.hero-img {
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: crisp-edges !important;
+  image-rendering: high-quality !important;
+}
