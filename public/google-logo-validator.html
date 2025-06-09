@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Validation for Google</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .test-container {
+      margin: 20px 0;
+      border: 1px solid #ccc;
+      padding: 20px;
+    }
+    .light-bg {
+      background-color: white;
+    }
+    .dark-bg {
+      background-color: #222;
+      color: white;
+    }
+    .serp-preview {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #fff;
+      max-width: 600px;
+      font-family: Arial, sans-serif;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 18px;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 14px;
+    }
+    .serp-description {
+      color: #545454;
+      font-size: 14px;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+    .logo-container img {
+      margin-right: 10px;
+    }
+    .recommendation {
+      background-color: #f8f9fa;
+      padding: 10px;
+      margin-top: 10px;
+      border-left: 4px solid #1a73e8;
+    }
+  </style>
+</head>
+<body>
+  <h1>Logo Validation for Google Search Results</h1>
+  <p>This page helps validate if your logo meets Google's requirements for display in search results.</p>
+  
+  <div class="test-container">
+    <h2>1. Logo Size Test</h2>
+    <div>
+      <p>Your logo should be at least 112x112px, with 512x512px recommended:</p>
+      <img id="logo" src="/logo.png" alt="Your Logo">
+      <p id="dimensions">Checking logo dimensions...</p>
+    </div>
+    <div class="recommendation">
+      <p><strong>Requirement:</strong> Square aspect ratio (1:1) with minimum 112x112px</p>
+    </div>
+  </div>
+  
+  <div class="test-container">
+    <h2>2. Background Contrast Test</h2>
+    <div class="light-bg">
+      <h3>Light Background</h3>
+      <div class="logo-container">
+        <img src="/logo.png" alt="Logo on Light Background" style="max-width: 96px; max-height: 96px;">
+        <span>International Human Rights Commission and Domestic Protection Organisation</span>
+      </div>
+    </div>
+    <div class="dark-bg">
+      <h3>Dark Background</h3>
+      <div class="logo-container">
+        <img src="/logo.png" alt="Logo on Dark Background" style="max-width: 96px; max-height: 96px;">
+        <span>International Human Rights Commission and Domestic Protection Organisation</span>
+      </div>
+    </div>
+    <div class="recommendation">
+      <p><strong>Recommendation:</strong> Logo should be clearly visible on both light and dark backgrounds</p>
+    </div>
+  </div>
+  
+  <div class="test-container">
+    <h2>3. Google SERP Preview</h2>
+    <p>Approximate preview of how your logo might appear in Google search results:</p>
+    <div class="serp-preview">
+      <div class="logo-container">
+        <img src="/logo.png" alt="Logo in SERP" style="width: 32px; height: 32px; border-radius: 50%;">
+        <div>
+          <div class="serp-title">IHRCDPO - International Human Rights Commission and Domestic...</div>
+          <div class="serp-url">https://ihrcdpo.com/</div>
+          <div class="serp-description">International Human Rights Commission and Domestic Protection Organisation (IHRCDPO) led by Chairman working in Bhongir, Telangana...</div>
+        </div>
+      </div>
+    </div>
+    <div class="recommendation">
+      <p><strong>Note:</strong> Actual appearance in Google may vary. Logo should be recognizable at small sizes.</p>
+    </div>
+  </div>
+
+  <div class="test-container">
+    <h2>4. Structured Data Validation</h2>
+    <p>Ensure your JSON-LD structured data includes:</p>
+    <pre>
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "url": "https://ihrcdpo.com",
+  "logo": "https://ihrcdpo.com/logo.png"
+}
+    </pre>
+    <div class="recommendation">
+      <p><strong>Next steps:</strong></p>
+      <ol>
+        <li>Test your structured data with <a href="https://search.google.com/test/rich-results" target="_blank">Google's Rich Results Test</a></li>
+        <li>Verify your site in <a href="https://search.google.com/search-console/" target="_blank">Google Search Console</a></li>
+        <li>Request indexing of your homepage</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      const img = document.getElementById('logo');
+      img.onload = function() {
+        const dimensions = document.getElementById('dimensions');
+        dimensions.textContent = `Your logo dimensions: ${img.naturalWidth}px × ${img.naturalHeight}px`;
+        
+        if (img.naturalWidth < 112 || img.naturalHeight < 112) {
+          dimensions.innerHTML += '<br><strong style="color:red;">WARNING: Logo too small. Google requires at least 112x112px.</strong>';
+        } else {
+          dimensions.innerHTML += '<br><span style="color:green;">✓ Size meets minimum requirements</span>';
+        }
+        
+        const aspectRatio = img.naturalWidth / img.naturalHeight;
+        if (aspectRatio < 0.8 || aspectRatio > 1.2) {
+          dimensions.innerHTML += '<br><strong style="color:orange;">NOTE: Logo is not square (1:1 aspect ratio). A square logo is recommended.</strong>';
+        } else {
+          dimensions.innerHTML += '<br><span style="color:green;">✓ Aspect ratio is good</span>';
+        }
+      };
+    };
+  </script>
+</body>
+</html>

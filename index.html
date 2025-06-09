@@ -31,26 +31,36 @@
   <meta property="twitter:title" content="IHRCDPO - Human Rights Commission Bhongir, Telangana" />
   <meta property="twitter:description" content="International Human Rights Commission providing domestic protection and emergency relief in Telangana. Get involved or donate to support our mission." />
   <meta property="twitter:image" content="https://ihrcdpo.com/logo.png" />
-    <!-- Favicon and Canonical -->
+  <!-- Favicon and Canonical -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+  <link rel="icon" type="image/png" href="/logo.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <link rel="canonical" href="https://ihrcdpo.com/" />
   <link rel="alternate" hreflang="en-in" href="https://ihrcdpo.com/" />
-    <!-- Rich Snippets - Organization -->
+  <!-- Rich Snippets - Consolidated Organization Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "NonProfitOrganization",
-    "name": "International Human Rights Commission and Domestic Protection Organisation",    "alternateName": ["IHRCDPO", "International Human Rights Commission", "Domestic Protection Organisation", "IHRCDPO Bhongir", "Human Rights Commission Telangana"],    "url": "https://ihrcdpo.com",
+    "@id": "https://ihrcdpo.com/#organization",
+    "name": "International Human Rights Commission and Domestic Protection Organisation",
+    "alternateName": ["IHRCDPO", "International Human Rights Commission", "Domestic Protection Organisation", "IHRCDPO Bhongir", "Human Rights Commission Telangana"],
+    "url": "https://ihrcdpo.com/",
     "logo": {
       "@type": "ImageObject",
+      "@id": "https://ihrcdpo.com/#logo",
+      "inLanguage": "en-IN",
       "url": "https://ihrcdpo.com/logo.png",
-      "width": "180",
-      "height": "180"
+      "contentUrl": "https://ihrcdpo.com/logo.png",
+      "width": 512,
+      "height": 512,
+      "caption": "IHRCDPO Logo"
     },
-    "image": "https://ihrcdpo.com/logo.png",
+    "image": {
+      "@id": "https://ihrcdpo.com/#logo"
+    },
     "description": "International Human Rights Commission and Domestic Protection Organisation dedicated to defending human dignity, providing domestic protection, emergency relief, and promoting justice for vulnerable communities in Bhongir, Telangana and across India.",
     "foundingDate": "2024",
     "slogan": "Where Human Dignity Begins, Peace And Justice Follow",
@@ -76,7 +86,7 @@
     }],
     "sameAs": [
       "https://www.facebook.com/ihrcdpo",
-      "https://www.instagram.com/ihrcdpo", 
+      "https://www.instagram.com/ihrcdpo",
       "https://www.youtube.com/@ihrcdpo"
     ],
     "areaServed": {
@@ -85,7 +95,7 @@
     },
     "knowsAbout": [
       "Human Rights Advocacy",
-      "Domestic Violence Protection", 
+      "Domestic Violence Protection",
       "Emergency Relief",
       "Youth Empowerment",
       "Community Education",
@@ -103,7 +113,7 @@
         }
       },
       {
-        "@type": "Offer", 
+        "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
           "name": "Domestic Protection Services",
@@ -113,7 +123,7 @@
       {
         "@type": "Offer",
         "itemOffered": {
-          "@type": "Service", 
+          "@type": "Service",
           "name": "Emergency Relief & Crisis Management",
           "description": "Emergency response and humanitarian aid during crises"
         }
@@ -121,7 +131,7 @@
       {
         "@type": "Offer",
         "itemOffered": {
-          "@type": "Service", 
+          "@type": "Service",
           "name": "Youth Empowerment and Leadership Development",
           "description": "Fostering leadership and resilience among youth from underserved communities"
         }
@@ -129,24 +139,12 @@
       {
         "@type": "Offer",
         "itemOffered": {
-          "@type": "Service", 
+          "@type": "Service",
           "name": "Community Education and Awareness",
           "description": "Rights education programs that are accessible and culturally sensitive"
         }
       }
     ]
-  }
-  </script>
-  
-  <!-- Google Logo Schema for Search Results -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "url": "https://ihrcdpo.com",
-    "logo": "https://ihrcdpo.com/logo.png",
-    "name": "International Human Rights Commission and Domestic Protection Organisation",
-    "alternateName": "IHRCDPO"
   }
   </script>
   
@@ -164,8 +162,7 @@
       "query-input": "required name=search_term_string"
     },
     "mainEntity": {
-      "@type": "Organization",
-      "name": "IHRCDPO"
+      "@id": "https://ihrcdpo.com/#organization"
     },
     "hasPart": [
       {
