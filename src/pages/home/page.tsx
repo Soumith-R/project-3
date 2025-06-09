@@ -394,7 +394,7 @@ export default function HomePage() {
                   Where Human Dignity Begins, Peace And Justice Follow
                 </h1>
                 <p className="text-white text-lg mb-6">Empowering Communities, Defending Rights, And Protecting Lives Across the Globe</p>
-                <Link to={"/about-us"}>
+                <Link to={"/what-we-do"}>
                 <Button className="bg-red-600 hover:bg-red-700 text-white">
                   READ MORE
                 </Button>

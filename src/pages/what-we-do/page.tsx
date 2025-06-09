@@ -26,16 +26,19 @@ function ServiceCard({
   imageSrc: string
 }) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
-      <div className="relative h-48">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-full w-full min-h-[420px] min-w-[340px] max-h-[480px] max-w-[400px]">
+      <div className="relative h-48 w-full">
         <img src={imageSrc || "/placeholder.svg"} alt={title} className="w-full h-full object-cover" />
       </div>
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-1">
         <h3 className="text-xl font-bold mb-2">{title}</h3>
-        <p className="text-gray-600 mb-4">{description}</p>
+        <p className="text-gray-600 mb-4 flex-1">{description}</p>
         <Link to="/what-we-do">
           <Button variant="link" className="text-red-600 p-0 h-auto">
             Read More
+            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full border-2 border-red-600 text-red-600 ml-2">
+              &gt;
+            </span>
           </Button>
         </Link>
       </div>
@@ -47,26 +50,59 @@ export default function WhatWeDoPage() {
   const galleryRef = useRef<HTMLDivElement>(null)
   const [showDonateModal, setShowDonateModal] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [scrollPercent, setScrollPercent] = useState(0)
+  const [currentCardIndex, setCurrentCardIndex] = useState(0)
+  const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false)
+  // Total number of service cards
+  const totalCards = 5
 
   // SEO implementation
   useEffect(() => {
     updateSEO(pageSEOConfig.whatWeDo);
-  }, []);
-
-  useEffect(() => {
+  }, []);  useEffect(() => {
       const gallery = galleryRef.current
       if (!gallery) return
   
       const handleScroll = () => {
-        const maxScroll = gallery.scrollWidth - gallery.clientWidth
-        const percent = maxScroll > 0 ? (gallery.scrollLeft / maxScroll) * 100 : 0
-        setScrollPercent(percent)
+        // Update current card index based on scroll position
+        const cardWidth = 360 + 32 // card width + gap
+        const newIndex = Math.round(gallery.scrollLeft / cardWidth)
+        setCurrentCardIndex(newIndex)
       }
   
       gallery.addEventListener("scroll", handleScroll)
       return () => gallery.removeEventListener("scroll", handleScroll)
     }, [])
+  // Auto-scroll functionality
+  useEffect(() => {
+    if (isAutoScrollPaused) return
+
+    const totalServices = 5 // Total number of service cards
+    const autoScrollInterval = setInterval(() => {
+      const gallery = galleryRef.current
+      if (!gallery) return
+
+      setCurrentCardIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % totalServices
+        
+        // Calculate the scroll position for the next card
+        const cardWidth = 360 + 32 // card width + gap
+        const targetScrollLeft = nextIndex * cardWidth
+        
+        gallery.scrollTo({
+          left: targetScrollLeft,
+          behavior: 'smooth'
+        })
+        
+        return nextIndex
+      })
+    }, 2000) // 2 seconds interval
+
+    return () => clearInterval(autoScrollInterval)
+  }, [isAutoScrollPaused, currentCardIndex])
+
+  // Functions to handle hover pause/resume
+  const handleMouseEnter = () => setIsAutoScrollPaused(true)
+  const handleMouseLeave = () => setIsAutoScrollPaused(false)
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0E0E30]">
@@ -190,12 +226,14 @@ export default function WhatWeDoPage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* What We Do Section */}
-      <section className="py-16 bg-[#0E0E30]">
+      </section>      {/* What We Do Section */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div>
+          <h2 className="text-3xl font-bold mb-12 text-center">What We Do</h2>
+          <div
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             <div
               ref={galleryRef}
               className="flex gap-8 overflow-x-auto scrollbar-hide"
@@ -204,48 +242,41 @@ export default function WhatWeDoPage() {
                 scrollSnapType: "x mandatory",
               }}
             >
-              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
-                <ServiceCard
-                  title="Domestic Protection Services"
-                  description="We provide essential services to vulnerable communities, including shelter, food, healthcare, and education support for those in need."
-                  imageSrc={domesticViolenceImg}
-                />
-              </div>
-              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
-                <ServiceCard
-                  title="Human Rights Advocacy"
-                  description="We advocate for policy changes, raise awareness about human rights violations, and work with governments to implement lasting solutions."
-                  imageSrc={humanRightsImg}
-                />
-              </div>
-              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
-                <ServiceCard
-                  title="Emergency Relief & Crisis Management"
-                  description="We respond rapidly to humanitarian crises with emergency aid, medical assistance, and long-term recovery support for affected communities."
-                  imageSrc={emergencyResponseImg}
-                />
-              </div>
-              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
-                <ServiceCard
-                  title="Youth Empowerment and Leadership development"
-                  description="We empower youth through education, skills training, and leadership development programs to become advocates for change in their communities."
-                  imageSrc={youthEmpowermentImg}
-                />
-              </div>
-              <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
-                <ServiceCard
-                  title="Commnity Education and Awareness"
-                  description="We conduct educational programs and awareness campaigns to inform communities about their rights and promote social justice."
-                  imageSrc={communityEducationImg}
-                />
-              </div>
-            </div>
-            {/* Stylish scrollbar below */}
-            <div className="relative mt-4 h-2 w-full bg-gray-200 rounded-full overflow-hidden">
-              <div
-                className="absolute top-0 left-0 h-full bg-red-500 rounded-full transition-all"
-                style={{ width: `${scrollPercent}%` }}
-              />
+              {[
+                {
+                  title: "Domestic Protection Services",
+                  description: "Our Domestic Protection Services are focused on safeguarding individuals—especially women, children, and marginalized groups—who are facing domestic abuse, violence, or threats to personal safety.",
+                  imageSrc: domesticViolenceImg,
+                },
+                {
+                  title: "Human Rights Advocacy",
+                  description: "Our Human Rights Advocacy programs aim to shine a spotlight on injustice, amplify marginalized voices, and influence meaningful change through education, legal reform, and public campaigns.",
+                  imageSrc: humanRightsImg,
+                },
+                {
+                  title: "Emergency Relief & Crisis Management",
+                  description: "Our Emergency Relief and Crisis Response teams are trained to act quickly in high-risk areas to help those most affected.",
+                  imageSrc: emergencyResponseImg,
+                },
+                {
+                  title: "Youth Empowerment and Leadership development",
+                  description: "Young people are not just beneficiaries of change—they are drivers of it. IHRDPO fosters leadership, resilience, and vision among youth from underserved and at-risk communities.",
+                  imageSrc: youthEmpowermentImg,
+                },
+                {
+                  title: "Commnity Education and Awareness",
+                  description: "We empower communities through rights education. Our programs are accessible and culturally sensitive. We equip people to stand up for themselves and others.",
+                  imageSrc: communityEducationImg,
+                },
+              ].map((card, idx) => (
+                <div
+                  key={idx}
+                  className="flex-shrink-0 w-[360px] h-[460px] min-w-[360px] min-h-[460px] max-w-[360px] max-h-[460px]"
+                  style={{ scrollSnapAlign: "start" }}
+                >
+                  <ServiceCard {...card} />
+                </div>
+              ))}
             </div>
           </div>
         </div>
