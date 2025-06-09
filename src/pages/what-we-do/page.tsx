@@ -49,11 +49,8 @@ function ServiceCard({
 export default function WhatWeDoPage() {
   const galleryRef = useRef<HTMLDivElement>(null)
   const [showDonateModal, setShowDonateModal] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [currentCardIndex, setCurrentCardIndex] = useState(0)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)  const [currentCardIndex, setCurrentCardIndex] = useState(0)
   const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false)
-  // Total number of service cards
-  const totalCards = 5
 
   // SEO implementation
   useEffect(() => {
