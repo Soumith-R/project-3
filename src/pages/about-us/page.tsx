@@ -11,6 +11,8 @@ import qrCodeImg from '../../images/home/qr-code.png'
 import pres from '../../images/about/president.jpg'
 import ch from '../../images/about/chairman.jpg'
 import ceoImg from '../../images/about/ceo.jpg'
+import vicePresImg from '../../images/about/vicePresident.jpg'
+import hrManagerImg from '../../images/about/HrManager.jpg'
 
 export default function AboutUsPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
@@ -37,12 +39,11 @@ export default function AboutUsPage() {
       title: "President and Founder",
       image: pres,
       hasImage: true
-    },
-    {
+    },    {
       name: "MD. Abdul Sattar",
       title: "Vice President",
-      image: "",
-      hasImage: false
+      image: vicePresImg,
+      hasImage: true
     },
     {
       name: "Vasam Nikhil Kumar",
@@ -60,13 +61,12 @@ export default function AboutUsPage() {
       title: "Chief Executive Officer",
       image: ceoImg,
       hasImage: true
-    },
-    {
+    },    {
       name: "Mohammed Asif",
       title: "HR and Admin Manager",
-      image: "",
-      hasImage: false
-    }  ]  
+      image: hrManagerImg,
+      hasImage: true
+    }]  
     
   // SEO implementation
   useEffect(() => {

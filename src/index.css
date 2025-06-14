@@ -28,32 +28,3 @@ img {
   image-rendering: crisp-edges !important;
   image-rendering: high-quality !important;
 }
-
-/* iOS Safari specific optimizations */
-@supports (-webkit-touch-callout: none) {
-  /* iOS Safari specific styles */
-  body {
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-  
-  /* Improve touch scrolling on iOS */
-  * {
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  /* Optimize images for retina displays */
-  img {
-    -webkit-backface-visibility: hidden;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  
-  /* Fix input zoom on iOS */
-  input, textarea, select {
-    font-size: 16px !important;
-  }
-}
