@@ -3,8 +3,7 @@ import { Button } from "../../components/ui/button"
 import { Menu, MapPin, Phone, Mail } from "lucide-react"
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa"
 import { FaThreads } from "react-icons/fa6"
-import { useState } from "react"
-import { useEffect, useRef } from "react"
+import { useState, useEffect, useRef } from "react"
 import { updateSEO, pageSEOConfig } from "../../lib/seo"
 import logoImg from '../../images/home/download.png';
 import whatWeDoImg from '../../images/what-we-do/what we doup 2.png';
@@ -214,13 +213,13 @@ export default function WhatWeDoPage() {
             </div>
             <div className="md:w-2/3">
               <p className="mb-6">
-                At the International Human Rights and Domestic Protection Organization (IHRDPO), our mission is rooted in the belief that every human being deserves dignity, protection, and equal opportunity. We work tirelessly to safeguard the rights of the underprivileged and respond swiftly to crises affecting vulnerable populations. During the COVID-19 pandemic, our team mobilized across Telangana to deliver food, medical supplies, and emotional support to thousands of individuals and families struggling to survive. Our services extended to frontline workers, migrant laborers, orphans, and the elderly — ensuring no one was left behind. Beyond immediate aid, we actively advocate for the rights of those facing domestic violence, poverty, and systemic injustice, connecting them to legal aid, social services, and safety resources. At every stage, our goal remains the same: to restore hope and protect humanity where it’s most at risk.
+                At the International Human Rights Commission and Domestic Protection Organisation (IHRCDPO), our mission is rooted in the belief that every human being deserves dignity, protection, and equal opportunity. We work tirelessly to safeguard the rights of the underprivileged and respond swiftly to crises affecting vulnerable populations. During the COVID-19 pandemic, our team mobilized across Telangana to deliver food, medical supplies, and emotional support to thousands of individuals and families struggling to survive. Our services extended to frontline workers, migrant laborers, orphans, and the elderly — ensuring no one was left behind. Beyond immediate aid, we actively advocate for the rights of those facing domestic violence, poverty, and systemic injustice, connecting them to legal aid, social services, and safety resources. At every stage, our goal remains the same: to restore hope and protect humanity where it’s most at risk.
               </p>
               <p className="mb-6">
-                Beyond emergency relief, IHRDPO is deeply committed to building long-term, sustainable support systems that uplift communities from within. We believe that lasting change comes through empowerment, not charity alone. That’s why we partner with grassroots organizations, local authorities, and corporate sponsors to run welfare programs that address core issues like hunger, homelessness, child protection, and women’s safety. Our volunteer network — made up of passionate individuals from all walks of life — plays a vital role in identifying community needs, organizing field activities, and delivering aid with compassion and integrity. Each initiative we undertake is guided by our principles of equality, transparency, and inclusivity, ensuring that every voice is heard and every person matters.
+                Beyond emergency relief, IHRCDPO is deeply committed to building long-term, sustainable support systems that uplift communities from within. We believe that lasting change comes through empowerment, not charity alone. That’s why we partner with grassroots organizations, local authorities, and corporate sponsors to run welfare programs that address core issues like hunger, homelessness, child protection, and women’s safety. Our volunteer network — made up of passionate individuals from all walks of life — plays a vital role in identifying community needs, organizing field activities, and delivering aid with compassion and integrity. Each initiative we undertake is guided by our principles of equality, transparency, and inclusivity, ensuring that every voice is heard and every person matters.
               </p>
               <p className="mb-6">
-                Education and awareness are equally critical to our mission. We conduct workshops, seminars, and community campaigns to educate people about their basic rights, domestic protection laws, and the channels available to seek justice. From hosting legal literacy sessions for women in rural areas to engaging youth in civic education, our goal is to equip individuals with the knowledge and tools to advocate for themselves and others. In every action, we blend emergency response with capacity building — not only helping people survive difficult times but empowering them to thrive in the future. At IHRDPO, we don’t just respond to crises — we work to prevent them by addressing their root causes, one family, one neighborhood, and one life at a time.
+                Education and awareness are equally critical to our mission. We conduct workshops, seminars, and community campaigns to educate people about their basic rights, domestic protection laws, and the channels available to seek justice. From hosting legal literacy sessions for women in rural areas to engaging youth in civic education, our goal is to equip individuals with the knowledge and tools to advocate for themselves and others. In every action, we blend emergency response with capacity building — not only helping people survive difficult times but empowering them to thrive in the future. At IHRCDPO, we don’t just respond to crises — we work to prevent them by addressing their root causes, one family, one neighborhood, and one life at a time.
               </p>
             </div>
           </div>
@@ -259,7 +258,7 @@ export default function WhatWeDoPage() {
                 },
                 {
                   title: "Youth Empowerment and Leadership development",
-                  description: "Young people are not just beneficiaries of change—they are drivers of it. IHRDPO fosters leadership, resilience, and vision among youth from underserved and at-risk communities.",
+                  description: "Young people are not just beneficiaries of change—they are drivers of it. IHRCDPO fosters leadership, resilience, and vision among youth from underserved and at-risk communities.",
                   imageSrc: youthEmpowermentImg,
                 },
                 {

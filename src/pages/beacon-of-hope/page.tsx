@@ -191,9 +191,8 @@ export default function BeaconOfHopePage() {
                 />
               </div>
             </div>
-            <div className="md:w-2/3">
-              <p className="mb-4">
-                In the darkest of times, even a single act of kindness can ignite a flame of hope. The International Human Rights and Domestic Protection Organization (IHRDPO) stands as a beacon of hope for countless individuals and families across Telangana and beyond — offering protection, compassion, and unwavering support when it is needed most.
+            <div className="md:w-2/3">              <p className="mb-4">
+                In the darkest of times, even a single act of kindness can ignite a flame of hope. The International Human Rights Commission and Domestic Protection Organisation (IHRCDPO) stands as a beacon of hope for countless individuals and families across Telangana and beyond — offering protection, compassion, and unwavering support when it is needed most.
                 When the COVID-19 pandemic ravaged communities, stripping people of livelihoods, safety, and stability, we rose to meet the moment. We extended helping hands to the homeless, the hungry, frontline workers, orphans, and vulnerable families. Whether it was a warm meal, a life-saving oxygen cylinder, a safe journey home, or simply someone to listen — our team showed up with empathy and resolve. Our mission transcends immediate aid; it is about restoring dignity, inspiring resilience, and reminding people they are not alone.
               </p>
               <p className="mb-4">
@@ -263,28 +262,28 @@ export default function BeaconOfHopePage() {
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Food Distribution Throughout COVID-19"
-                  description="During the devastating waves of the COVID-19 pandemic, countless families across Telangana faced food insecurity like never before.IHRDPO launched an extensive food donation and distribution campaign that ran continuously throughout the lockdown period."
+                  description="During the devastating waves of the COVID-19 pandemic, countless families across Telangana faced food insecurity like never before. IHRCDPO launched an extensive food donation and distribution campaign that ran continuously throughout the lockdown period."
                   imageSrc={getInTouchImg}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Blanket Distribution To The Homeless"
-                  description="During the harsh nights of the COVID lockdown, Telangana’s homeless population faced brutal conditions with no access to shelter, warmth, or food.IHRDPO organized emergency blanket distribution drives, covering railway stations, footpaths, under-bridges, and roadside camps."
+                  description="During the harsh nights of the COVID lockdown, Telangana’s homeless population faced brutal conditions with no access to shelter, warmth, or food. IHRCDPO organized emergency blanket distribution drives, covering railway stations, footpaths, under-bridges, and roadside camps."
                   imageSrc={c4}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Ration Distribution For The Underprivileged"
-                  description="The extended lockdown left many vulnerable families without income, food, or security. Recognizing the severity of the situation, IHRDPO organized systematic ration distribution drives across urban slums, villages, and migrant communities."
+                  description="The extended lockdown left many vulnerable families without income, food, or security. Recognizing the severity of the situation, IHRCDPO organized systematic ration distribution drives across urban slums, villages, and migrant communities."
                   imageSrc={cc1Img}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Food Distribution to Hospitals and COVID-19 Patients"
-                  description="Hospitals became battlegrounds during COVID-19, and both patients and healthcare staff faced immense hardship. IHRDPO launched an initiative to supply cooked meals, fruits, snacks, and immunity boosters to hospitals treating COVID patients."
+                  description="Hospitals became battlegrounds during COVID-19, and both patients and healthcare staff faced immense hardship. IHRCDPO launched an initiative to supply cooked meals, fruits, snacks, and immunity boosters to hospitals treating COVID patients."
                   imageSrc={c8}
                 />
               </div>
@@ -298,28 +297,28 @@ export default function BeaconOfHopePage() {
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Bus Arrangement for Migrant Returning Home"
-                  description="The sudden lockdowns left thousands of migrant workers stranded, desperate to return to their hometowns outside Telangana. Moved by their plight, IHRDPO coordinated with local authorities and transport agencies to arrange special buses for safe and organized travel."
+                  description="The sudden lockdowns left thousands of migrant workers stranded, desperate to return to their hometowns outside Telangana. Moved by their plight, IHRCDPO coordinated with local authorities and transport agencies to arrange special buses for safe and organized travel."
                   imageSrc={m1}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Food and Ration Donation for Orphans and Orphanages"
-                  description="Children in orphanages were among the hardest hit during the pandemic, with supply chains disrupted and donations dwindling. Recognizing their vulnerability, IHRDPO extended dedicated support to orphanages and childcare homes, delivering food kits, ration supplies, hygiene products, and essential medicines."
+                  description="Children in orphanages were among the hardest hit during the pandemic, with supply chains disrupted and donations dwindling. Recognizing their vulnerability, IHRCDPO extended dedicated support to orphanages and childcare homes, delivering food kits, ration supplies, hygiene products, and essential medicines."
                   imageSrc={fo1}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Oxygen Cylinder Donation"
-                  description="As COVID-19 cases surged across Telangana, hospitals faced an overwhelming shortage of oxygen supplies. Lives were at stake every minute.IHRDPO stepped in by arranging and distributing life-saving oxygen cylinders"
+                  description="As COVID-19 cases surged across Telangana, hospitals faced an overwhelming shortage of oxygen supplies. Lives were at stake every minute. IHRCDPO stepped in by arranging and distributing life-saving oxygen cylinders."
                   imageSrc={imb1}
                 />
               </div>
               <div className="flex-shrink-0 w-full md:w-1/3" style={{ scrollSnapAlign: "start" }}>
                 <HopeCard
                   title="Fruits and Ration Distributed to Municipal Workers"
-                  description="While the rest of the world stayed home, sanitation workers, municipal cleaners, and daily-wage laborers remained on the frontlines, keeping our cities clean and safe. IHRDPO launched a special outreach program to distribute fresh fruits, ration kits, and hygiene supplies to these unsung heroes."
+                  description="While the rest of the world stayed home, sanitation workers, municipal cleaners, and daily-wage laborers remained on the frontlines, keeping our cities clean and safe. IHRCDPO launched a special outreach program to distribute fresh fruits, ration kits, and hygiene supplies to these unsung heroes."
                   imageSrc={imb1}
                 />
               </div>

@@ -411,7 +411,7 @@ export default function HomePage() {
               <div className="md:w-2/3 flex flex-col justify-center">
                 <h2 className="text-3xl font-bold mb-4">Who We Are</h2>
                 <p className="text-gray-700 mb-6">
-                  International Human Rights and Domestic Protection Organization (IHRDPO) is a non-profit committed to defending human dignity and ensuring justice for vulnerable communities worldwide. We work at the grassroots and international levels to uphold human rights, provide domestic protection, and offer emergency support where it’s needed most.
+                  International Human Rights Commission and Domestic Protection Organisation (IHRCDPO) is a non-profit committed to defending human dignity and ensuring justice for vulnerable communities worldwide. We work at the grassroots and international levels to uphold human rights, provide domestic protection, and offer emergency support where it’s needed most.
                   With a team of legal experts, counselors, and field workers, our efforts span education, advocacy, and direct aid.
                 </p>
                 <div className="flex justify-end">
@@ -467,7 +467,7 @@ export default function HomePage() {
                   },
                   {
                     title: "Youth Empowerment and Leadership development",
-                    description: "Young people are not just beneficiaries of change—they are drivers of it. IHRDPO fosters leadership, resilience, and vision among youth from underserved and at-risk communities.",
+                    description: "Young people are not just beneficiaries of change—they are drivers of it. IHRCDPO fosters leadership, resilience, and vision among youth from underserved and at-risk communities.",
                     imageSrc: youthEmpowermentImg,
                   },
                   {
@@ -670,7 +670,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold mb-2">Food Distribution Throughout COVID-19</h3>
                   <p className="text-gray-700 mb-4">
-                    In the peak of the pandemic, IHRDPO organized large-scale food donation drives across Telangana. Daily meals were provided to thousands of individuals affected by lockdowns and job loss.
+                    In the peak of the pandemic, IHRCDPO organized large-scale food donation drives across Telangana. Daily meals were provided to thousands of individuals affected by lockdowns and job loss.
                   </p>
                   <Link to="/beacon-of-hope" className="text-red-600 font-semibold flex items-center gap-1 hover:underline">
                     READ MORE
@@ -738,7 +738,7 @@ export default function HomePage() {
                   <div className="w-2/3 flex flex-col">
                     <h4 className="text-lg md:text-xl font-bold mb-1">Lunch Provided to Police During Lockdown</h4>
                     <p className="text-gray-700 mb-2 text-sm">
-                      Acknowledging their round-the-clock duty, IHRDPO served freshly prepared lunch daily to police personnel managing lockdown in TG.
+                      Acknowledging their round-the-clock duty, IHRCDPO served freshly prepared lunch daily to police personnel managing lockdown in TG.
                     </p>
                     <Link to="/beacon-of-hope" className="text-red-600 font-semibold flex items-center gap-1 hover:underline text-sm">
                       READ MORE

@@ -2,7 +2,6 @@ import { MapPin, Phone, Mail, Menu } from "lucide-react"
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa"
 import { FaThreads } from "react-icons/fa6"
 import { Button } from "../../components/ui/button"
-import { ContactForm } from "../../components/contact-form"
 import { Link } from "react-router-dom"
 import { useState, useEffect, useRef } from "react"
 import { updateSEO, pageSEOConfig } from "../../lib/seo"
@@ -15,6 +14,7 @@ import vicePresImg from '../../images/about/vicePresident.png'
 import hrManagerImg from '../../images/about/HrManager.png'
 import publicRelationImg from '../../images/about/publicRelation.png'
 import socialCounselorImg from '../../images/about/socialCounselor.png'
+import { ContactForm } from "../../components/contact-form"
 
 export default function AboutUsPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
@@ -230,7 +230,7 @@ export default function AboutUsPage() {
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-2/3">
               <p className="text-white mb-6">
-                The International Human Rights and Domestic Protection Organization (IHRDPO) is a non-profit organization committed to defending human dignity, protecting the vulnerable, and promoting justice for all. Founded during one of humanity’s most challenging times, the COVID-19 pandemic, we witnessed firsthand the critical gaps in access to food, healthcare, and human rights protection — especially for the marginalized.
+                The International Human Rights Commission and Domestic Protection Organisation (IHRCDPO) is a non-profit organisation committed to defending human dignity, protecting the vulnerable, and promoting justice for all. Founded during one of humanity’s most challenging times, the COVID-19 pandemic, we witnessed firsthand the critical gaps in access to food, healthcare, and human rights protection — especially for the marginalized.
               </p>
               <p className="text-white mb-6">
                 Operating from Telangana, India, and expanding across various districts, we provide immediate aid, long-term support, and a voice to those unheard — be it daily wage workers, orphaned children, migrant laborers, or survivors of domestic violence. Our strength lies in our unwavering compassion, our dedicated field volunteers, and the generous support of people like you who believe in a fairer, kinder world.
