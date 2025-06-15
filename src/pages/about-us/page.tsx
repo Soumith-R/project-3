@@ -11,8 +11,9 @@ import qrCodeImg from '../../images/home/qr-code.png'
 import pres from '../../images/about/president.jpg'
 import ch from '../../images/about/chairman.jpg'
 import ceoImg from '../../images/about/ceo.jpg'
-import vicePresImg from '../../images/about/vicePresident.jpg'
-import hrManagerImg from '../../images/about/HrManager.jpg'
+import vicePresImg from '../../images/about/vicePresident.png'
+import hrManagerImg from '../../images/about/HrManager.png'
+import publicRelationImg from '../../images/about/publicRelation.png'
 
 export default function AboutUsPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
@@ -44,27 +45,28 @@ export default function AboutUsPage() {
       title: "Vice President",
       image: vicePresImg,
       hasImage: true
-    },
-    {
+    },    {
       name: "Vasam Nikhil Kumar",
       title: "Principal Secretary",
       image: "",
       hasImage: false
     },
     {
-      name: "Vacant",
-      title: "Joint Secretary",
-      image: "",
-      hasImage: false
-    },    {
       name: "MD. Adil Kaif Khan",
       title: "Chief Executive Officer",
       image: ceoImg,
       hasImage: true
-    },    {
-      name: "Mohammed Asif",
+    },
+    {
+      name: "Mohammed Shaik",
       title: "HR and Admin Manager",
       image: hrManagerImg,
+      hasImage: true
+    },
+    {
+      name: "Syed Hussain Ali",
+      title: "Public Relation Officer",
+      image: publicRelationImg,
       hasImage: true
     }]  
     
