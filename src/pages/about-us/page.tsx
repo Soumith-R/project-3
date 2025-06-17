@@ -15,7 +15,7 @@ import hrManagerImg from '../../images/about/HrManager.png'
 import publicRelationImg from '../../images/about/publicRelation.png'
 import socialCounselorImg from '../../images/about/socialCounselor.png'
 import { ContactForm } from "../../components/contact-form"
-import secrateryImg from '../../images/about/secratery.jpg'
+import secrateryImg from '../../images/about/secratery.png'
 
 export default function AboutUsPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
