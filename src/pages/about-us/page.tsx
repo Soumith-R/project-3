@@ -16,6 +16,7 @@ import publicRelationImg from '../../images/about/publicRelation.png'
 import socialCounselorImg from '../../images/about/socialCounselor.png'
 import { ContactForm } from "../../components/contact-form"
 import secrateryImg from '../../images/about/secratery.png'
+import viceChairImg from '../../images/about/viceChairman.jpg'
 
 export default function AboutUsPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
@@ -33,8 +34,8 @@ export default function AboutUsPage() {
     },    {
       name: "Dr. MD. Khaleel Khan",
       title: "Vice Chairman (Head of Organization)",
-      image: "",
-      hasImage: false
+      image: viceChairImg,
+      hasImage: true
     },    {
       name: "Syeda Ishrath Jahan",
       title: "President (Head of Organization)",
