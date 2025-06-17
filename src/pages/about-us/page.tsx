@@ -15,6 +15,7 @@ import hrManagerImg from '../../images/about/HrManager.png'
 import publicRelationImg from '../../images/about/publicRelation.png'
 import socialCounselorImg from '../../images/about/socialCounselor.png'
 import { ContactForm } from "../../components/contact-form"
+import secrateryImg from '../../images/about/secratery.jpg'
 
 export default function AboutUsPage() {
   const [showDonateModal, setShowDonateModal] = useState(false)
@@ -47,8 +48,8 @@ export default function AboutUsPage() {
     },    {
       name: "Vasam Nikhil Kumar",
       title: "Principal Secretary (Head of Organization)",
-      image: "",
-      hasImage: false
+      image: secrateryImg,
+      hasImage: true
     },    {
       name: "MD. Adil Kaif Khan",
       title: "Chief Executive Officer (Head of Organization)",
